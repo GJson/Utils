@@ -1,0 +1,39 @@
+<html>
+<head>
+<meta charset="utf-8" />
+<meta name="viewport"
+	content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=0">
+<title>页面打开App</title>
+</head>
+<body>
+	<script language="javascript">
+            function open_or_download_app() {
+            
+                if (navigator.userAgent.match(/(iPhone|iPod|iPad);?/i)) {
+　　　　　　　　　　　 // 判断useragent，当前设备为ios设备
+                
+                } else if (navigator.userAgent.match(/android/i)) {
+　　　　　　　　　　　　// 判断useragent，当前设备为android设备
+
+　　　　　　　　　　　　window.location = "yqc://1700";　// Android端URL Schema 
+
+				    var loadDateTime = new Date();
+　　　　　　　　　　　　// 设置时间阈值，在规定时间里面没有打开对应App的话，直接去App store进行下载。
+                    window.setTimeout(function() {
+                        var timeOutDateTime = new Date();
+                        if (timeOutDateTime - loadDateTime < 5000) {
+                            window.location = "http://android.myapp.com/myapp/detail.htm?apkName=com.lohas.android";
+                        } else {
+                            window.close();
+                        }
+                    },
+                    25);
+                    window.location = "yqc://1700";　　// Android端URL Schema
+　　　　　　　　　 } 
+　　　　　　　} 
+　　　　</script>
+	<p style="height: 30px; line-height: 30px; text-align: center;">WAP页面打开本地应用测试</p>
+	<a href="javascript:open_or_download_app();"
+		style="margin: 100px 100px 100px 100px;"> 打开本地App 一起唱 </a>
+</body>
+</html>

@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1.0,user-scalable=0" />
+    <title></title>
+    <link rel="stylesheet" type="text/css" href="./lib/main.css">
+    <script defer type="text/javascript" src="./lib/slip.js"></script>
+    <script defer src="./lib/jquery-2.1.1.min.js"></script>
+    <script defer src="./lib/prefixfree.min.js"></script>
+    <script defer src="./lib/jquery.keyframes.min.js"></script>
+    <script defer src="./lib/jquery.touchSwipe.min.js"></script>
+    <script defer type="text/javascript" src="./lib/animation.js"></script>
+    <script defer type="text/javascript">
+    window.onload = function() {
+        var nav_li = document.querySelectorAll("nav>li")
+        var ele = document.querySelector("article");
+        var show_page = false;
+        //点击事件
+        var button = document.querySelector('button');
+        button.ontouchend = function () {
+            clickbutton();
+        }
+        function clickbutton(){
+            // alert(1);
+             window.gohome.gotoHome();  
+        }
+
+        Slip(ele, "x").webapp().end(function() {
+                if (this.page == show_page) {
+                    return
+                };
+                show_page = this.page;
+
+                switch (this.page) {
+                    case 1:
+                        nav_li[0].setAttribute('class', 'active');
+                        nav_li[1].removeAttribute('class');
+                        setTimeout(step2, 300)
+                        break;
+                    case 0:
+                        nav_li[1].setAttribute('class', 'active');
+                        nav_li[0].removeAttribute('class');
+                        clearInterval(ani);
+                        animation_ps.music.removeAttribute('style');
+                        setTimeout(step1, 300)
+                        break;
+                    default:
+                        break;
+                }
+            }) //.jump(2);
+
+        var animation_ps = {};
+        animation_ps.mark = document.querySelector('.mark');
+        animation_ps.place = document.querySelector('.place');
+        animation_ps.coin = document.querySelector('.coin');
+        animation_ps.box = document.querySelector('.box');
+        animation_ps.music = document.querySelector('.music');
+
+        step1();
+        //第一针
+        function step1() {
+            Animation.dibiao(animation_ps.place);
+            animation_ps.mark.style.bottom = '-25px';
+            setTimeout(function() {
+                animation_ps.coin.style.top = '-175px';
+                animation_ps.coin.style.opacity = '1';
+            }, 400)
+        }
+
+        function close_step1() {
+            animation_ps.place.removeAttribute("style");
+            animation_ps.mark.removeAttribute("style");
+            animation_ps.coin.removeAttribute("style");
+        }
+        var ani = false;
+
+        function step2(argument) {
+            close_step1();
+            animation_ps.hand = document.querySelector('.hand');
+            //animation_ps.hand.style.bottom = '-45px';
+
+            Animation.shan(animation_ps.music);
+            var a = 1,
+                count = 0;
+            ani = setInterval(function() {
+                count++;
+
+                a = a * -1;
+                var b = 15 * a;
+                if (count == 4) {
+                    b = 0;
+                    clearInterval(ani);
+                };
+                animation_ps.hand.style.transform = 'rotate(' + b + 'deg)';
+                animation_ps.hand.style.webkitTransform = 'rotate(' + b + 'deg)';
+            }, 200)
+        }
+        function gotoHome(){
+            alert("woshijs");
+            window.gohome.gotoHome();  
+
+        }
+
+    }
+    </script>
+</head>
+
+<body>
+    <article>
+        <section>
+            <div>
+                <div class="meteor2"></div>
+                <div class="meteor3"></div>
+                <div class="sphere">
+                    <div class="coin"></div>
+                    <div class="box">
+                        <div class="mark"></div>
+                    </div>
+                    <div class="river-box">
+                        <div class="river"></div>
+                        <div class="place"></div>
+                    </div>
+                    <div class="shadow"></div>
+                    <div class="meteor1"></div>
+                    <div class="title"></div>
+                </div>
+            </div>
+        </section>
+        <!-- 第二页 -->
+        <section>
+            <div>
+                <div class="meteor2"></div>
+                <div class="meteor3"></div>
+                <div class="sphere">
+                    <div class="music"></div>
+                    <div class="handbox">
+                        <div class="hand">
+                            <div class="shake"></div>
+                        </div>
+                    </div>
+                    <div class="shadow"></div>
+                    <div class="meteor1"></div>
+                    <div class="title"></div>
+                    <button></button>
+                </div>
+            </div>
+        </section>
+        <!-- 第二页结束 -->
+    </article>
+    <nav>
+        <li></li>
+        <li class="active"></li>
+    </nav>
+</body>
+
+</html>

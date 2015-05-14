@@ -1,0 +1,409 @@
+<resources>
+
+    <style name="Dialog" parent="@android:style/Theme.Dialog">
+        <item name="android:windowIsFloating">true</item>
+        <!-- 设置未浮动窗口 -->
+        <item name="android:windowFrame">@null</item>
+        <!-- 设置无边框 -->
+        <item name="android:windowNoTitle">true</item>
+        <!-- 设置无标题 -->
+        <item name="android:windowBackground">@color/sc_transparent_background</item>
+        <!-- 设置完全透明 -->
+        <item name="android:backgroundDimEnabled">true</item>
+        <!-- 设置屏幕变暗 -->
+    </style>
+	<style name="D6_Font">
+        <item name="android:textSize">13.0sp</item>
+        <item name="android:textColor">#ff727475</item>
+        <item name="android:shadowColor">#ccffffff</item>
+        <item name="android:shadowDy">2.0</item>
+        <item name="android:shadowRadius">0.2</item>
+    </style>
+    <style name="K2_Font_white">
+        <item name="android:textSize">12.0sp</item>
+        <item name="android:textColor">@color/common_text_color_0057af_white</item>
+    </style>
+    <style name="A1_Font">
+        <item name="android:textSize">19.0sp</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="android:shadowColor">@color/semi_transparent</item>
+        <item name="android:shadowDy">-1.0</item>
+        <item name="android:shadowRadius">0.2</item>
+    </style>
+
+    <style name="A2_Font">
+        <item name="android:textSize">12.0sp</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="android:shadowColor">@color/semi_transparent</item>
+        <item name="android:shadowDy">-1.0</item>
+        <item name="android:shadowRadius">0.2</item>
+    </style>
+
+    <style name="A3_Font">
+        <item name="android:textSize">14.0sp</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="android:shadowColor">@color/semi_transparent</item>
+        <item name="android:shadowDy">-1.0</item>
+        <item name="android:shadowRadius">0.2</item>
+    </style>
+
+    <style name="A4_Font">
+        <item name="android:textSize">16.0sp</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="android:shadowColor">@color/semi_transparent</item>
+        <item name="android:shadowDy">-1.0</item>
+        <item name="android:shadowRadius">0.2</item>
+    </style>
+
+    <style name="A5_Font">
+        <item name="android:textSize">16.0sp</item>
+        <item name="android:textColor">@color/white</item>
+    </style>
+
+    <style name="A6_Font">
+        <item name="android:textSize">16.0sp</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="android:shadowColor">@color/semi_transparent</item>
+        <item name="android:shadowDy">1.0</item>
+        <item name="android:shadowRadius">0.2</item>
+    </style>
+
+    <style name="A7_Font">
+        <item name="android:textSize">12.0sp</item>
+        <item name="android:textColor">@color/white</item>
+    </style>
+
+    <style name="A8_Font">
+        <item name="android:textSize">18.0sp</item>
+        <item name="android:textColor">#ff0e0e0e</item>
+        <item name="android:shadowColor">#88ffffff</item>
+        <item name="android:shadowRadius">5.0</item>
+    </style>
+
+    <style name="B1_Font">
+        <item name="android:textSize">12.0sp</item>
+        <item name="android:textColor">#ff0e0e0e</item>
+    </style>
+
+    <style name="B2_Font">
+        <item name="android:textSize">14.0sp</item>
+        <item name="android:textColor">#ff0e0e0e</item>
+    </style>
+
+    <style name="B3_Font">
+        <item name="android:textSize">16.0sp</item>
+        <item name="android:textColor">#ff0e0e0e</item>
+    </style>
+
+    <style name="B4_Font">
+        <item name="android:textSize">18.0sp</item>
+        <item name="android:textColor">#ff0e0e0e</item>
+    </style>
+
+    <style name="B5_Font">
+        <item name="android:textSize">16.0sp</item>
+        <item name="android:textColor">#ff0e0e0e</item>
+        <item name="android:shadowColor">@color/semi_transparent_w</item>
+        <item name="android:shadowDy">-1.0</item>
+        <item name="android:shadowRadius">0.2</item>
+    </style>
+
+    <style name="B6_Font">
+        <item name="android:textSize">13.0sp</item>
+        <item name="android:textColor">#ff0e0e0e</item>
+    </style>
+
+    <style name="B7_Font">
+        <item name="android:textSize">19.0sp</item>
+        <item name="android:textColor">#ff0e0e0e</item>
+    </style>
+
+    <style name="C1_Font">
+        <item name="android:textSize">10.0sp</item>
+        <item name="android:textColor">#ff929292</item>
+    </style>
+
+    <style name="C2_Font">
+        <item name="android:textSize">12.0sp</item>
+        <item name="android:textColor">#ff929292</item>
+        <item name="android:shadowColor">@color/semi_transparent_w</item>
+        <item name="android:shadowDy">-1.0</item>
+        <item name="android:shadowRadius">0.2</item>
+    </style>
+
+    <style name="C3_Font">
+        <item name="android:textSize">12.0sp</item>
+        <item name="android:textColor">#ff929292</item>
+    </style>
+
+    <style name="C4_Font">
+        <item name="android:textSize">13.0sp</item>
+        <item name="android:textColor">#ff929292</item>
+    </style>
+
+    <style name="C5_Font">
+        <item name="android:textSize">16.0sp</item>
+        <item name="android:textColor">#ff929292</item>
+    </style>
+
+    <style name="C6_Font">
+        <item name="android:textSize">14.0sp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">#ff929292</item>
+        <item name="android:shadowColor">@color/semi_transparent_w</item>
+        <item name="android:shadowDy">1.0</item>
+        <item name="android:shadowRadius">0.2</item>
+    </style>
+
+    <style name="C7_Font">
+        <item name="android:textSize">14.0sp</item>
+        <item name="android:textColor">#ff929292</item>
+        <item name="android:shadowColor">@color/semi_transparent_w</item>
+        <item name="android:shadowDy">1.0</item>
+        <item name="android:shadowRadius">0.2</item>
+    </style>
+
+    <style name="D1_Font">
+        <item name="android:textSize">16.0sp</item>
+        <item name="android:textColor">#ff727475</item>
+    </style>
+
+    <style name="D2_Font">
+        <item name="android:textSize">13.0sp</item>
+        <item name="android:textColor">#ff727475</item>
+    </style>
+
+    <style name="D3_Font">
+        <item name="android:textSize">14.0sp</item>
+        <item name="android:textColor">#ff727475</item>
+    </style>
+
+    <style name="D4_Font">
+        <item name="android:textSize">13.0sp</item>
+        <item name="android:textColor">#ff727475</item>
+        <item name="android:shadowColor">@color/semi_transparent_w</item>
+        <item name="android:shadowDy">1.0</item>
+        <item name="android:shadowRadius">0.2</item>
+    </style>
+
+    <style name="D5_Font">
+        <item name="android:textSize">10.0sp</item>
+        <item name="android:textColor">#ff727475</item>
+        <item name="android:shadowColor">@color/semi_transparent_w</item>
+        <item name="android:shadowDy">1.0</item>
+        <item name="android:shadowRadius">0.2</item>
+    </style>
+
+    <style name="D8_Font">
+        <item name="android:textSize">18.0sp</item>
+        <item name="android:textColor">#ff727475</item>
+    </style>
+
+    <style name="E1_Font">
+        <item name="android:textSize">16.0sp</item>
+        <item name="android:textColor">#ff454a52</item>
+    </style>
+
+    <style name="E2_Font">
+        <item name="android:textSize">14.0sp</item>
+        <item name="android:textColor">#ff454a52</item>
+        <item name="android:shadowColor">@color/semi_transparent_w</item>
+        <item name="android:shadowDy">1.0</item>
+        <item name="android:shadowRadius">0.2</item>
+    </style>
+
+    <style name="F1_Font">
+        <item name="android:textSize">16.0sp</item>
+        <item name="android:textColor">#ff4686b3</item>
+    </style>
+
+    <style name="G1_Font">
+        <item name="android:textSize">12.0sp</item>
+        <item name="android:textColor">#ffeeeeee</item>
+    </style>
+
+    <style name="H1_Font">
+        <item name="android:textSize">12.0sp</item>
+        <item name="android:textColor">#ffbdbdbd</item>
+    </style>
+
+    <style name="I1_Font">
+        <item name="android:textSize">14.0sp</item>
+        <item name="android:textColor">#3fffffff</item>
+    </style>
+
+    <style name="J1_Font">
+        <item name="android:textSize">12.0sp</item>
+        <item name="android:textColor">#ff707070</item>
+    </style>
+
+    <style name="K1_Font">
+        <item name="android:textSize">12.0sp</item>
+        <item name="android:textColor">#ff3b639f</item>
+    </style>
+
+    <style name="L1_Font">
+        <item name="android:textSize">10.0sp</item>
+        <item name="android:textColor">#ffb5b7bb</item>
+        <item name="android:shadowColor">@color/semi_transparent_w</item>
+        <item name="android:shadowDy">1.0</item>
+        <item name="android:shadowRadius">0.2</item>
+    </style>
+
+    <style name="M1_Font">
+        <item name="android:textSize">14.0sp</item>
+        <item name="android:textColor">#ff1e5481</item>
+        <item name="android:shadowColor">#33ffffff</item>
+        <item name="android:shadowDy">1.0</item>
+        <item name="android:shadowRadius">0.2</item>
+    </style>
+
+    <style name="N1_Font">
+        <item name="android:textSize">14.0sp</item>
+        <item name="android:textColor">#ff8c0303</item>
+        <item name="android:shadowColor">#7fffffff</item>
+        <item name="android:shadowDy">1.0</item>
+        <item name="android:shadowRadius">0.2</item>
+    </style>
+
+    <style name="O1_Font">
+        <item name="android:textSize">14.0sp</item>
+        <item name="android:textColor">#ff1c1c1c</item>
+        <item name="android:shadowColor">#33ffffff</item>
+        <item name="android:shadowDy">1.0</item>
+        <item name="android:shadowRadius">0.2</item>
+    </style>
+
+    <style name="P1_Font">
+        <item name="android:textSize">14.0sp</item>
+        <item name="android:textColor">#ffb2b2b2</item>
+    </style>
+
+    <style name="P2_Font">
+        <item name="android:textSize">16.0sp</item>
+        <item name="android:textColor">#ffb2b2b2</item>
+    </style>
+
+    <style name="Q1_Font">
+        <item name="android:textSize">22.0sp</item>
+        <item name="android:textColor">#ff5786ae</item>
+    </style>
+
+    <style name="Q2_Font">
+        <item name="android:textSize">13.0sp</item>
+        <item name="android:textColor">#ff5786ae</item>
+    </style>
+
+    <style name="Q3_Font">
+        <item name="android:textSize">18.0sp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">#ff5786ae</item>
+    </style>
+
+    <style name="Q4_Font">
+        <item name="android:textSize">16.0sp</item>
+        <item name="android:textColor">#ff5786ae</item>
+    </style>
+
+    <style name="R1_Font">
+        <item name="android:textSize">14.0sp</item>
+        <item name="android:textColor">#ffb7b7b7</item>
+        <item name="android:shadowColor">@color/semi_transparent_w</item>
+        <item name="android:shadowDy">1.0</item>
+        <item name="android:shadowRadius">0.2</item>
+    </style>
+
+    <style name="S1_Font">
+        <item name="android:textSize">18.0sp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">#ff608b41</item>
+    </style>
+
+    <style name="S2_Font">
+        <item name="android:textSize">16.0sp</item>
+        <item name="android:textColor">#ff608b41</item>
+    </style>
+
+    <style name="T1_Font">
+        <item name="android:textSize">10.0sp</item>
+        <item name="android:textColor">#ffffff00</item>
+    </style>
+
+    <style name="T1_Outline_Font" parent="@style/T1_Font">
+        <item name="android:textColor">#ffff6600</item>
+    </style>
+
+    <style name="T2_Font">
+        <item name="android:textSize">10.0sp</item>
+        <item name="android:textColor">#ffcccccc</item>
+    </style>
+
+    <style name="T2_Outline_Font" parent="@style/T2_Font">
+        <item name="android:textColor">#ff999999</item>
+    </style>
+
+    <style name="C8_Font_white">
+        <item name="android:textSize">15.0sp</item>
+        <item name="android:textColor">@color/common_text_color_0057af_white</item>
+    </style>
+
+    <style name="B4_Font_white">
+        <item name="android:textSize">15.0sp</item>
+        <item name="android:textColor">@color/common_text_color_0057af_white</item>
+    </style>
+     <style name="B4_Font_white2">
+        <item name="android:textSize">15.0sp</item>
+        <item name="android:textColor">@color/common_text_color_0057af_white</item>
+    </style>
+	<style name="TextAppearance.StatusBar" parent="@android:style/TextAppearance">
+        <item name="android:textSize">14.0sp</item>
+        <item name="android:textStyle">normal</item>
+        <item name="android:textColor">?android:textColorPrimary</item>
+    </style>
+    <style name="TextAppearance.StatusBar.EventContent" parent="@style/TextAppearance.StatusBar">
+        <item name="android:textColor">?android:textColorPrimaryInverse</item>
+    </style>
+
+    <style name="TextAppearance.StatusBar.EventContent.Title" parent="@style/TextAppearance.StatusBar.EventContent">
+        <item name="android:textSize">18.0sp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">?android:textColorPrimaryInverse</item>
+    </style>
+
+    <style name="RedGreen" parent="@android:style/Widget.Button">
+        <item name="android:textSize">18.0sp</item>
+        <item name="android:textColor">@color/color_bai</item>
+        <item name="android:shadowColor">@color/text_shadow_color</item>
+        <item name="android:shadowDy">2.0</item>
+        <item name="android:shadowRadius">1.0</item>
+    </style>
+
+     
+
+    <style name="customListView" parent="@android:style/Widget.ListView">
+        <item name="android:scrollingCache">false</item>
+        <item name="android:cacheColorHint">@null</item>
+    </style>
+
+    <style name="CustomWindowTitleBackground">
+        <item name="android:background">@color/black</item>
+    </style>
+
+    <style name="actAnimation" parent="@android:style/Animation.Activity">
+        <item name="android:activityOpenEnterAnimation">@anim/activity_new</item>
+        <item name="android:activityOpenExitAnimation">@anim/activity_out</item>
+        <item name="android:activityCloseEnterAnimation">@anim/activity_back</item>
+        <item name="android:activityCloseExitAnimation">@anim/activity_finish</item>
+        <item name="android:taskOpenEnterAnimation">@anim/activity_new</item>
+        <item name="android:taskOpenExitAnimation">@anim/activity_out</item>
+        <item name="android:taskCloseEnterAnimation">@anim/activity_back</item>
+        <item name="android:taskCloseExitAnimation">@anim/activity_finish</item>
+    </style>
+
+     
+     
+  
+
+     
+    
+</resources>

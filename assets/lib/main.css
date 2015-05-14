@@ -1,0 +1,395 @@
+@charset "UTF-8";
+/**
+ * 
+ * @authors 吴儒林 (49106868@qq.com,http://wurulin.com)
+ * @date    2015-04-27 13:56:35
+ * @version $Id$
+ */
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+embed,
+figure,
+figcaption,
+footer,
+header,
+hgroup,
+menu,
+nav,
+output,
+ruby,
+section,
+summary,
+time,
+mark,
+audio,
+video {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  outline: none;
+  font: inherit;
+  font-size: 62.5%;
+  -webkit-user-select: none;
+  -webkit-appearance: none;
+}
+body {
+  font-family: Arial, Tahoma, sans-serif;
+  line-height: 1;
+}
+ol,
+ul,
+li {
+  list-style: none;
+}
+.shadow {
+  position: absolute;
+  bottom: -60px;
+  width: 216px;
+  height: 37px;
+  left: 50%;
+  margin: 0px 0px 0px -108px;
+}
+.title {
+  width: 305px;
+  height: 145px;
+  position: absolute;
+  left: 50%;
+  bottom: -220px;
+  margin: 0px 0px 0px -152.5px;
+}
+article section:first-of-type {
+  background: #FFC64B;
+}
+article section:first-of-type > div {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  position: relative;
+}
+article section:first-of-type > div .meteor2 {
+  width: 121px;
+  height: 140px;
+  position: absolute;
+  top: 0px;
+  left: 50%;
+  background: url('icons/pa3.png') no-repeat;
+  zoom: 0.5;
+}
+article section:first-of-type > div .meteor3 {
+  width: 169px;
+  height: 195px;
+  position: absolute;
+  top: 50%;
+  right: 0px;
+  margin: -50px 0px 0px 0px;
+  background: url('icons/pa2.png') no-repeat;
+  zoom: 0.5;
+}
+article section:first-of-type > div .sphere {
+  width: 488px;
+  height: 488px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin: -355px 0px 0px -244px;
+  background: url('icons/pa5.png') no-repeat;
+  zoom: 0.5;
+  overflow: visible;
+}
+article section:first-of-type > div .sphere .coin {
+  width: 553px;
+  height: 304px;
+  position: absolute;
+  top: -190px;
+  left: -25px;
+  background: url('icons/pa10.png') no-repeat;
+  opacity: 0;
+  transition: all 0.3s;
+}
+article section:first-of-type > div .sphere .box {
+  width: 488px;
+  height: 789px;
+  border-bottom-left-radius: 488px;
+  border-bottom-right-radius: 488px;
+  position: absolute;
+  left: 0px;
+  bottom: 2px;
+  overflow: hidden;
+  z-index: 100;
+}
+article section:first-of-type > div .sphere .box .mark {
+  position: absolute;
+  width: 277px;
+  height: 565px;
+  background: url('icons/pa8.png') no-repeat;
+  left: 50%;
+  bottom: -250px;
+  margin: 0px 0px 0px -138.5px;
+  transition: all 0.6s;
+  z-index: 90;
+}
+article section:first-of-type > div .sphere .river-box {
+  height: 100%;
+  width: 600px;
+  border-top-right-radius: 488px;
+  border-bottom-right-radius: 488px;
+  position: absolute;
+  right: 10px;
+  top: 0px;
+  overflow: hidden;
+  z-index: 130;
+}
+article section:first-of-type > div .sphere .river-box .river {
+  width: 478px;
+  height: 161px;
+  position: absolute;
+  bottom: 60px;
+  right: 1px;
+  background: url('icons/pa4.png') no-repeat;
+  z-index: 120;
+}
+article section:first-of-type > div .sphere .river-box .place {
+  width: 294px;
+  height: 194px;
+  position: absolute;
+  bottom: 170px;
+  right: 150px;
+  background: url('icons/pa9.png') no-repeat;
+  opacity: 0;
+  z-index: 130;
+}
+article section:first-of-type > div .sphere .shadow {
+  position: absolute;
+  bottom: -60px;
+  width: 216px;
+  height: 37px;
+  left: 50%;
+  margin: 0px 0px 0px -108px;
+  background: url('icons/pa7.png') no-repeat;
+}
+article section:first-of-type > div .sphere .meteor1 {
+  width: 87px;
+  height: 100px;
+  position: absolute;
+  bottom: -20px;
+  left: -20px;
+  background: url('icons/pa1.png') no-repeat;
+}
+article section:first-of-type > div .sphere .title {
+  width: 305px;
+  height: 145px;
+  position: absolute;
+  left: 50%;
+  bottom: -220px;
+  margin: 0px 0px 0px -152.5px;
+  background: url('icons/pa6.png') no-repeat;
+}
+article section:nth-of-type(2) {
+  background: #83cbd0;
+  position: relative;
+}
+article section:nth-of-type(2) > div {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  position: relative;
+}
+article section:nth-of-type(2) > div .meteor2 {
+  width: 121px;
+  height: 140px;
+  position: absolute;
+  top: 0px;
+  left: 40%;
+  background: url('icons/pa3.png') no-repeat;
+  zoom: 0.5;
+}
+article section:nth-of-type(2) > div .meteor3 {
+  width: 87px;
+  height: 100px;
+  position: absolute;
+  top: 70%;
+  right: 0px;
+  margin: -50px 0px 0px 0px;
+  background: url('icons/pa1.png') no-repeat;
+  zoom: 0.5;
+}
+article section:nth-of-type(2) > div .sphere {
+  width: 488px;
+  height: 488px;
+  position: absolute;
+  background: url('icons/pa16.png') no-repeat;
+  zoom: 0.5;
+  top: 50%;
+  left: 50%;
+  margin: -355px 0px 0px -244px;
+  z-index: 150;
+}
+article section:nth-of-type(2) > div .sphere .music {
+  width: 127px;
+  height: 191px;
+  position: absolute;
+  top: -160px;
+  right: -30px;
+  background: url('icons/pa21.png') no-repeat;
+  opacity: 0;
+}
+article section:nth-of-type(2) > div .sphere .handbox {
+  width: 688px;
+  height: 688px;
+  position: absolute;
+  bottom: 0px;
+  left: -100px;
+  border-bottom-left-radius: 688px;
+  border-bottom-right-radius: 688px;
+  overflow: hidden;
+  z-index: 100;
+}
+article section:nth-of-type(2) > div .sphere .handbox .hand {
+  width: 338px;
+  height: 577px;
+  position: absolute;
+  left: 50%;
+  bottom: -45px;
+  margin: 0px 0px 0px -169px;
+  transition: all 0.3s;
+  transform: rotate(15deg);
+  transform-origin: 50% 100%;
+  -webkit-transform: rotate(15deg);
+  -webkit-transform-origin: 50% 100%;
+  background: url('icons/pa19.png') no-repeat;
+  z-index: 80;
+}
+article section:nth-of-type(2) > div .sphere .handbox .hand .shake {
+  width: 441px;
+  height: 216px;
+  position: absolute;
+  left: -55px;
+  bottom: 210px;
+  background: url('icons/pa22.png') no-repeat;
+}
+article section:nth-of-type(2) > div .sphere .shadow {
+  width: 647px;
+  height: 219px;
+  position: absolute;
+  z-index: 200;
+  bottom: -75px;
+  left: 50%;
+  margin: 0px 0px 0px -323.5px;
+  background: url('icons/pa23.png') no-repeat;
+}
+article section:nth-of-type(2) > div .sphere .meteor1 {
+  width: 169px;
+  height: 195px;
+  position: absolute;
+  bottom: -105px;
+  left: -105px;
+  z-index: 300;
+  background: url('icons/pa2.png') no-repeat;
+}
+article section:nth-of-type(2) > div .sphere .title {
+  width: 305px;
+  height: 145px;
+  position: absolute;
+  left: 50%;
+  bottom: -220px;
+  margin: 0px 0px 0px -152.5px;
+  background: url('icons/pa17.png') no-repeat;
+}
+article section:nth-of-type(2) > div .sphere button {
+  position: absolute;
+  display: block;
+  width: 244px;
+  height: 83px;
+  border: 0px;
+  outline: 0px;
+  background: url('icons/pa20.png') no-repeat;
+  left: 50%;
+  bottom: -320px;
+  margin: 0px 0px 0px -122px;
+}
+nav {
+  width: 30px;
+  height: 25px;
+  position: absolute;
+  left: 50%;
+  bottom: 10px;
+  margin: 0px 0px 0px -15px;
+}
+nav li {
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  border-radius: 50px;
+  float: left;
+  background: #FFFFFF;
+  transition: all 0.5s;
+}
+nav li:first-of-type {
+  margin: 0px 10px 0px 0px;
+}
+nav .active {
+  opacity: 0.4;
+}
