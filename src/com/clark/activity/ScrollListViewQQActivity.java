@@ -16,7 +16,7 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.TextView;
 
-public class ScrollListViewActivity extends Activity {
+public class ScrollListViewQQActivity extends Activity {
 
 	private Context sContext;
 	private List<String> sNewsList;
@@ -31,7 +31,7 @@ public class ScrollListViewActivity extends Activity {
 		sNewsList = new ArrayList<String>();
 		geneItems();
 		sListView = (ImgListView) findViewById(R.id.xListView);
-//		sListView.setImageId(R.drawable.top_img);//��������Դ�ļ���ͨ�� imglistview:headimage="@drawable/top_img"   ����ͼƬ��Ҳ��ͨ���
+//		sListView.setImageId(R.drawable.top_img);//��������Դ�ļ���ͨ�� imglistview:headimage="@drawable/top_img"   ����ͼƬ��Ҳ��ͨ���?
 		sNewsAdapter = new NewsAdapter();
 		sListView.setAdapter(sNewsAdapter);
 	}

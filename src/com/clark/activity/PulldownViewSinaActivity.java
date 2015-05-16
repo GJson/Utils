@@ -21,7 +21,7 @@ import android.widget.Toast;
  * @author Gjson
  * @date 2014-04-30
  */
-public class PulldownViewActivity extends Activity implements
+public class PulldownViewSinaActivity extends Activity implements
 		 OnTurnListener {
 	private PullScrollView mScrollView;
 	private ImageView mHeadImg;
@@ -75,7 +75,7 @@ public class PulldownViewActivity extends Activity implements
 			tableRow.setOnClickListener(new View.OnClickListener() {
 				@Override
 				public void onClick(View v) {
-					Toast.makeText(PulldownViewActivity.this,
+					Toast.makeText(PulldownViewSinaActivity.this,
 							"Click item " + n, Toast.LENGTH_SHORT).show();
 				}
 			});

@@ -70,7 +70,7 @@ public class MainActivity extends Activity implements OnItemClickListener {
 			intent = new Intent(this, AnimActivity.class);
 			break;
 		case 3:
-			intent = new Intent(this, PulldownViewActivity.class);
+			intent = new Intent(this, PulldownViewSinaActivity.class);
 			break;
 		case 4:
 			intent = new Intent(this, StretchViewActivity.class);
@@ -79,7 +79,7 @@ public class MainActivity extends Activity implements OnItemClickListener {
 			intent = new Intent(this, ScrollMeiTuanActivity.class);
 			break;
 		case 6:
-			intent = new Intent(this, ScrollListViewActivity.class);
+			intent = new Intent(this, ScrollListViewQQActivity.class);
 			break;
 
 		default:
