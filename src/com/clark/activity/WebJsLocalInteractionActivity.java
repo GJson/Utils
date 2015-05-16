@@ -17,7 +17,7 @@ import android.webkit.WebSettings;
 import android.webkit.WebView;
 import android.widget.Toast;
 
-public class SecondActivity extends Activity {
+public class WebJsLocalInteractionActivity extends Activity {
 
 	private WebView mWebView;
 	private Context context;
@@ -57,7 +57,7 @@ public class SecondActivity extends Activity {
 
 	final class JavaScriptInterface {
 		public void gotoHome() {
-			Intent intent = new Intent(SecondActivity.this, GifMainActivity.class);
+			Intent intent = new Intent(WebJsLocalInteractionActivity.this, GifMainActivity.class);
 			startActivity(intent);
 //			Toast.makeText(context, "js���ص���", Toast.LENGTH_SHORT).show();
 		}

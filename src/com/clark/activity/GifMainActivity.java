@@ -31,7 +31,7 @@ public class GifMainActivity extends Activity implements OnClickListener {
 	private void initView() {
 		mGifView1 = (GifView) findViewById(R.id.gif1);
 		mGifView2 = (GifView) findViewById(R.id.gif2);
-//		mGifView1.setGifImage(R.drawable.gif1);
+		mGifView1.setGifImage(R.drawable.gif1);
 		btn = (Button) findViewById(R.id.button1);
 		btn.setOnClickListener(this);
 		// mGifView1.setOnClickListener(this);
@@ -41,7 +41,7 @@ public class GifMainActivity extends Activity implements OnClickListener {
 		// 锟斤拷锟斤拷图片锟斤拷小
 		// mGifView2.setShowDimension(300, 300);
 		// 锟斤拷锟斤拷要锟斤拷锟脚碉拷GIF图片
-//		mGifView2.setGifImage(R.drawable.gif2);
+		mGifView2.setGifImage(R.drawable.gif2);
 		mWebView = (WebView) findViewById(R.id.webView1);
 		WebSettings ws = mWebView.getSettings();
 		mWebView.setWebChromeClient(new WebChromeClient());
@@ -66,7 +66,7 @@ public class GifMainActivity extends Activity implements OnClickListener {
 			}
 			break;
 		case R.id.button1:
-			Intent i = new Intent(this, SecondActivity.class);
+			Intent i = new Intent(this, WebJsLocalInteractionActivity.class);
 			startActivity(i);
 			break;
 		default:

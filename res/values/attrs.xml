@@ -42,6 +42,7 @@
     <attr name="unselectedColor" format="color" />
 
     <declare-styleable name="CirclePageIndicator">
+
         <!-- Whether or not the indicators should be centered. -->
         <attr name="centered" />
         <!-- Color of the filled circle that represents the current page. -->
@@ -49,7 +50,7 @@
         <!-- Color of the filled circles that represents pages. -->
         <attr name="pageColor" format="color" />
         <!-- Orientation of the indicator. -->
-        <attr name="android:orientation"/>
+        <attr name="android:orientation" />
         <!-- Radius of the circles. This is also the spacing between circles. -->
         <attr name="radius" format="dimension" />
         <!-- Whether or not the selected indicator snaps to the circles. -->
@@ -59,10 +60,10 @@
         <!-- Width of the stroke used to draw the circles. -->
         <attr name="strokeWidth" />
         <!-- View background -->
-        <attr name="android:background"/>
+        <attr name="android:background" />
     </declare-styleable>
-	
-       <!-- SlidingMenu -->
+
+    <!-- SlidingMenu -->
     <declare-styleable name="SlidingMenu">
         <attr name="mode">
             <enum name="left" value="0" />
@@ -102,7 +103,7 @@
         </attr>
     </declare-styleable>
     <!-- swipe listview -->
-        <declare-styleable name="SwipeListView">
+    <declare-styleable name="SwipeListView">
         <attr name="swipeOpenOnLongPress" format="boolean" />
         <attr name="swipeAnimationTime" format="integer" />
         <attr name="swipeOffsetLeft" format="dimension" />
@@ -128,4 +129,10 @@
     <declare-styleable name="ImgListView">
         <attr name="headimage" format="reference|color" />
     </declare-styleable>
+    <declare-styleable name="PullScrollView">
+        <attr name="header" format="reference" />
+        <attr name="headerHeight" format="dimension" />
+        <attr name="headerVisibleHeight" format="dimension" />
+    </declare-styleable>
+
 </resources>

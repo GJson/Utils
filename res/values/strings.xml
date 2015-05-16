@@ -55,5 +55,7 @@
     <string name="app_error">应用程序错误</string>
     <string name="app_error_message">很抱歉，应用程序出现错误，即将退出。\n请选择邮件的方式将此错误报告提交给我，我会尽快修复这个问题，谢谢！</string>
     <string name="submit_report">提交报告</string>
+    
+     <string name="prompt_exit_yiqichang">再按一次退出GjsonUtils</string>
 
 </resources>

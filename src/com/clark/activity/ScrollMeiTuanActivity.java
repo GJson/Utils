@@ -16,38 +16,38 @@ import android.view.WindowManager.LayoutParams;
 import android.widget.LinearLayout;
 
 /**
- * ���͵�ַ:http://blog.csdn.net/zhuangyalei
+ * 锟斤拷锟酵碉拷址:http://blog.csdn.net/zhuangyalei
  * 
  * @author Gjson
  * 
  */
-public class ScrollActivity extends Activity implements OnScrollListener {
+public class ScrollMeiTuanActivity extends Activity implements OnScrollListener {
 	private MyScrollView myScrollView;
 	private LinearLayout mBuyLayout;
 	private WindowManager mWindowManager;
 	/**
-	 * �ֻ���Ļ���
+	 * 锟街伙拷锟斤拷幕锟斤拷锟�
 	 */
 	private int screenWidth;
 	/**
-	 * ���View
+	 * 锟斤拷锟絍iew
 	 */
 	private static View suspendView;
 	/**
-	 * ���Ĳ���
+	 * 锟斤拷锟侥诧拷锟斤拷
 	 */
 	private static WindowManager.LayoutParams suspendLayoutParams;
 	/**
-	 * ���򲼾ֵĸ߶�
+	 * 锟斤拷锟津布局的高讹拷
 	 */
 	private int buyLayoutHeight;
 	/**
-	 * myScrollView���丸�಼�ֵĶ�������
+	 * myScrollView锟斤拷锟戒父锟洁布锟街的讹拷锟斤拷锟斤拷锟斤拷
 	 */
 	private int myScrollViewTop;
 
 	/**
-	 * ���򲼾����丸�಼�ֵĶ�������
+	 * 锟斤拷锟津布撅拷锟斤拷锟戒父锟洁布锟街的讹拷锟斤拷锟斤拷锟斤拷
 	 */
 	private int buyLayoutTop;
 
@@ -65,7 +65,7 @@ public class ScrollActivity extends Activity implements OnScrollListener {
 	}
 
 	/**
-	 * �����н����ʱ�򣬼����еĲ��ֻ�����ϵ�ʱ����������ȡ���򲼾ֵĸ߶Ⱥ�myScrollView���븸�಼�ֵĶ���λ��
+	 * 锟斤拷锟斤拷锟叫斤拷锟斤拷锟绞憋拷颍锟斤拷锟斤拷械牟锟斤拷只锟斤拷锟斤拷锟较碉拷时锟斤拷锟斤拷锟斤拷锟斤拷锟斤拷取锟斤拷锟津布局的高度猴拷myScrollView锟斤拷锟诫父锟洁布锟街的讹拷锟斤拷位锟斤拷
 	 */
 	@Override
 	public void onWindowFocusChanged(boolean hasFocus) {
@@ -79,8 +79,8 @@ public class ScrollActivity extends Activity implements OnScrollListener {
 	}
 
 	/**
-	 * �����Ļص���������������Y������ڻ��ߵ��� ���򲼾־��븸�಼�ֶ�����λ�ã�����ʾ�������� ��������Y�ľ���С��
-	 * ���򲼾־��븸�಼�ֶ�����λ�ü��Ϲ��򲼾ֵĸ߶Ⱦ��Ƴ�������
+	 * 锟斤拷锟斤拷锟侥回碉拷锟斤拷锟斤拷锟斤拷锟斤拷锟斤拷锟斤拷锟斤拷Y锟斤拷锟斤拷锟斤拷诨锟斤拷叩锟斤拷锟�锟斤拷锟津布局撅拷锟诫父锟洁布锟街讹拷锟斤拷锟斤拷位锟矫ｏ拷锟斤拷锟斤拷示锟斤拷锟斤拷锟斤拷锟斤拷 锟斤拷锟斤拷锟斤拷锟斤拷Y锟侥撅拷锟斤拷小锟斤拷
+	 * 锟斤拷锟津布局撅拷锟诫父锟洁布锟街讹拷锟斤拷锟斤拷位锟矫硷拷锟较癸拷锟津布局的高度撅拷锟狡筹拷锟斤拷锟斤拷锟斤拷
 	 * 
 	 */
 	@Override
@@ -97,7 +97,7 @@ public class ScrollActivity extends Activity implements OnScrollListener {
 	}
 
 	/**
-	 * ��ʾ��������
+	 * 锟斤拷示锟斤拷锟斤拷锟斤拷锟斤拷
 	 */
 	private void showSuspend() {
 		if (suspendView == null) {
@@ -105,15 +105,15 @@ public class ScrollActivity extends Activity implements OnScrollListener {
 					R.layout.buy_layout, null);
 			if (suspendLayoutParams == null) {
 				suspendLayoutParams = new LayoutParams();
-				suspendLayoutParams.type = LayoutParams.TYPE_PHONE; // ������ͣ�һ����Ϊ2002����ʾ������Ӧ�ó���֮�ϣ�����״̬��֮��
+				suspendLayoutParams.type = LayoutParams.TYPE_PHONE; // 锟斤拷锟斤拷锟斤拷停锟揭伙拷锟斤拷锟轿�002锟斤拷锟斤拷示锟斤拷锟斤拷锟斤拷应锟矫筹拷锟斤拷之锟较ｏ拷锟斤拷锟斤拷状态锟斤拷之锟斤拷
 				suspendLayoutParams.format = PixelFormat.RGBA_8888;
 				suspendLayoutParams.flags = LayoutParams.FLAG_NOT_TOUCH_MODAL
-						| LayoutParams.FLAG_NOT_FOCUSABLE; // �����Ϊ������˵���ɾ۽�����ģ̬�Ի���ȵ�
-				suspendLayoutParams.gravity = Gravity.TOP; // ��Ķ��뷽ʽ
+						| LayoutParams.FLAG_NOT_FOCUSABLE; // 锟斤拷锟斤拷锟轿拷锟斤拷锟斤拷锟剿碉拷锟斤拷删劢锟斤拷锟斤拷锟侥Ｌ拷曰锟斤拷锟饺碉拷
+				suspendLayoutParams.gravity = Gravity.TOP; // 锟斤拷亩锟斤拷敕绞�
 				suspendLayoutParams.width = screenWidth;
 				suspendLayoutParams.height = buyLayoutHeight;
-				suspendLayoutParams.x = 0; // ��X��λ��
-				suspendLayoutParams.y = myScrollViewTop; // //��Y��λ��
+				suspendLayoutParams.x = 0; // 锟斤拷X锟斤拷位锟斤拷
+				suspendLayoutParams.y = myScrollViewTop; // //锟斤拷Y锟斤拷位锟斤拷
 			}
 		}
 
@@ -121,7 +121,7 @@ public class ScrollActivity extends Activity implements OnScrollListener {
 	}
 
 	/**
-	 * �Ƴ�������
+	 * 锟狡筹拷锟斤拷锟斤拷锟斤拷
 	 */
 	private void removeSuspend() {
 		if (suspendView != null) {
