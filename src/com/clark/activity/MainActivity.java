@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.clark.adapter.UlitlsListAdapter;
+import com.clark.common.until.ToastManager;
 import com.clark.utils.R;
 
 import android.app.Activity;
@@ -46,10 +47,10 @@ public class MainActivity extends Activity implements OnItemClickListener {
 		mListStrs.add("GifMainActivity & URL SCheme");
 		mListStrs.add("WebJsLocalInteractionActivity");
 		mListStrs.add("AnimActivity & ValueAnimation");
-		mListStrs.add("PulldownViewActivity");
+		mListStrs.add("PulldownViewSinaActivity");
 		mListStrs.add("StretchViewActivity");
 		mListStrs.add("ScrollMeiTuanActivity");
-		mListStrs.add("ScrollListViewActivity");
+		mListStrs.add("ScrollListViewQQActivity");
 	}
 
 	@Override
@@ -92,8 +93,8 @@ public class MainActivity extends Activity implements OnItemClickListener {
 		if (event.getKeyCode() == KeyEvent.KEYCODE_BACK
 				&& event.getAction() == KeyEvent.ACTION_UP) {
 			if ((System.currentTimeMillis() - mLastPressBackExitTime) > 3000) {
-				Toast.makeText(this, getString(R.string.prompt_exit_yiqichang),
-						Toast.LENGTH_SHORT).show();
+				showToast(getString(R.string.prompt_exit_yiqichang),
+						ToastManager.TOAST_FLAG_EXCEPTION);
 				mLastPressBackExitTime = System.currentTimeMillis();
 			} else {
 				finish();
@@ -103,5 +104,9 @@ public class MainActivity extends Activity implements OnItemClickListener {
 		}
 
 		return super.dispatchKeyEvent(event);
+	}
+
+	private void showToast(String message, int toastFlag) {
+		ToastManager.showToast(mContext, message, toastFlag);
 	}
 }
