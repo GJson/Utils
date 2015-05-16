@@ -1,6 +1,6 @@
 package com.way.view;
 
-import com.clark.gifview.R;
+import com.clark.utils.R;
 
 import android.content.Context;
 import android.graphics.Canvas;

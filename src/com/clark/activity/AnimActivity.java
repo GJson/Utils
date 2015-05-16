@@ -1,7 +1,7 @@
 package com.clark.activity;
 
 import com.clark.common.until.MyAnimView;
-import com.clark.gifview.R;
+import com.clark.utils.R;
 
 import android.app.Activity;
 import android.os.Bundle;

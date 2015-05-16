@@ -125,4 +125,7 @@
             <enum name="dismiss" value="1" />
         </attr>
     </declare-styleable>
+    <declare-styleable name="ImgListView">
+        <attr name="headimage" format="reference|color" />
+    </declare-styleable>
 </resources>

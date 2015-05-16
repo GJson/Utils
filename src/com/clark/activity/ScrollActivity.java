@@ -2,7 +2,7 @@ package com.clark.activity;
 
 import com.clark.common.until.MyScrollView;
 import com.clark.common.until.MyScrollView.OnScrollListener;
-import com.clark.gifview.R;
+import com.clark.utils.R;
 
 import android.app.Activity;
 import android.content.Context;
@@ -16,7 +16,7 @@ import android.view.WindowManager.LayoutParams;
 import android.widget.LinearLayout;
 
 /**
- * ²©¿ÍµØÖ·:http://blog.csdn.net/zhuangyalei
+ * ï¿½ï¿½ï¿½Íµï¿½Ö·:http://blog.csdn.net/zhuangyalei
  * 
  * @author Gjson
  * 
@@ -26,28 +26,28 @@ public class ScrollActivity extends Activity implements OnScrollListener {
 	private LinearLayout mBuyLayout;
 	private WindowManager mWindowManager;
 	/**
-	 * ÊÖ»úÆÁÄ»¿í¶È
+	 * ï¿½Ö»ï¿½ï¿½ï¿½Ä»ï¿½ï¿½ï¿½
 	 */
 	private int screenWidth;
 	/**
-	 * Ðü¸¡¿òView
+	 * ï¿½ï¿½ï¿½View
 	 */
 	private static View suspendView;
 	/**
-	 * Ðü¸¡¿òµÄ²ÎÊý
+	 * ï¿½ï¿½ï¿½Ä²ï¿½ï¿½ï¿½
 	 */
 	private static WindowManager.LayoutParams suspendLayoutParams;
 	/**
-	 * ¹ºÂò²¼¾ÖµÄ¸ß¶È
+	 * ï¿½ï¿½ï¿½ò²¼¾ÖµÄ¸ß¶ï¿½
 	 */
 	private int buyLayoutHeight;
 	/**
-	 * myScrollViewÓëÆä¸¸Àà²¼¾ÖµÄ¶¥²¿¾àÀë
+	 * myScrollViewï¿½ï¿½ï¿½ä¸¸ï¿½à²¼ï¿½ÖµÄ¶ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 	 */
 	private int myScrollViewTop;
 
 	/**
-	 * ¹ºÂò²¼¾ÖÓëÆä¸¸Àà²¼¾ÖµÄ¶¥²¿¾àÀë
+	 * ï¿½ï¿½ï¿½ò²¼¾ï¿½ï¿½ï¿½ï¿½ä¸¸ï¿½à²¼ï¿½ÖµÄ¶ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 	 */
 	private int buyLayoutTop;
 
@@ -65,7 +65,7 @@ public class ScrollActivity extends Activity implements OnScrollListener {
 	}
 
 	/**
-	 * ´°¿ÚÓÐ½¹µãµÄÊ±ºò£¬¼´ËùÓÐµÄ²¼¾Ö»æÖÆÍê±ÏµÄÊ±ºò£¬ÎÒÃÇÀ´»ñÈ¡¹ºÂò²¼¾ÖµÄ¸ß¶ÈºÍmyScrollView¾àÀë¸¸Àà²¼¾ÖµÄ¶¥²¿Î»ÖÃ
+	 * ï¿½ï¿½ï¿½ï¿½ï¿½Ð½ï¿½ï¿½ï¿½ï¿½Ê±ï¿½ò£¬¼ï¿½ï¿½ï¿½ï¿½ÐµÄ²ï¿½ï¿½Ö»ï¿½ï¿½ï¿½ï¿½ï¿½Ïµï¿½Ê±ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½È¡ï¿½ï¿½ï¿½ò²¼¾ÖµÄ¸ß¶Èºï¿½myScrollViewï¿½ï¿½ï¿½ë¸¸ï¿½à²¼ï¿½ÖµÄ¶ï¿½ï¿½ï¿½Î»ï¿½ï¿½
 	 */
 	@Override
 	public void onWindowFocusChanged(boolean hasFocus) {
@@ -79,8 +79,8 @@ public class ScrollActivity extends Activity implements OnScrollListener {
 	}
 
 	/**
-	 * ¹ö¶¯µÄ»Øµ÷·½·¨£¬µ±¹ö¶¯µÄY¾àÀë´óÓÚ»òÕßµÈÓÚ ¹ºÂò²¼¾Ö¾àÀë¸¸Àà²¼¾Ö¶¥²¿µÄÎ»ÖÃ£¬¾ÍÏÔÊ¾¹ºÂòµÄÐü¸¡¿ò µ±¹ö¶¯µÄYµÄ¾àÀëÐ¡ÓÚ
-	 * ¹ºÂò²¼¾Ö¾àÀë¸¸Àà²¼¾Ö¶¥²¿µÄÎ»ÖÃ¼ÓÉÏ¹ºÂò²¼¾ÖµÄ¸ß¶È¾ÍÒÆ³ý¹ºÂòµÄÐü¸¡¿ò
+	 * ï¿½ï¿½ï¿½ï¿½ï¿½Ä»Øµï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Yï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ú»ï¿½ï¿½ßµï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ò²¼¾Ö¾ï¿½ï¿½ë¸¸ï¿½à²¼ï¿½Ö¶ï¿½ï¿½ï¿½ï¿½ï¿½Î»ï¿½Ã£ï¿½ï¿½ï¿½ï¿½ï¿½Ê¾ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Yï¿½Ä¾ï¿½ï¿½ï¿½Ð¡ï¿½ï¿½
+	 * ï¿½ï¿½ï¿½ò²¼¾Ö¾ï¿½ï¿½ë¸¸ï¿½à²¼ï¿½Ö¶ï¿½ï¿½ï¿½ï¿½ï¿½Î»ï¿½Ã¼ï¿½ï¿½Ï¹ï¿½ï¿½ò²¼¾ÖµÄ¸ß¶È¾ï¿½ï¿½Æ³ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 	 * 
 	 */
 	@Override
@@ -97,7 +97,7 @@ public class ScrollActivity extends Activity implements OnScrollListener {
 	}
 
 	/**
-	 * ÏÔÊ¾¹ºÂòµÄÐü¸¡¿ò
+	 * ï¿½ï¿½Ê¾ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 	 */
 	private void showSuspend() {
 		if (suspendView == null) {
@@ -105,15 +105,15 @@ public class ScrollActivity extends Activity implements OnScrollListener {
 					R.layout.buy_layout, null);
 			if (suspendLayoutParams == null) {
 				suspendLayoutParams = new LayoutParams();
-				suspendLayoutParams.type = LayoutParams.TYPE_PHONE; // Ðü¸¡´°µÄÀàÐÍ£¬Ò»°ãÉèÎª2002£¬±íÊ¾ÔÚËùÓÐÓ¦ÓÃ³ÌÐòÖ®ÉÏ£¬µ«ÔÚ×´Ì¬À¸Ö®ÏÂ
+				suspendLayoutParams.type = LayoutParams.TYPE_PHONE; // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Í£ï¿½Ò»ï¿½ï¿½ï¿½ï¿½Îª2002ï¿½ï¿½ï¿½ï¿½Ê¾ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ó¦ï¿½Ã³ï¿½ï¿½ï¿½Ö®ï¿½Ï£ï¿½ï¿½ï¿½ï¿½ï¿½×´Ì¬ï¿½ï¿½Ö®ï¿½ï¿½
 				suspendLayoutParams.format = PixelFormat.RGBA_8888;
 				suspendLayoutParams.flags = LayoutParams.FLAG_NOT_TOUCH_MODAL
-						| LayoutParams.FLAG_NOT_FOCUSABLE; // Ðü¸¡´°µÄÐÐÎª£¬±ÈÈçËµ²»¿É¾Û½¹£¬·ÇÄ£Ì¬¶Ô»°¿òµÈµÈ
-				suspendLayoutParams.gravity = Gravity.TOP; // Ðü¸¡´°µÄ¶ÔÆë·½Ê½
+						| LayoutParams.FLAG_NOT_FOCUSABLE; // ï¿½ï¿½ï¿½ï¿½ï¿½Îªï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ëµï¿½ï¿½ï¿½É¾Û½ï¿½ï¿½ï¿½ï¿½ï¿½Ä£Ì¬ï¿½Ô»ï¿½ï¿½ï¿½Èµï¿½
+				suspendLayoutParams.gravity = Gravity.TOP; // ï¿½ï¿½Ä¶ï¿½ï¿½ë·½Ê½
 				suspendLayoutParams.width = screenWidth;
 				suspendLayoutParams.height = buyLayoutHeight;
-				suspendLayoutParams.x = 0; // Ðü¸¡´°XµÄÎ»ÖÃ
-				suspendLayoutParams.y = myScrollViewTop; // //Ðü¸¡´°YµÄÎ»ÖÃ
+				suspendLayoutParams.x = 0; // ï¿½ï¿½Xï¿½ï¿½Î»ï¿½ï¿½
+				suspendLayoutParams.y = myScrollViewTop; // //ï¿½ï¿½Yï¿½ï¿½Î»ï¿½ï¿½
 			}
 		}
 
@@ -121,7 +121,7 @@ public class ScrollActivity extends Activity implements OnScrollListener {
 	}
 
 	/**
-	 * ÒÆ³ý¹ºÂòµÄÐü¸¡¿ò
+	 * ï¿½Æ³ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 	 */
 	private void removeSuspend() {
 		if (suspendView != null) {

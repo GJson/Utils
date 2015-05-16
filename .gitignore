@@ -27,3 +27,4 @@ proguard/
 *.prefs
 *.properties
 *.gen
+*.bin

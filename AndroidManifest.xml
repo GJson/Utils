@@ -1,5 +1,5 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.clark.gifview"
+    package="com.clark.utils"
     android:versionCode="1"
     android:versionName="1.0" >
 
@@ -12,7 +12,7 @@
 
     <application
         android:allowBackup="true"
-        android:icon="@drawable/ic_launcher"
+        android:icon="@drawable/ico"
         android:label="@string/app_name"
         android:theme="@style/AppBaseTheme" >
         <activity
@@ -39,9 +39,13 @@
                     android:scheme="yqc" />
             </intent-filter>
         </activity>
-        ActivityFriends
         <activity
             android:name="com.clark.activity.AnimActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppBaseTheme" >
+        </activity>
+        <activity
+            android:name="com.clark.activity.ScrollListViewActivity"
             android:screenOrientation="portrait"
             android:theme="@style/AppBaseTheme" >
         </activity>

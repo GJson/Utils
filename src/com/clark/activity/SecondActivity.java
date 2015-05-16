@@ -6,7 +6,7 @@ import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Set;
 
-import com.clark.gifview.R;
+import com.clark.utils.R;
 
 import android.app.Activity;
 import android.content.Context;
@@ -59,7 +59,7 @@ public class SecondActivity extends Activity {
 		public void gotoHome() {
 			Intent intent = new Intent(SecondActivity.this, GifMainActivity.class);
 			startActivity(intent);
-//			Toast.makeText(context, "js±¾µØµ÷ÓÃ", Toast.LENGTH_SHORT).show();
+//			Toast.makeText(context, "jsï¿½ï¿½ï¿½Øµï¿½ï¿½ï¿½", Toast.LENGTH_SHORT).show();
 		}
 	}
 }

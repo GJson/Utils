@@ -3,7 +3,7 @@ package com.way.view;
 import java.util.HashMap;
 import java.util.LinkedHashMap;
 
-import com.clark.gifview.R;
+import com.clark.utils.R;
 import com.nineoldandroids.view.ViewHelper;
 
 import android.annotation.TargetApi;
