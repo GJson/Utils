@@ -51,12 +51,13 @@ public class MainActivity extends Activity implements OnItemClickListener {
 		mListStrs.add("StretchViewActivity");
 		mListStrs.add("ScrollMeiTuanActivity");
 		mListStrs.add("ScrollListViewQQActivity");
+		mListStrs.add("OrmLiteBaseActivity");
 	}
 
 	@Override
 	public void onItemClick(AdapterView<?> arg0, View arg1, int positon,
 			long arg3) {
-		if (positon > 6)
+		if (positon > 7)
 			return;
 		Intent intent = new Intent();
 		switch (positon) {
@@ -82,6 +83,9 @@ public class MainActivity extends Activity implements OnItemClickListener {
 			intent = new Intent(this, ScrollListViewQQActivity.class);
 			break;
 
+		case 7:
+			intent.setClass(mContext, UserInfoEditAcitivity.class);
+			break;
 		default:
 			break;
 		}
