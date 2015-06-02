@@ -57,9 +57,10 @@ public class WebJsLocalInteractionActivity extends Activity {
 
 	final class JavaScriptInterface {
 		public void gotoHome() {
-			Intent intent = new Intent(WebJsLocalInteractionActivity.this, GifMainActivity.class);
-			startActivity(intent);
-//			Toast.makeText(context, "js���ص���", Toast.LENGTH_SHORT).show();
+			// Intent intent = new Intent(WebJsLocalInteractionActivity.this,
+			// GifMainActivity.class);
+			// startActivity(intent);
+			finish();
 		}
 	}
 }
