@@ -54,6 +54,9 @@
         <activity
             android:name="com.clark.activity.UserInfoEditAcitivity"
             android:label="@string/app_name" />
+         <activity
+            android:name="com.clark.activity.LongUrlToShortUrlActivity"
+            android:label="@string/app_name" />
         <activity
             android:name="com.clark.activity.MainActivity"
             android:label="@string/app_name"
