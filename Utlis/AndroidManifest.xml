@@ -1,6 +1,6 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.clark.utils"
-    android:versionCode="1"
+    android:versionCode="3"
     android:versionName="1.0" >
 
     <uses-sdk
@@ -16,6 +16,15 @@
         android:icon="@drawable/ico"
         android:label="@string/app_name"
         android:theme="@style/AppBaseTheme" >
+
+        <!-- 融云 RongCloud App Key 设置开始 -->
+
+        <meta-data
+            android:name="RONG_CLOUD_APP_KEY"
+            android:value="z3v5yqkbv8v30" />
+
+        <!-- 融云 RongCloud App Key 设置结束 -->
+
         <activity
             android:name="com.clark.activity.GifMainActivity"
             android:configChanges="orientation|keyboardHidden"
@@ -54,7 +63,7 @@
         <activity
             android:name="com.clark.activity.UserInfoEditAcitivity"
             android:label="@string/app_name" />
-         <activity
+        <activity
             android:name="com.clark.activity.LongUrlToShortUrlActivity"
             android:label="@string/app_name" />
         <activity
@@ -66,20 +75,46 @@
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-            <!--
+
+        </activity>
+         <activity
+            android:name="com.clark.activity.ChatRongYunActivity"
+            android:label="@string/app_name" />
+        
+        <activity android:name="com.clark.activity.ConversationActivity"
+            android:label="@string/app_name" >
+
+            <!-- 上面例子中您的会话 Activity -->
+
             <intent-filter>
                 <action android:name="android.intent.action.VIEW" />
 
                 <category android:name="android.intent.category.DEFAULT" />
-                <category android:name="android.intent.category.BROWSABLE" />
-                <category android:name="android.intent.category.LAUNCHER" />
 
                 <data
-                    android:host="1700"
-                    android:scheme="yqc" />
-            </intent-filter>
-            -->
+                    android:host="com.clark.utils"
+                    android:pathPrefix="/conversation/"
+                    android:scheme="rong" >
 
+                    <!-- 不能修改 -->
+                </data>
+            </intent-filter>
+        </activity>
+        <activity android:name="com.clark.activity.ConversationListActivity" 
+            android:label="@string/app_name">
+
+            <!-- 上面例子中您的会话列表 Activity -->
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+
+                <data
+                    android:host="com.clark.utils"
+                    android:path="/conversationlist"
+                    android:scheme="rong" >
+                </data>
+            </intent-filter>
         </activity>
     </application>
 

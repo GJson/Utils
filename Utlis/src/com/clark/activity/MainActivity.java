@@ -53,12 +53,13 @@ public class MainActivity extends Activity implements OnItemClickListener {
 		mListStrs.add("ScrollListViewQQActivity");
 		mListStrs.add("OrmLiteBaseActivity");
 		mListStrs.add("LongToShortUrlActivity");
+		mListStrs.add("ChatRongYunActivity");
 	}
 
 	@Override
 	public void onItemClick(AdapterView<?> arg0, View arg1, int positon,
 			long arg3) {
-		if (positon > 8)
+		if (positon > 9)
 			return;
 		Intent intent = new Intent();
 		switch (positon) {
@@ -89,6 +90,10 @@ public class MainActivity extends Activity implements OnItemClickListener {
 			break;
 		case 8:
 			intent.setClass(mContext, LongUrlToShortUrlActivity.class);
+			break;
+		case 9:
+			intent.setClass(mContext, ChatRongYunActivity.class);
+
 			break;
 		default:
 			break;
