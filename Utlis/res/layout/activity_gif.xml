@@ -25,6 +25,15 @@
         android:layout_height="wrap_content"
         android:text="Button" />
 
+    <TextView
+        android:visibility="gone"
+        android:id="@+id/anim_txt"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="@android:color/holo_orange_light"
+        android:gravity="center"
+        android:text="hello" />
+
     <WebView
         android:id="@+id/webView1"
         android:layout_width="match_parent"

@@ -4,15 +4,22 @@ import com.clark.gifutils.GifView;
 import com.clark.gifutils.GifView.GifImageType;
 import com.clark.utils.R;
 
+import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.Message;
 import android.view.View;
+import android.view.ViewOverlay;
 import android.view.View.OnClickListener;
+import android.view.ViewTreeObserver;
+import android.view.ViewTreeObserver.OnPreDrawListener;
 import android.webkit.WebChromeClient;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
 import android.widget.Button;
+import android.widget.TextView;
 
 public class GifMainActivity extends Activity implements OnClickListener {
 	private GifView mGifView1;
@@ -20,6 +27,13 @@ public class GifMainActivity extends Activity implements OnClickListener {
 	private Button btn;
 	private boolean mIsplay = true;
 	private WebView mWebView;
+	private TextView mAnimTxt;
+	private static final int MAX = 1;// 初始maxLine大小
+	private static final int TIME = 20000;// 间隔时间
+	private int maxLines;
+	private boolean hasMesure = false;
+	private Thread thread;
+	ViewTreeObserver viewTreeObserver;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -29,6 +43,24 @@ public class GifMainActivity extends Activity implements OnClickListener {
 	}
 
 	private void initView() {
+		mAnimTxt = (TextView) findViewById(R.id.anim_txt);
+		viewTreeObserver = mAnimTxt.getViewTreeObserver();
+		viewTreeObserver.addOnPreDrawListener(new OnPreDrawListener() {
+
+			@Override
+			public boolean onPreDraw() {
+				// 只需要获取一次就可以了
+				if (!hasMesure) {
+					// 这里获取到完全展示的maxLine
+					maxLines = mAnimTxt.getLineCount();
+					// 设置maxLine的默认值，这样用户看到View就是限制了maxLine的TextView
+					mAnimTxt.setMaxLines(MAX);
+					hasMesure = true;
+				}
+
+				return true;
+			}
+		});
 		mGifView1 = (GifView) findViewById(R.id.gif1);
 		mGifView2 = (GifView) findViewById(R.id.gif2);
 		mGifView1.setGifImage(R.drawable.gif1);
@@ -66,13 +98,72 @@ public class GifMainActivity extends Activity implements OnClickListener {
 			}
 			break;
 		case R.id.button1:
-			Intent i = new Intent(this, WebJsLocalInteractionActivity.class);
-			startActivity(i);
+			// Intent i = new Intent(this, WebJsLocalInteractionActivity.class);
+			// startActivity(i);
+			toggle();
 			break;
 		default:
 			break;
 		}
 
+	}
+
+	/**
+	 * 打开TextView
+	 */
+	@SuppressLint("HandlerLeak")
+	private void toggle() {
+		mAnimTxt.setVisibility(View.VISIBLE);
+		viewTreeObserver = mAnimTxt.getViewTreeObserver();
+		viewTreeObserver.addOnPreDrawListener(new OnPreDrawListener() {
+
+			@Override
+			public boolean onPreDraw() {
+				// 只需要获取一次就可以了
+				if (!hasMesure) {
+					// 这里获取到完全展示的maxLine
+					maxLines = mAnimTxt.getLineCount();
+					// 设置maxLine的默认值，这样用户看到View就是限制了maxLine的TextView
+					mAnimTxt.setMaxLines(MAX);
+					hasMesure = true;
+				}
+
+				return true;
+			}
+		});
+		final Handler handler = new Handler() {
+			@Override
+			public void handleMessage(Message msg) {
+				super.handleMessage(msg);
+				int lines = msg.what;
+				// 这里接受到消息，让后更新TextView设置他的maxLine就行了
+				mAnimTxt.setMaxLines(lines);
+				mAnimTxt.postInvalidate();
+			}
+		};
+		if (thread != null)
+			handler.removeCallbacks(thread);
+
+		thread = new Thread() {
+			@Override
+			public void run() {
+				int count = MAX;
+				while (count++ <= maxLines) {
+					// 每隔20mms发送消息
+					Message message = new Message();
+					message.what = count;
+					handler.sendMessage(message);
+
+					try {
+						Thread.sleep(TIME);
+					} catch (InterruptedException e) {
+						e.printStackTrace();
+					}
+				}
+				super.run();
+			}
+		};
+		thread.start();
 	}
 
 }
