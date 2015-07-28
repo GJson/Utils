@@ -54,12 +54,13 @@ public class MainActivity extends Activity implements OnItemClickListener {
 		mListStrs.add("OrmLiteBaseActivity");
 		mListStrs.add("LongToShortUrlActivity");
 		mListStrs.add("ChatRongYunActivity");
+		mListStrs.add("AutoScrollViewPageAvtivity");
 	}
 
 	@Override
 	public void onItemClick(AdapterView<?> arg0, View arg1, int positon,
 			long arg3) {
-		if (positon > 9)
+		if (positon > 10)
 			return;
 		Intent intent = new Intent();
 		switch (positon) {
@@ -93,7 +94,9 @@ public class MainActivity extends Activity implements OnItemClickListener {
 			break;
 		case 9:
 			intent.setClass(mContext, ChatRongYunActivity.class);
-
+			return;
+		case 10:
+			intent.setClass(mContext, AutoScrollViewPageAvtivity.class);
 			break;
 		default:
 			break;
