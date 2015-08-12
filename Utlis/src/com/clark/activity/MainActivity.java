@@ -1,6 +1,7 @@
 package com.clark.activity;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 import com.clark.adapter.UlitlsListAdapter;
@@ -11,6 +12,7 @@ import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.format.DateFormat;
 import android.view.KeyEvent;
 import android.view.View;
 import android.widget.AdapterView;
@@ -36,6 +38,14 @@ public class MainActivity extends Activity implements OnItemClickListener {
 	private void init() {
 		mContext = this;
 		mListView = (ListView) findViewById(R.id.utilslist);
+		String time = DateFormat.format("yy-MM-dd HH:mm:ss",
+				new Date(System.currentTimeMillis())).toString();
+		String time1 = DateFormat.format("yyyy-MM-dd HH:mm:ss",
+				System.currentTimeMillis()).toString();
+		System.out.println(System.currentTimeMillis());
+		System.out.println(new Date(System.currentTimeMillis()));
+		System.out.println(time);
+		System.out.println(time1);
 		initDatas();
 		mAdapter = new UlitlsListAdapter(mContext, mListStrs);
 		mListView.setAdapter(mAdapter);
