@@ -3,6 +3,8 @@ package com.clark.activity;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 import com.clark.adapter.UlitlsListAdapter;
 import com.clark.common.until.ToastManager;
@@ -33,6 +35,24 @@ public class MainActivity extends Activity implements OnItemClickListener {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
 		init();
+		testParenter();
+	}
+
+	/*
+	 * 正则匹配
+	 */
+	private void testParenter() {
+		String s = "abcaawea";
+		Pattern p = Pattern.compile("(a[^a]*a)");
+		Matcher m = p.matcher(s);
+		List<String> result = new ArrayList<String>();
+		while (m.find()) {
+			result.add(m.group());
+		}
+		for (String s1 : result) {
+			System.out.println(s1);
+		}
+
 	}
 
 	private void init() {
