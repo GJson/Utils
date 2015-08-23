@@ -15,6 +15,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.format.DateFormat;
+import android.util.Log;
 import android.view.KeyEvent;
 import android.view.View;
 import android.widget.AdapterView;
@@ -30,12 +31,46 @@ public class MainActivity extends Activity implements OnItemClickListener {
 	private UlitlsListAdapter mAdapter;
 	private long mLastPressBackExitTime = 0;
 
+	public enum FAIL {
+		NOR, DD, DDD, DDDD
+	};
+
+	public void enumTest(FAIL type){
+		 switch (type) {
+		case NOR:
+			
+			break;
+
+		default:
+			break;
+		}
+		 
+	 }
+
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
 		init();
 		testParenter();
+		int[] a = { 3, 1, 5, 7, 2, 4, 9, 6 };
+		insertsortmain(a);
+		enumTest(FAIL.NOR);
+	}
+
+	private void insertsortmain(int[] b) {
+		for (int i = 1; i < b.length; i++) {
+			int median = b[i];
+			int j = i - 1;
+			while (j >= 0 && median < b[j]) {
+				b[j + 1] = b[j];
+				j--;
+			}
+			b[j + 1] = median;
+		}
+		for (int j = 0; j < 8; j++) {
+			Log.d("111", (b[j]) + "");
+		}
 	}
 
 	/*
