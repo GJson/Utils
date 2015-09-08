@@ -1,6 +1,5 @@
 package com.clark.pullscrollview.ui.widget;
 
-
 import com.clark.utils.R;
 
 import android.content.Context;
@@ -12,294 +11,318 @@ import android.view.View;
 import android.view.animation.TranslateAnimation;
 import android.widget.ScrollView;
 
-
 /**
- * ×Ô¶¨ÒåScrollView
- *
+ * ï¿½Ô¶ï¿½ï¿½ï¿½ScrollView
+ * 
  * @author Gjson
  * @date 2015-05-15
  */
 public class PullScrollView extends ScrollView {
-    /** ×èÄáÏµÊı,Ô½Ğ¡×èÁ¦¾ÍÔ½´ó. */
-    private static final float SCROLL_RATIO = 0.5f;
+	/** é˜»å°¼ç³»æ•°,è¶Šå°é˜»åŠ›å°±è¶Šå¤§. */
+	private static final float SCROLL_RATIO = 0.5f;
 
-    /** »¬¶¯ÖÁ·­×ªµÄ¾àÀë. */
-    private static final int TURN_DISTANCE = 100;
+	/** æ»‘åŠ¨è‡³ç¿»è½¬çš„è·ç¦». */
+	private static final int TURN_DISTANCE = 100;
 
-    /** Í·²¿view. */
-    private View mHeader;
+	/** å¤´éƒ¨view. */
+	private View mHeader;
 
-    /** Í·²¿view¸ß¶È. */
-    private int mHeaderHeight;
+	/** å¤´éƒ¨viewé«˜åº¦. */
+	private int mHeaderHeight;
 
-    /** Í·²¿viewÏÔÊ¾¸ß¶È. */
-    private int mHeaderVisibleHeight;
+	/** å¤´éƒ¨viewæ˜¾ç¤ºé«˜åº¦. */
+	private int mHeaderVisibleHeight;
 
-    /** ScrollViewµÄcontent view. */
-    private View mContentView;
+	/** ScrollViewçš„content view. */
+	private View mContentView;
 
-    /** ScrollViewµÄcontent view¾ØĞÎ. */
-    private Rect mContentRect = new Rect();
+	/** ScrollViewçš„content viewçŸ©å½¢. */
+	private Rect mContentRect = new Rect();
 
-    /** Ê×´Îµã»÷µÄY×ø±ê. */
-    private float mTouchDownY;
+	/** é¦–æ¬¡ç‚¹å‡»çš„Yåæ ‡. */
+	private float mTouchDownY;
 
-    /** ÊÇ·ñ¹Ø±ÕScrollViewµÄ»¬¶¯. */
-    private boolean mEnableTouch = false;
+	/** æ˜¯å¦å…³é—­ScrollViewçš„æ»‘åŠ¨. */
+	private boolean mEnableTouch = false;
 
-    /** ÊÇ·ñ¿ªÊ¼ÒÆ¶¯. */
-    private boolean isMoving = false;
+	/** æ˜¯å¦å¼€å§‹ç§»åŠ¨. */
+	private boolean isMoving = false;
 
-    /** ÊÇ·ñÒÆ¶¯µ½¶¥²¿Î»ÖÃ. */
-    private boolean isTop = false;
+	/** æ˜¯å¦ç§»åŠ¨åˆ°é¡¶éƒ¨ä½ç½®. */
+	private boolean isTop = false;
 
-    /** Í·²¿Í¼Æ¬³õÊ¼¶¥²¿ºÍµ×²¿. */
-    private int mInitTop, mInitBottom;
+	/** å¤´éƒ¨å›¾ç‰‡åˆå§‹é¡¶éƒ¨å’Œåº•éƒ¨. */
+	private int mInitTop, mInitBottom;
 
-    /** Í·²¿Í¼Æ¬ÍÏ¶¯Ê±¶¥²¿ºÍµ×²¿. */
-    private int mCurrentTop, mCurrentBottom;
+	/** å¤´éƒ¨å›¾ç‰‡æ‹–åŠ¨æ—¶é¡¶éƒ¨å’Œåº•éƒ¨. */
+	private int mCurrentTop, mCurrentBottom;
 
-    /** ×´Ì¬±ä»¯Ê±µÄ¼àÌıÆ÷. */
-    private OnTurnListener mOnTurnListener;
+	/** çŠ¶æ€å˜åŒ–æ—¶çš„ç›‘å¬å™¨. */
+	private OnTurnListener mOnTurnListener;
 
-    private enum State {
-        /**¶¥²¿*/
-        UP,
-        /**µ×²¿*/
-        DOWN,
-        /**Õı³£*/
-        NORMAL
-    }
+	private enum State {
+		/** é¡¶éƒ¨ */
+		UP,
+		/** åº•éƒ¨ */
+		DOWN,
+		/** æ­£å¸¸ */
+		NORMAL
+	}
 
-    /** ×´Ì¬. */
-    private State mState = State.NORMAL;
+	/** çŠ¶æ€. */
+	private State mState = State.NORMAL;
 
-    public PullScrollView(Context context) {
-        super(context);
-        init(context, null);
-    }
+	public PullScrollView(Context context) {
+		super(context);
+		init(context, null);
+	}
 
-    public PullScrollView(Context context, AttributeSet attrs) {
-        super(context, attrs);
-        init(context, attrs);
-    }
+	public PullScrollView(Context context, AttributeSet attrs) {
+		super(context, attrs);
+		init(context, attrs);
+	}
 
-    public PullScrollView(Context context, AttributeSet attrs, int defStyle) {
-        super(context, attrs, defStyle);
-        init(context, attrs);
-    }
+	public PullScrollView(Context context, AttributeSet attrs, int defStyle) {
+		super(context, attrs, defStyle);
+		init(context, attrs);
+	}
 
-    private void init(Context context, AttributeSet attrs) {
-        // set scroll mode
-        setOverScrollMode(OVER_SCROLL_NEVER);
+	private void init(Context context, AttributeSet attrs) {
+		// set scroll mode
+		setOverScrollMode(OVER_SCROLL_NEVER);
 
-        if (null != attrs) {
-            TypedArray ta = context.obtainStyledAttributes(attrs, R.styleable.PullScrollView);
+		if (null != attrs) {
+			TypedArray ta = context.obtainStyledAttributes(attrs,
+					R.styleable.PullScrollView);
 
-            if (ta != null) {
-                mHeaderHeight = (int) ta.getDimension(R.styleable.PullScrollView_headerHeight, -1);
-                mHeaderVisibleHeight = (int) ta.getDimension(R.styleable
-                        .PullScrollView_headerVisibleHeight, -1);
-                ta.recycle();
-            }
-        }
-    }
+			if (ta != null) {
+				mHeaderHeight = (int) ta.getDimension(
+						R.styleable.PullScrollView_headerHeight, -1);
+				mHeaderVisibleHeight = (int) ta.getDimension(
+						R.styleable.PullScrollView_headerVisibleHeight, -1);
+				ta.recycle();
+			}
+		}
+	}
 
-    /**
-     * ÉèÖÃHeader
-     *
-     * @param view
-     */
-    public void setHeader(View view) {
-        mHeader = view;
-    }
+	/**
+	 * è®¾ç½®Header
+	 * 
+	 * @param view
+	 */
+	public void setHeader(View view) {
+		mHeader = view;
+	}
 
-    /**
-     * ÉèÖÃ×´Ì¬¸Ä±äÊ±µÄ¼àÌıÆ÷
-     *
-     * @param turnListener
-     */
-    public void setOnTurnListener(OnTurnListener turnListener) {
-        mOnTurnListener = turnListener;
-    }
+	/**
+	 * è®¾ç½®çŠ¶æ€æ”¹å˜æ—¶çš„ç›‘å¬å™¨
+	 * 
+	 * @param turnListener
+	 */
+	public void setOnTurnListener(OnTurnListener turnListener) {
+		mOnTurnListener = turnListener;
+	}
 
-    @Override
-    protected void onFinishInflate() {
-        if (getChildCount() > 0) {
-            mContentView = getChildAt(0);
-        }
-    }
+	@Override
+	protected void onFinishInflate() {
+		if (getChildCount() > 0) {
+			mContentView = getChildAt(0);
+		}
+	}
 
-    @Override
-    protected void onScrollChanged(int l, int t, int oldl, int oldt) {
-        super.onScrollChanged(l, t, oldl, oldt);
+	@Override
+	protected void onScrollChanged(int l, int t, int oldl, int oldt) {
+		super.onScrollChanged(l, t, oldl, oldt);
 
-        if (getScrollY() == 0) {
-            isTop = true;
-        }
-    }
+		if (getScrollY() == 0) {
+			isTop = true;
+		}
+	}
 
-    @Override
-    public boolean onInterceptTouchEvent(MotionEvent ev) {
-        if (ev.getAction() == MotionEvent.ACTION_DOWN) {
-            mTouchDownY = ev.getY();
-            mCurrentTop = mInitTop = mHeader.getTop();
-            mCurrentBottom = mInitBottom = mHeader.getBottom();
-        }
-        return super.onInterceptTouchEvent(ev);
-    }
+	@Override
+	public boolean onInterceptTouchEvent(MotionEvent ev) {
+		if (ev.getAction() == MotionEvent.ACTION_DOWN) {
+			mTouchDownY = ev.getY();
+			mCurrentTop = mInitTop = mHeader.getTop();
+			mCurrentBottom = mInitBottom = mHeader.getBottom();
+		}
+		return super.onInterceptTouchEvent(ev);
+	}
 
-    @Override
-    public boolean onTouchEvent(MotionEvent ev) {
-        if (mContentView != null) {
-            doTouchEvent(ev);
-        }
+	@Override
+	public boolean onTouchEvent(MotionEvent ev) {
+		// MyLog.e(getClass(), "scrollx:" + getScrollY() + "");
+		// MyLog.e(getClass(), "scrolly:" + getScrollY() + "");
 
-        // ½ûÖ¹¿Ø¼ş±¾ÉíµÄ»¬¶¯.
-        return mEnableTouch || super.onTouchEvent(ev);
-    }
+		if (mContentView != null) {
+			doTouchEvent(ev);
+		}
 
-    /**
-     * ´¥ÃşÊÂ¼ş´¦Àí
-     *
-     * @param event
-     */
-    private void doTouchEvent(MotionEvent event) {
-        int action = event.getAction();
+		// ç¦æ­¢æ§ä»¶æœ¬èº«çš„æ»‘åŠ¨.
+		return mEnableTouch || super.onTouchEvent(ev);
+	}
 
-        switch (action) {
-            case MotionEvent.ACTION_MOVE:
-                doActionMove(event);
-                break;
+	/**
+	 * è§¦æ‘¸äº‹ä»¶å¤„ç†
+	 * 
+	 * @param event
+	 */
+	private void doTouchEvent(MotionEvent event) {
+		int action = event.getAction();
 
-            case MotionEvent.ACTION_UP:
-                // »Ø¹ö¶¯»­
-                if (isNeedAnimation()) {
-                    rollBackAnimation();
-                }
+		switch (action) {
+		case MotionEvent.ACTION_MOVE:
+			doActionMove(event);
+			break;
 
-                if (getScrollY() == 0) {
-                    mState = State.NORMAL;
-                }
+		case MotionEvent.ACTION_UP:
+			// å›æ»šåŠ¨ç”»
+			if (isNeedAnimation()) {
+				rollBackAnimation();
 
-                isMoving = false;
-                mEnableTouch = false;
-                break;
+			}
 
-            default:
-                break;
-        }
-    }
+			if (getScrollY() == 0) {
+				mState = State.NORMAL;
+			}
 
-    /**
-     * Ö´ĞĞÒÆ¶¯¶¯»­
-     *
-     * @param event
-     */
-    private void doActionMove(MotionEvent event) {
-        // µ±¹ö¶¯µ½¶¥²¿Ê±£¬½«×´Ì¬ÉèÖÃÎªÕı³££¬±ÜÃâÏÈÏòÉÏÍÏ¶¯ÔÙÏòÏÂÍÏ¶¯µ½¶¥¶ËºóÊ×´Î´¥Ãş²»ÏìÓ¦µÄÎÊÌâ
-        if (getScrollY() == 0) {
-            mState = State.NORMAL;
+			isMoving = false;
+			mEnableTouch = false;
+			break;
 
-            // »¬¶¯¾­¹ı¶¥²¿³õÊ¼Î»ÖÃÊ±£¬ĞŞÕıTouch downµÄ×ø±êÎªµ±Ç°TouchµãµÄ×ø±ê
-            if (isTop) {
-                isTop = false;
-                mTouchDownY = event.getY();
-            }
-        }
+		default:
+			break;
+		}
+	}
 
-        float deltaY = event.getY() - mTouchDownY;
+	/**
+	 * æ‰§è¡Œç§»åŠ¨åŠ¨ç”»
+	 * 
+	 * @param event
+	 */
+	private void doActionMove(MotionEvent event) {
+		// å½“æ»šåŠ¨åˆ°é¡¶éƒ¨æ—¶ï¼Œå°†çŠ¶æ€è®¾ç½®ä¸ºæ­£å¸¸ï¼Œé¿å…å…ˆå‘ä¸Šæ‹–åŠ¨å†å‘ä¸‹æ‹–åŠ¨åˆ°é¡¶ç«¯åé¦–æ¬¡è§¦æ‘¸ä¸å“åº”çš„é—®é¢˜
+		if (getScrollY() == 0) {
+			mState = State.NORMAL;
 
-        // ¶ÔÓÚÊ×´ÎTouch²Ù×÷ÒªÅĞ¶Ï·½Î»£ºUP OR DOWN
-        if (deltaY < 0 && mState == State.NORMAL) {
-            mState = State.UP;
-        } else if (deltaY > 0 && mState == State.NORMAL) {
-            mState = State.DOWN;
-        }
+			// æ»‘åŠ¨ç»è¿‡é¡¶éƒ¨åˆå§‹ä½ç½®æ—¶ï¼Œä¿®æ­£Touch downçš„åæ ‡ä¸ºå½“å‰Touchç‚¹çš„åæ ‡
+			if (isTop) {
+				isTop = false;
+				mTouchDownY = event.getY();
+				mOnTurnListener.onTurn(true);
 
-        if (mState == State.UP) {
-            deltaY = deltaY < 0 ? deltaY : 0;
+			}
 
-            isMoving = false;
-            mEnableTouch = false;
+		}
 
-        } else if (mState == State.DOWN) {
-            if (getScrollY() <= deltaY) {
-                mEnableTouch = true;
-                isMoving = true;
-            }
-            deltaY = deltaY < 0 ? 0 : deltaY;
-        }
+		float deltaY = event.getY() - mTouchDownY;
 
-        if (isMoving) {
-            // ³õÊ¼»¯content view¾ØĞÎ
-            if (mContentRect.isEmpty()) {
-                // ±£´æÕı³£µÄ²¼¾ÖÎ»ÖÃ
-                mContentRect.set(mContentView.getLeft(), mContentView.getTop(), mContentView.getRight(),
-                        mContentView.getBottom());
-            }
+		// å¯¹äºé¦–æ¬¡Touchæ“ä½œè¦åˆ¤æ–­æ–¹ä½ï¼šUP OR DOWN
+		if (deltaY < 0 && mState == State.NORMAL) {
+			mState = State.UP;
+			// mOnTurnListener.onTurn(false);
+		} else if (deltaY > 0 && mState == State.NORMAL) {
+			mState = State.DOWN;
+			// mOnTurnListener.onTurn(true);
+		}
 
-            // ¼ÆËãheaderÒÆ¶¯¾àÀë(ÊÖÊÆÒÆ¶¯µÄ¾àÀë*×èÄáÏµÊı*0.5)
-            float headerMoveHeight = deltaY * 0.5f * SCROLL_RATIO;
-            mCurrentTop = (int) (mInitTop + headerMoveHeight);
-            mCurrentBottom = (int) (mInitBottom + headerMoveHeight);
+		if (mState == State.UP) {
+			// MyLog.e(getClass(), deltaY+"");
+			if (deltaY > 80) {
+				mOnTurnListener.onTurn(true);
+			}
+			if (deltaY < -80)
+				mOnTurnListener.onTurn(false);
+			deltaY = deltaY < 0 ? deltaY : 0;
 
-            // ¼ÆËãcontentÒÆ¶¯¾àÀë(ÊÖÊÆÒÆ¶¯µÄ¾àÀë*×èÄáÏµÊı)
-            float contentMoveHeight = deltaY * SCROLL_RATIO;
+			isMoving = false;
+			mEnableTouch = false;
 
-            // ĞŞÕıcontentÒÆ¶¯µÄ¾àÀë£¬±ÜÃâ³¬¹ıheaderµÄµ×±ßÔµ
-            int headerBottom = mCurrentBottom - mHeaderVisibleHeight;
-            int top = (int) (mContentRect.top + contentMoveHeight);
-            int bottom = (int) (mContentRect.bottom + contentMoveHeight);
+		} else if (mState == State.DOWN) {
+			if (getScrollY() <= deltaY) {
+				mEnableTouch = true;
+				isMoving = true;
+			}
+			// mOnTurnListener.onTurn(true);
+			deltaY = deltaY < 0 ? 0 : deltaY;
+		}
 
-            if (top <= headerBottom) {
-                // ÒÆ¶¯content view
-                mContentView.layout(mContentRect.left, top, mContentRect.right, bottom);
+		if (isMoving) {
+			// åˆå§‹åŒ–content viewçŸ©å½¢
+			if (mContentRect.isEmpty()) {
+				// ä¿å­˜æ­£å¸¸çš„å¸ƒå±€ä½ç½®
+				mContentRect.set(mContentView.getLeft(), mContentView.getTop(),
+						mContentView.getRight(), mContentView.getBottom());
+			}
 
-                // ÒÆ¶¯header view
-                mHeader.layout(mHeader.getLeft(), mCurrentTop, mHeader.getRight(), mCurrentBottom);
-            }
-        }
-    }
+			// è®¡ç®—headerç§»åŠ¨è·ç¦»(æ‰‹åŠ¿ç§»åŠ¨çš„è·ç¦»*é˜»å°¼ç³»æ•°*0.5)
+			float headerMoveHeight = deltaY * 0.5f * SCROLL_RATIO;
+			mCurrentTop = (int) (mInitTop + headerMoveHeight);
+			mCurrentBottom = (int) (mInitBottom + headerMoveHeight);
 
-    private void rollBackAnimation() {
-        TranslateAnimation tranAnim = new TranslateAnimation(0, 0,
-                Math.abs(mInitTop - mCurrentTop), 0);
-        tranAnim.setDuration(200);
-        mHeader.startAnimation(tranAnim);
+			// è®¡ç®—contentç§»åŠ¨è·ç¦»(æ‰‹åŠ¿ç§»åŠ¨çš„è·ç¦»*é˜»å°¼ç³»æ•°)
+			float contentMoveHeight = deltaY * SCROLL_RATIO;
 
-        mHeader.layout(mHeader.getLeft(), mInitTop, mHeader.getRight(), mInitBottom);
+			// ä¿®æ­£contentç§»åŠ¨çš„è·ç¦»ï¼Œé¿å…è¶…è¿‡headerçš„åº•è¾¹ç¼˜
+			int headerBottom = mCurrentBottom - mHeaderVisibleHeight;
+			int top = (int) (mContentRect.top + contentMoveHeight);
+			int bottom = (int) (mContentRect.bottom + contentMoveHeight);
 
-        // ¿ªÆôÒÆ¶¯¶¯»­
-        TranslateAnimation innerAnim = new TranslateAnimation(0, 0, mContentView.getTop(), mContentRect.top);
-        innerAnim.setDuration(200);
-        mContentView.startAnimation(innerAnim);
-        mContentView.layout(mContentRect.left, mContentRect.top, mContentRect.right, mContentRect.bottom);
+			if (top <= headerBottom) {
+				// ç§»åŠ¨content view
+				mContentView.layout(mContentRect.left, top, mContentRect.right,
+						bottom);
 
-        mContentRect.setEmpty();
+				// ç§»åŠ¨header view
+				mHeader.layout(mHeader.getLeft(), mCurrentTop,
+						mHeader.getRight(), mCurrentBottom);
+			}
+		}
+	}
 
-        // »Øµ÷¼àÌıÆ÷
-        if (mCurrentTop > mInitTop + TURN_DISTANCE && mOnTurnListener != null){
-            mOnTurnListener.onTurn();
-        }
-    }
+	private void rollBackAnimation() {
+		TranslateAnimation tranAnim = new TranslateAnimation(0, 0,
+				Math.abs(mInitTop - mCurrentTop), 0);
+		tranAnim.setDuration(200);
+		mHeader.startAnimation(tranAnim);
 
-    /**
-     * ÊÇ·ñĞèÒª¿ªÆô¶¯»­
-     */
-    private boolean isNeedAnimation() {
-        return !mContentRect.isEmpty() && isMoving;
-    }
+		mHeader.layout(mHeader.getLeft(), mInitTop, mHeader.getRight(),
+				mInitBottom);
 
-    /**
-     * ·­×ªÊÂ¼ş¼àÌıÆ÷
-     *
-     * @author Gjson
-     */
-    public interface OnTurnListener {
-        /**
-         * ·­×ª»Øµ÷·½·¨
-         */
-        public void onTurn();
-    }
+		// å¼€å¯ç§»åŠ¨åŠ¨ç”»
+		TranslateAnimation innerAnim = new TranslateAnimation(0, 0,
+				mContentView.getTop(), mContentRect.top);
+		innerAnim.setDuration(200);
+		mContentView.startAnimation(innerAnim);
+		mContentView.layout(mContentRect.left, mContentRect.top,
+				mContentRect.right, mContentRect.bottom);
+
+		mContentRect.setEmpty();
+
+		// å›è°ƒç›‘å¬å™¨
+		if (mCurrentTop > mInitTop + TURN_DISTANCE && mOnTurnListener != null) {
+			mOnTurnListener.onTurn(true);
+		}
+
+	}
+
+	/**
+	 * æ˜¯å¦éœ€è¦å¼€å¯åŠ¨ç”»
+	 */
+	private boolean isNeedAnimation() {
+		return !mContentRect.isEmpty() && isMoving;
+	}
+
+	/**
+	 * ç¿»è½¬äº‹ä»¶ç›‘å¬å™¨
+	 * 
+	 * @author Gjson
+	 */
+	public interface OnTurnListener {
+		/**
+		 * ç¿»è½¬å›è°ƒæ–¹æ³•
+		 */
+
+		public void onTurn(boolean tag);
+	}
 }

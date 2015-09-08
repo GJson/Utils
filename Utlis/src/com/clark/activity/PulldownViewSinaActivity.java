@@ -16,13 +16,13 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 /**
- * Pull down ScrollView 
+ * Pull down ScrollView
  * 
  * @author Gjson
  * @date 2014-04-30
  */
 public class PulldownViewSinaActivity extends Activity implements
-		 OnTurnListener {
+		OnTurnListener {
 	private PullScrollView mScrollView;
 	private ImageView mHeadImg;
 
@@ -85,7 +85,7 @@ public class PulldownViewSinaActivity extends Activity implements
 	}
 
 	@Override
-	public void onTurn() {
+	public void onTurn(boolean tag) {
 
 	}
 
