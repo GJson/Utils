@@ -38,6 +38,7 @@ public class PinnedHeaderListView extends ListView {
 		super(context, attrs, defStyle);
 	}
 
+	@Override
 	protected void onLayout(boolean changed, int left, int top, int right,
 			int bottom) {
 		super.onLayout(changed, left, top, right, bottom);
@@ -47,6 +48,7 @@ public class PinnedHeaderListView extends ListView {
 		}
 	}
 
+	@Override
 	protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
 		super.onMeasure(widthMeasureSpec, heightMeasureSpec);
 		if (mHeaderView != null) {
@@ -64,6 +66,7 @@ public class PinnedHeaderListView extends ListView {
 		requestLayout();
 	}
 
+	@Override
 	public void setAdapter(ListAdapter adapter) {
 		super.setAdapter(adapter);
 		mAdapter = (PinnedHeaderAdapter) adapter;
@@ -111,6 +114,7 @@ public class PinnedHeaderListView extends ListView {
 		}
 	}
 
+	@Override
 	protected void dispatchDraw(Canvas canvas) {
 		super.dispatchDraw(canvas);
 		if (mHeaderViewVisible) {

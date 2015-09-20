@@ -10,12 +10,10 @@ import com.clark.utils.R;
 
 import android.app.Activity;
 import android.content.Context;
-import android.content.Intent;
 import android.os.Bundle;
 import android.webkit.WebChromeClient;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
-import android.widget.Toast;
 
 public class WebJsLocalInteractionActivity extends Activity {
 

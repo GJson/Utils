@@ -7,6 +7,7 @@ import android.graphics.Color;
 import android.os.Bundle;
 import android.view.Gravity;
 import android.view.View;
+import android.view.ViewGroup.LayoutParams;
 import android.widget.TableLayout;
 import android.widget.TableRow;
 import android.widget.TextView;
@@ -33,8 +34,8 @@ public class StretchViewActivity extends Activity {
 
     public void showTable() {
         TableRow.LayoutParams layoutParams = new TableRow.LayoutParams(
-                TableRow.LayoutParams.MATCH_PARENT,
-                TableRow.LayoutParams.WRAP_CONTENT);
+                LayoutParams.MATCH_PARENT,
+                LayoutParams.WRAP_CONTENT);
         layoutParams.gravity = Gravity.CENTER;
         layoutParams.leftMargin = 30;
         layoutParams.bottomMargin = 10;

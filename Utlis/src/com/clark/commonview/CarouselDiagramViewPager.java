@@ -23,43 +23,44 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 
 /**
- * ×Ô¶¨ÒåµÄ¿É¹ö¶¯µÄviewpager
+ * ï¿½Ô¶ï¿½ï¿½ï¿½Ä¿É¹ï¿½ï¿½ï¿½ï¿½ï¿½viewpager
  */
 @SuppressLint({ "HandlerLeak", "ViewConstructor" })
 public class CarouselDiagramViewPager extends ViewPager {
 
 	private Context context;
-	// ¿É¹ö¶¯viewpagerµÄÍ¼Æ¬±êÌâ
+	// ï¿½É¹ï¿½ï¿½ï¿½viewpagerï¿½ï¿½Í¼Æ¬ï¿½ï¿½ï¿½ï¿½
 	// private TextView top_news_title;
-	// ±êÌâ£¬Í¼Æ¬£¬µãµÄÁÐ±íÈÝÆ÷
+	// ï¿½ï¿½ï¿½â£¬Í¼Æ¬ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ð±ï¿½ï¿½ï¿½ï¿½ï¿½
 	// private List<String> titleList;
-	// ÂÖ²¥Í¼Æ¬µÄÁ¬½ÓµØÖ·ÁÐ±í
+	// ï¿½Ö²ï¿½Í¼Æ¬ï¿½ï¿½ï¿½ï¿½ï¿½Óµï¿½Ö·ï¿½Ð±ï¿½
 	private List<KtvAdvertisementInfo> carouselDiagramList;
-	// ³õÊ¼»¯Ô²µãµÄÊÓÍ¼
+	// ï¿½ï¿½Ê¼ï¿½ï¿½Ô²ï¿½ï¿½ï¿½ï¿½ï¿½Í¼
 	private List<View> dotList;
-	// ÔËÐÐÈÎÎñ¶ÔÏó
+	// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 	private RunnableTask runnableTask;
-	// ÂÖ²¥Í¼µÄÊý¾ÝÊÊÅäÆ÷
+	// ï¿½Ö²ï¿½Í¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 	private MyPagerAdapter adapter;
-	// ÂÖ²¥Í¼µÄµ±Ç°Í¼Æ¬Î»ÖÃ
+	// ï¿½Ö²ï¿½Í¼ï¿½Äµï¿½Ç°Í¼Æ¬Î»ï¿½ï¿½
 	private int currentPosition;
-	// ÊÖÖ¸°´ÔÚÂÖ²¥Í¼ÉÏÊ±µÄÎ»ÖÃ
+	// ï¿½ï¿½Ö¸ï¿½ï¿½ï¿½ï¿½ï¿½Ö²ï¿½Í¼ï¿½ï¿½Ê±ï¿½ï¿½Î»ï¿½ï¿½
 	private int downX;
 	private int downY;
 
-	// ·µ»ØµÄÊÓÍ¼ÖÐµÄ¿Ø¼þ
+	// ï¿½ï¿½ï¿½Øµï¿½ï¿½ï¿½Í¼ï¿½ÐµÄ¿Ø¼ï¿½
 	private View layout_roll_view;
 	private LinearLayout ll_viewpager_container;
 	private LinearLayout ll_dots;
 
-	// viewpagerÖÐÒ»¸öÒ³Ãæ(ÌõÄ¿)±»µã»÷µÄ¼àÌýÆ÷
+	// viewpagerï¿½ï¿½Ò»ï¿½ï¿½Ò³ï¿½ï¿½(ï¿½ï¿½Ä¿)ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä¼ï¿½ï¿½ï¿½ï¿½ï¿½
 	private OnRollViewPagerItemClickListener itemClickListener;
 
 	private Handler handler = new Handler() {
+		@Override
 		public void handleMessage(android.os.Message msg) {
-			// ÉèÖÃµ±Ç°Ò³Í¼Æ¬£¬currentPositionÊýÖµµÄ¸üÐÂÔÚrun()·½·¨ÖÐ
+			// ï¿½ï¿½ï¿½Ãµï¿½Ç°Ò³Í¼Æ¬ï¿½ï¿½currentPositionï¿½ï¿½Öµï¿½Ä¸ï¿½ï¿½ï¿½ï¿½ï¿½run()ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 			CarouselDiagramViewPager.this.setCurrentItem(currentPosition);
-			// ±£³ÖÒ»Ö±È¥¹ö¶¯
+			// ï¿½ï¿½ï¿½ï¿½Ò»Ö±È¥ï¿½ï¿½ï¿½ï¿½
 			startRoll();
 		};
 	};
@@ -67,7 +68,7 @@ public class CarouselDiagramViewPager extends ViewPager {
 	public CarouselDiagramViewPager(Context context,
 			List<KtvAdvertisementInfo> carourseDiagramList) {
 		super(context);
-		// ³õÊ¼»¯Êý¾Ý
+		// ï¿½ï¿½Ê¼ï¿½ï¿½ï¿½ï¿½ï¿½
 		this.context = context;
 		this.carouselDiagramList = carourseDiagramList;
 		initData();
@@ -77,35 +78,35 @@ public class CarouselDiagramViewPager extends ViewPager {
 			List<KtvAdvertisementInfo> carourseDiagramList,
 			OnRollViewPagerItemClickListener itemClickListener) {
 		super(context);
-		// ³õÊ¼»¯Êý¾Ý
+		// ï¿½ï¿½Ê¼ï¿½ï¿½ï¿½ï¿½ï¿½
 		this.context = context;
 		this.carouselDiagramList = carourseDiagramList;
-		// ³õÊ¼»¯Í¼Æ¬µã»÷¼àÌý¶ÔÏó
+		// ï¿½ï¿½Ê¼ï¿½ï¿½Í¼Æ¬ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 		this.itemClickListener = itemClickListener;
 		initData();
 	}
 
 	private void initData() {
-		// ³õÊ¼»¯¿ÉÔËÐÐÈÎÎñ¶ÔÏó
+		// ï¿½ï¿½Ê¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 		runnableTask = new RunnableTask();
-		// ÉèÖÃÍ¼Æ¬±ä»¯µÄ¼àÌýÊÂ¼þ
+		// ï¿½ï¿½ï¿½ï¿½Í¼Æ¬ï¿½ä»¯ï¿½Ä¼ï¿½ï¿½ï¿½ï¿½Â¼ï¿½
 		this.setOnPageChangeListener(new OnPageChangeListener() {
 
 			@Override
 			public void onPageSelected(int position) {
-				// Èç¹û´«ÈëµÄimageUrlListÎª¿Õ»òÕß´óÐ¡Îª0£¬Ôò²»ÔÙ½øÐÐºóÐø²Ù×÷
+				// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½imageUrlListÎªï¿½Õ»ï¿½ï¿½ß´ï¿½Ð¡Îª0ï¿½ï¿½ï¿½ï¿½ï¿½Ù½ï¿½ï¿½Ðºï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 				if (carouselDiagramList == null
 						|| carouselDiagramList.size() == 0) {
 					return;
 				}
-				// µ±Ê¹ÓÃÊÖÖ¸»¬¶¯viewpagerÊ±£¬Í£ÁôÔÚÄÄ¸öÎ»ÖÃ¾Í½«currentPositionÉèÖÃÎªÄÄ¸öÎ»ÖÃ£¬ÕâÑùËÉ¿ªÊÖºó¾Í¿ÉÒÔÒÔµ±Ç°Î»ÖÃ¿ªÊ¼¹ö¶¯ÁË¡£
+				// ï¿½ï¿½Ê¹ï¿½ï¿½ï¿½ï¿½Ö¸ï¿½ï¿½ï¿½ï¿½viewpagerÊ±ï¿½ï¿½Í£ï¿½ï¿½ï¿½ï¿½ï¿½Ä¸ï¿½Î»ï¿½Ã¾Í½ï¿½currentPositionï¿½ï¿½ï¿½ï¿½Îªï¿½Ä¸ï¿½Î»ï¿½Ã£ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½É¿ï¿½ï¿½Öºï¿½Í¿ï¿½ï¿½ï¿½ï¿½Ôµï¿½Ç°Î»ï¿½Ã¿ï¿½Ê¼ï¿½ï¿½ï¿½ï¿½ï¿½Ë¡ï¿½
 				Log.i("info", "onPageSelected===>" + position);
 				currentPosition = position;
-				// ¸ù¾Ýµ±Ç°Í¼Æ¬¸üÐÂ±êÌâºÍ±êÖ¾
+				// ï¿½ï¿½Ýµï¿½Ç°Í¼Æ¬ï¿½ï¿½ï¿½Â±ï¿½ï¿½ï¿½Í±ï¿½Ö¾
 				// top_news_title.setText(titleList.get(position));
-				// ½«positonµÄÖµ´Ó¶¨ÒåµÄÊýÖµÖÐ¼äµÄÄ³¸öÖµ×ª»¯Îª0-carouselDiagramList.size()Ö®¼äµÄÄ³¸öÖµ£¬ÕâÑù²ÅÄÜÕÒµ½¶ÔÓ¦µÄ×ÊÔ´
+				// ï¿½ï¿½positonï¿½ï¿½Öµï¿½Ó¶ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Öµï¿½Ð¼ï¿½ï¿½Ä³ï¿½ï¿½Öµ×ªï¿½ï¿½Îª0-carouselDiagramList.size()Ö®ï¿½ï¿½ï¿½Ä³ï¿½ï¿½Öµï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Òµï¿½ï¿½ï¿½Ó¦ï¿½ï¿½ï¿½ï¿½Ô´
 				position = position % carouselDiagramList.size();
-				for (int i = 0; i < carouselDiagramList.size(); i++) {// ÉèÖÃÔ²µãµÄ±³¾°ÎªÑ¡ÖÐ×´Ì¬
+				for (int i = 0; i < carouselDiagramList.size(); i++) {// ï¿½ï¿½ï¿½ï¿½Ô²ï¿½ï¿½Ä±ï¿½ï¿½ï¿½ÎªÑ¡ï¿½ï¿½×´Ì¬
 					if (position == i) {
 						CarouselDiagramViewPager.this.dotList.get(i)
 								.setBackgroundResource(R.drawable.dot_focus);
@@ -132,23 +133,23 @@ public class CarouselDiagramViewPager extends ViewPager {
 	// public void initTitle(List<String> titleList, TextView top_news_title) {
 	// this.titleList = titleList;
 	// this.top_news_title = top_news_title;
-	// //ÉèÖÃµÚÒ»´Î½øÈëÒ³ÃæÊ±µÄÍ¼Æ¬±êÌâÐÅÏ¢
+	// //ï¿½ï¿½ï¿½Ãµï¿½Ò»ï¿½Î½ï¿½ï¿½ï¿½Ò³ï¿½ï¿½Ê±ï¿½ï¿½Í¼Æ¬ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ï¢
 	// if(titleList != null && titleList.size() > 0 && top_news_title != null){
 	// top_news_title.setText(titleList.get(0));
 	// }
 	// }
 
 	/**
-	 * ³õÊ¼»¯²¼¾ÖÖÐÏÂ²¿µÄÔ²µãÊÓÍ¼
+	 * ï¿½ï¿½Ê¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Â²ï¿½ï¿½ï¿½Ô²ï¿½ï¿½ï¿½ï¿½Í¼
 	 * 
 	 * @param ll_dots
-	 *            ÐèÒª·ÅÖÃÔ²µãµÄÏßÐÔ²¼¾Ö
+	 *            ï¿½ï¿½Òªï¿½ï¿½ï¿½ï¿½Ô²ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ô²ï¿½ï¿½ï¿½
 	 */
 	public void initDot(LinearLayout ll_dots) {
-		// Çå³ý²¼¾ÖÖÐËùÓÐÊÓÍ¼¶ÔÏó
+		// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Í¼ï¿½ï¿½ï¿½ï¿½
 		ll_dots.removeAllViews();
 		dotList = new ArrayList<View>();
-		// ½«ËùÓÐµÄµã¼ÓÈëµ½²¼¾ÖÎÄ¼þ¶ÔÏóÖÐ
+		// ï¿½ï¿½ï¿½ï¿½ï¿½ÐµÄµï¿½ï¿½ï¿½ëµ½ï¿½ï¿½ï¿½ï¿½ï¿½Ä¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 		for (int i = 0; i < carouselDiagramList.size(); i++) {
 			View view = new View(context);
 			if (i == 0) {
@@ -156,10 +157,10 @@ public class CarouselDiagramViewPager extends ViewPager {
 			} else {
 				view.setBackgroundResource(R.drawable.dot_normal);
 			}
-			// ÉèÖÃdotµÄ´óÐ¡ºÍ¼ä¾à
+			// ï¿½ï¿½ï¿½ï¿½dotï¿½Ä´ï¿½Ð¡ï¿½Í¼ï¿½ï¿½
 			LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(
 					Utils.dip2px(context, 6), Utils.dip2px(context, 6));
-			// ×îºóÒ»¸öµãÓÒ²à²»Ìî³ä4¸öÏñËØ
+			// ï¿½ï¿½ï¿½Ò»ï¿½ï¿½ï¿½ï¿½ï¿½Ò²à²»ï¿½ï¿½ï¿½4ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 			if (i == (carouselDiagramList.size() - 1)) {
 				params.setMargins(Utils.dip2px(context, 4), 0, 0, 0);
 			} else {
@@ -167,28 +168,28 @@ public class CarouselDiagramViewPager extends ViewPager {
 						Utils.dip2px(context, 4), 0);
 			}
 			view.setLayoutParams(params);
-			// ½«dot¼ÓÈëÏßÐÔ²¼¾Ö¶ÔÏóÖÐ
+			// ï¿½ï¿½dotï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ô²ï¿½ï¿½Ö¶ï¿½ï¿½ï¿½ï¿½ï¿½
 			ll_dots.addView(view);
-			// ½«µã¶ÔÏó¼ÓÈëµ½ÈÝÆ÷ÖÐ£¬µ±Í¼Æ¬¸Ä±äÊ±£¬¿ÉÒÔÍ¨¹ýµãµÄÁÐ±í¸Ä±äµãµÄÖ¸Ê¾×´Ì¬
+			// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ëµ½ï¿½ï¿½ï¿½ï¿½ï¿½Ð£ï¿½ï¿½ï¿½Í¼Æ¬ï¿½Ä±ï¿½Ê±ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Í¨ï¿½ï¿½ï¿½ï¿½ï¿½Ð±ï¿½Ä±ï¿½ï¿½ï¿½Ö¸Ê¾×´Ì¬
 			dotList.add(view);
 		}
 	}
 
 	/**
-	 * ¿ªÊ¼ÂÖ²¥
+	 * ï¿½ï¿½Ê¼ï¿½Ö²ï¿½
 	 * 
 	 */
 	public void startRoll() {
-		// µ÷ÓÃÈÎÎñrun·½·¨£¬¸üÐÂµ±Ç°Ò³ÃæË÷Òý£¬Ïòhandler·¢ËÍÏûÏ¢£¬ÉèÖÃµ±Ç°µ±Ç°Í¼Æ¬£¬½øÐÐÂÖ²¥Í¼Æ¬
+		// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½runï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Âµï¿½Ç°Ò³ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½handlerï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ï¢ï¿½ï¿½ï¿½ï¿½ï¿½Ãµï¿½Ç°ï¿½ï¿½Ç°Í¼Æ¬ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ö²ï¿½Í¼Æ¬
 		handler.postDelayed(runnableTask, 4000);
 	}
 
 	/**
-	 * Í£Ö¹ÂÖ²¥ ¿ÉÒÔÔÚActivityµÄonPause()·½·¨ÖÐµ÷ÓÃ´Ë·½·¨,Í£Ö¹ÂÖ²¥,µ±Activity»Ö¸´µÄÊ±ºò¿ÉÒÔÔÚonResume()·½·¨ÖÐµ÷ÓÃ
-	 * ¿ªÊ¼ÂÖ²¥µÄ·½·¨startRoll();
+	 * Í£Ö¹ï¿½Ö²ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Activityï¿½ï¿½onPause()ï¿½ï¿½ï¿½ï¿½ï¿½Ðµï¿½ï¿½Ã´Ë·ï¿½ï¿½ï¿½,Í£Ö¹ï¿½Ö²ï¿½,ï¿½ï¿½Activityï¿½Ö¸ï¿½ï¿½ï¿½Ê±ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½onResume()ï¿½ï¿½ï¿½ï¿½ï¿½Ðµï¿½ï¿½ï¿½
+	 * ï¿½ï¿½Ê¼ï¿½Ö²ï¿½ï¿½Ä·ï¿½ï¿½ï¿½startRoll();
 	 */
 	public void stopRoll() {
-		// ÒÆ³ýµ±Ç°handlerÖÐËùÓÐÎ¬»¤µÄÈÎÎñ
+		// ï¿½Æ³ï¿½Ç°handlerï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Î¬ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 		if (this != null) {
 			if (handler != null) {
 				handler.removeCallbacksAndMessages(null);
@@ -200,9 +201,9 @@ public class CarouselDiagramViewPager extends ViewPager {
 
 		@Override
 		public void run() {
-			// ½«µ±Ç°Í¼Æ¬Ë÷ÒýÎ»ÖÃÖµ×ª»¯ÎªÏÂÒ»Ò³µÄË÷ÒýÖµ
+			// ï¿½ï¿½ï¿½ï¿½Ç°Í¼Æ¬ï¿½ï¿½ï¿½ï¿½Î»ï¿½ï¿½Öµ×ªï¿½ï¿½Îªï¿½ï¿½Ò»Ò³ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Öµ
 			currentPosition++;
-			// Ïòhandler·¢ËÍÒ»Ìõ¿ÕÐÅÏ¢
+			// ï¿½ï¿½handlerï¿½ï¿½ï¿½ï¿½Ò»ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ï¢
 			handler.obtainMessage().sendToTarget();
 		}
 
@@ -213,42 +214,42 @@ public class CarouselDiagramViewPager extends ViewPager {
 		// TODO
 		switch (ev.getAction()) {
 		case MotionEvent.ACTION_DOWN:
-			// ÇëÇóÍâ²ãview²»ÒªÀ¹½Ø¸ÃviewpagerµÄ»¬¶¯ÊÂ¼þ
+			// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½viewï¿½ï¿½Òªï¿½ï¿½ï¿½Ø¸ï¿½viewpagerï¿½Ä»ï¿½ï¿½ï¿½ï¿½Â¼ï¿½
 			this.getParent().requestDisallowInterceptTouchEvent(true);
-			// ¼ÇÂ¼µ±Ç°°´ÏÂµÄµã×ø±ê
+			// ï¿½ï¿½Â¼ï¿½ï¿½Ç°ï¿½ï¿½ï¿½ÂµÄµï¿½ï¿½ï¿½ï¿½
 			downX = (int) ev.getX();
 			downY = (int) ev.getY();
-			// µ±²¼¾Ö±»°´ÏÂµÄÊ±ºòÍ£Ö¹ÂÖ²¥
+			// ï¿½ï¿½ï¿½ï¿½ï¿½Ö±ï¿½ï¿½ï¿½ï¿½Âµï¿½Ê±ï¿½ï¿½Í£Ö¹ï¿½Ö²ï¿½
 			stopRoll();
 			break;
 		case MotionEvent.ACTION_MOVE:
 			int moveX = (int) ev.getX();
 			int moveY = (int) ev.getY();
 			if (Math.abs(moveX - downX) > Math.abs(moveY - downY)) {
-				// Ë®Æ½·½ÏòÎ»ÒÆ´óÓÚÊúÖ±·½ÏòÎ»ÒÆ£¬ÇëÇó¸¸view²»ÒªÀ¹½Ø¸ÃviewpagerµÄ×óÓÒ»¬¶¯²Ù×÷
+				// Ë®Æ½ï¿½ï¿½ï¿½ï¿½Î»ï¿½Æ´ï¿½ï¿½ï¿½ï¿½ï¿½Ö±ï¿½ï¿½ï¿½ï¿½Î»ï¿½Æ£ï¿½ï¿½ï¿½ï¿½ï¿½viewï¿½ï¿½Òªï¿½ï¿½ï¿½Ø¸ï¿½viewpagerï¿½ï¿½ï¿½ï¿½ï¿½Ò»ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 				this.getParent().requestDisallowInterceptTouchEvent(true);
 			} else {
-				// ÊúÖ±·½ÏòÎ»ÒÆ´óÓÚË®Æ½·½ÏòÎ»ÒÆ£¬ÇëÇó¸¸viewÀ¹½Ø¸ÃviewpagerµÄ×óÓÒ»¬¶¯²Ù×÷
+				// ï¿½ï¿½Ö±ï¿½ï¿½ï¿½ï¿½Î»ï¿½Æ´ï¿½ï¿½ï¿½Ë®Æ½ï¿½ï¿½ï¿½ï¿½Î»ï¿½Æ£ï¿½ï¿½ï¿½ï¿½ï¿½viewï¿½ï¿½ï¿½Ø¸ï¿½viewpagerï¿½ï¿½ï¿½ï¿½ï¿½Ò»ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 				this.getParent().requestDisallowInterceptTouchEvent(false);
 			}
 			break;
 		case MotionEvent.ACTION_UP:
-			// µ±²¼¾Ö±»ËÉ¿ªµÄÊ±ºò¿ªÊ¼ÂÖ²¥
+			// ï¿½ï¿½ï¿½ï¿½ï¿½Ö±ï¿½ï¿½É¿ï¿½ï¿½ï¿½Ê±ï¿½ï¿½Ê¼ï¿½Ö²ï¿½
 			startRoll();
 			break;
 		}
 		return super.dispatchTouchEvent(ev);
 	}
 
-	// ´Ó½çÃæÖÐÒÆ³öÈ¥ºóµ÷ÓÃµÄ·½·¨
+	// ï¿½Ó½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ³ï¿½È¥ï¿½ï¿½ï¿½ï¿½ÃµÄ·ï¿½ï¿½ï¿½
 	@Override
 	protected void onDetachedFromWindow() {
-		// Í£Ö¹ÂÖ²¥
+		// Í£Ö¹ï¿½Ö²ï¿½
 		stopRoll();
 		super.onDetachedFromWindow();
 	}
 
-	// ÂÖ²¥Í¼µÄÊý¾ÝÊÊÅäÆ÷
+	// ï¿½Ö²ï¿½Í¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 	class MyPagerAdapter extends PagerAdapter {
 		// TODO
 		@Override
@@ -258,30 +259,30 @@ public class CarouselDiagramViewPager extends ViewPager {
 
 		@Override
 		public Object instantiateItem(ViewGroup container, int position) {
-			// Èç¹û´«ÈëµÄimageUrlListÎª¿Õ»òÕß´óÐ¡Îª0£¬Ôò²»ÔÙ½øÐÐºóÐø²Ù×÷
+			// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½imageUrlListÎªï¿½Õ»ï¿½ï¿½ß´ï¿½Ð¡Îª0ï¿½ï¿½ï¿½ï¿½ï¿½Ù½ï¿½ï¿½Ðºï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 			if (carouselDiagramList == null || carouselDiagramList.size() == 0) {
 				return null;
 			}
-			// ½«positonµÄÖµ´Ó21ÒÚÖÐ¼äµÄÄ³¸öÖµ×ª»¯Îª0-imageUrlList.size()Ö®¼äµÄÄ³¸öÖµ£¬ÕâÑù²ÅÄÜÕÒµ½¶ÔÓ¦µÄ×ÊÔ´
+			// ï¿½ï¿½positonï¿½ï¿½Öµï¿½ï¿½21ï¿½ï¿½ï¿½Ð¼ï¿½ï¿½Ä³ï¿½ï¿½Öµ×ªï¿½ï¿½Îª0-imageUrlList.size()Ö®ï¿½ï¿½ï¿½Ä³ï¿½ï¿½Öµï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Òµï¿½ï¿½ï¿½Ó¦ï¿½ï¿½ï¿½ï¿½Ô´
 			int newPosition = position % carouselDiagramList.size();
 			Log.i("info",
-					"instantiateItem  ÖÐ======> ¶ÔÓ¦¼¯ºÏ×ø±ê:" + newPosition
+					"instantiateItem  ï¿½ï¿½======> ï¿½ï¿½Ó¦ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½:" + newPosition
 							+ ",position=" + position + ",currentPosition="
-							+ currentPosition + "***ÊµÀý»¯µÄÍ¼Æ¬Î»ÖÃ**"
+							+ currentPosition + "***Êµï¿½ï¿½ï¿½Í¼Æ¬Î»ï¿½ï¿½**"
 							+ carouselDiagramList.get(newPosition).pic_id);
-			// ÄÃµ½µ±Ç°ÂÖ²¥Í¼¶ÔÏó
+			// ï¿½Ãµï¿½ï¿½ï¿½Ç°ï¿½Ö²ï¿½Í¼ï¿½ï¿½ï¿½ï¿½
 			KtvAdvertisementInfo carouselDiagram = carouselDiagramList
 					.get(newPosition);
-			// ½«ÂÖ²¥Í¼µÄµ¥¸öÍ¼µÄ²¼¾ÖÎÄ¼þ×ª»¯Îªview¶ÔÏó
+			// ï¿½ï¿½ï¿½Ö²ï¿½Í¼ï¿½Äµï¿½ï¿½ï¿½Í¼ï¿½Ä²ï¿½ï¿½ï¿½ï¿½Ä¼ï¿½×ªï¿½ï¿½Îªviewï¿½ï¿½ï¿½ï¿½
 			View view = View.inflate(context, R.layout.item_poster, null);
-			// °ó¶¨¿Ø¼þ
+			// ï¿½ó¶¨¿Ø¼ï¿½
 			ImageView imageView = (ImageView) view.findViewById(R.id.iv);
-			// Ê¹ÓÃBitmapUtilÍ¨¹ýÍ¼Æ¬url¼ÓÔØ³öÍ¼Æ¬£¬ÉèÖÃ½øimageViewÖÐ
+			// Ê¹ï¿½ï¿½BitmapUtilÍ¨ï¿½ï¿½Í¼Æ¬urlï¿½ï¿½ï¿½Ø³ï¿½Í¼Æ¬ï¿½ï¿½ï¿½ï¿½ï¿½Ã½ï¿½imageViewï¿½ï¿½
 			ImageLoader.getInstance().displayImage(carouselDiagram.pic_url,
 					imageView);
-			// ½«¸ÃÍ¼Æ¬¼ÓÈëviewpagerÖÐ
+			// ï¿½ï¿½ï¿½ï¿½Í¼Æ¬ï¿½ï¿½ï¿½ï¿½viewpagerï¿½ï¿½
 			container.addView(view);
-			// ÉèÖÃ¸ÃÍ¼Æ¬µÄµã»÷¼àÌýÊÂ¼þ
+			// ï¿½ï¿½ï¿½Ã¸ï¿½Í¼Æ¬ï¿½Äµï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Â¼ï¿½
 			view.setOnTouchListener(new OnTouchListener() {
 				// TODO
 				private int downX;
@@ -291,19 +292,19 @@ public class CarouselDiagramViewPager extends ViewPager {
 				public boolean onTouch(View v, MotionEvent event) {
 					switch (event.getAction()) {
 					case MotionEvent.ACTION_DOWN:
-						// µ±Êó±êµãÔÚÍ¼Æ¬ÉÏÊ±£¬È¡ÏûhandlerËùÓÐÈÎÎñ£¬¼´Í£Ö¹ÂÖ²¥Í¼µÄ×Ô¶¯¹ö¶¯
+						// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Í¼Æ¬ï¿½ï¿½Ê±ï¿½ï¿½È¡ï¿½ï¿½handlerï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ñ£¬¼ï¿½Í£Ö¹ï¿½Ö²ï¿½Í¼ï¿½ï¿½ï¿½Ô¶ï¿½ï¿½ï¿½ï¿½ï¿½
 						downX = (int) event.getX();
 						downTime = System.currentTimeMillis();
 						Log.i("info",
 								"onTouch*******************************ACTION_DOWN");
 						break;
 					case MotionEvent.ACTION_UP:
-						// µ±Êó±êÀë¿ªÍ¼Æ¬Ê±£¬ÅÐ¶ÏÊÇ´¥Ãþ²Ù×÷»¹ÊÇµã»÷ÊÂ¼þ
+						// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ë¿ªÍ¼Æ¬Ê±ï¿½ï¿½ï¿½Ð¶ï¿½ï¿½Ç´ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Çµï¿½ï¿½ï¿½Â¼ï¿½
 						int upX = (int) event.getX();
 						long upTime = System.currentTimeMillis();
-						// Èç¹û°´ÏÂºÍÀë¿ªÔÚÒ»¸öÎ»ÖÃ£¬ÇÐ¼ä¸ôÐ¡ÓÚ500ms,¼´Îªµã»÷ÊÂ¼þ
+						// ï¿½ï¿½ï¿½ï¿½Âºï¿½ï¿½ë¿ªï¿½ï¿½Ò»ï¿½ï¿½Î»ï¿½Ã£ï¿½ï¿½Ð¼ï¿½ï¿½Ð¡ï¿½ï¿½500ms,ï¿½ï¿½Îªï¿½ï¿½ï¿½ï¿½Â¼ï¿½
 						if (downX == upX && upTime - downTime < 500) {
-							// È·¶¨Îªµã»÷ÊÂ¼þ£¬ÒªÌø×ªµ½ÏêÇéÒ³Ãæ
+							// È·ï¿½ï¿½Îªï¿½ï¿½ï¿½ï¿½Â¼ï¿½ï¿½ï¿½Òªï¿½ï¿½×ªï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ò³ï¿½ï¿½
 							// Toast.makeText(context,
 							// "targetUrlList.get(position) = "+targetUrlList.get(newPosition),
 							// Toast.LENGTH_LONG).show();
@@ -318,17 +319,17 @@ public class CarouselDiagramViewPager extends ViewPager {
 								"onTouch********************************ACTION_UP");
 						break;
 					case MotionEvent.ACTION_CANCEL:
-						// viewpagerºÍÄÚ²¿Ç¶Ì×µÄviewµÄÊÂ¼þ½»»¥¹æÔò
-						// 1£¬°´ÏÂÊÂ¼þ×÷ÓÃÔÚÄÚ²¿viewÉÏ
-						// 2,µ±»¬¶¯ÉÔÐí¾àÀë£¬¼ÓËÙ¶ÈÎ´´ïµ½Ò»¶¨ÖµÊ±£¬¶ÔÓ¦»¬¶¯ÊÂ¼þ×÷ÓÃÔÚviewÉíÉÏ
-						// 3£¬µ±»¬¶¯´ïµ½Ò»¶¨¾àÀë£¬²¢ÇÒ¼ÓËÙ¶È´ïµ½Ò»¶¨Öµ£¬ÄÚ²¿µÄview´¥·¢cancelÊÂ¼þ(¶ø²»»á´¥·¢viewµÄupÊÂ¼þ)£¬È»ºó½«»¬¶¯µÄÊÂ¼þ·µ»¹¸ø¸¸¿Ø¼þ(ViewPager)
-						// µ±Êó±êÀë¿ªÍ¼Æ¬Ê±£¬¼ÌÐø¹ö¶¯ÂÖ²¥Í¼
+						// viewpagerï¿½ï¿½ï¿½Ú²ï¿½Ç¶ï¿½×µï¿½viewï¿½ï¿½ï¿½Â¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+						// 1ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Â¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ú²ï¿½viewï¿½ï¿½
+						// 2,ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ë£¬ï¿½ï¿½ï¿½Ù¶ï¿½Î´ï¿½ïµ½Ò»ï¿½ï¿½ÖµÊ±ï¿½ï¿½ï¿½ï¿½Ó¦ï¿½ï¿½ï¿½ï¿½ï¿½Â¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½viewï¿½ï¿½ï¿½ï¿½
+						// 3ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ïµ½Ò»ï¿½ï¿½ï¿½ï¿½ï¿½ë£¬ï¿½ï¿½ï¿½Ò¼ï¿½ï¿½Ù¶È´ïµ½Ò»ï¿½ï¿½Öµï¿½ï¿½ï¿½Ú²ï¿½ï¿½ï¿½viewï¿½ï¿½ï¿½ï¿½cancelï¿½Â¼ï¿½(ï¿½ï¿½á´¥ï¿½ï¿½viewï¿½ï¿½upï¿½Â¼ï¿½)ï¿½ï¿½È»ï¿½ó½«»ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Â¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ø¼ï¿½(ViewPager)
+						// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ë¿ªÍ¼Æ¬Ê±ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ö²ï¿½Í¼
 						// startRoll();
 						Log.i("info",
 								"onTouch*********************************ACTION_CANCEL");
 						break;
 					}
-					// ·µ»Øtrue±íÊ¾µ±Ç°¿Ø¼þÏìÓ¦¸ÃÊÂ¼þ£¬²»ÔÚ½øÐÐÊÂ¼þ·Ö·¢
+					// ï¿½ï¿½ï¿½ï¿½trueï¿½ï¿½Ê¾ï¿½ï¿½Ç°ï¿½Ø¼ï¿½ï¿½ï¿½Ó¦ï¿½ï¿½ï¿½Â¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ú½ï¿½ï¿½ï¿½ï¿½Â¼ï¿½ï¿½Ö·ï¿½
 					return true;
 				}
 			});
@@ -347,55 +348,55 @@ public class CarouselDiagramViewPager extends ViewPager {
 
 	}
 
-	// µÃµ½ÂÖ²¥Í¼µÄÊÓÍ¼¶ÔÏó
+	// ï¿½Ãµï¿½ï¿½Ö²ï¿½Í¼ï¿½ï¿½ï¿½ï¿½Í¼ï¿½ï¿½ï¿½ï¿½
 	public View getView() {
-		// Èç¹û´«ÈëµÄimageUrlListÎª¿Õ»òÕß´óÐ¡Îª0£¬Ôò·µ»ØÒ»¸ö¿ÕµÄview
+		// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½imageUrlListÎªï¿½Õ»ï¿½ï¿½ß´ï¿½Ð¡Îª0ï¿½ï¿½ï¿½ò·µ»ï¿½Ò»ï¿½ï¿½ï¿½Õµï¿½view
 		if (carouselDiagramList == null || carouselDiagramList.size() == 0) {
 			return new View(context);
 		}
-		// ½«ÂÖ²¥Í¼µÄ²¼¾ÖÎÄ¼þ×ª»¯ÎªView¶ÔÏó
+		// ï¿½ï¿½ï¿½Ö²ï¿½Í¼ï¿½Ä²ï¿½ï¿½ï¿½ï¿½Ä¼ï¿½×ªï¿½ï¿½ÎªViewï¿½ï¿½ï¿½ï¿½
 		layout_roll_view = View.inflate(context,
 				R.layout.layout_roll_viewpager, null);
 		ll_viewpager_container = (LinearLayout) layout_roll_view
 				.findViewById(R.id.ll_viewpager_container);
 		ll_dots = (LinearLayout) layout_roll_view.findViewById(R.id.ll_dots);
-		// ³õÊ¼»¯¿É¹ö¶¯µÄviewpagerµÄÏà¹ØÐÅÏ¢(Í¼Æ¬£¬±êÌâ£¬±êÖ¾dot)
+		// ï¿½ï¿½Ê¼ï¿½ï¿½ï¿½É¹ï¿½ï¿½ï¿½ï¿½ï¿½viewpagerï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ï¢(Í¼Æ¬ï¿½ï¿½ï¿½ï¿½ï¿½â£¬ï¿½ï¿½Ö¾dot)
 		initDot(ll_dots);
 
-		// Çå³ý¶¥²¿²¼¾ÖÊÓÍ¼£¬½«ÂÖ²¥Í¼Æ¬Ìí¼Óµ½Í·²¿²¼¾ÖÎÄ¼þÖÐ
+		// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Í¼ï¿½ï¿½ï¿½ï¿½ï¿½Ö²ï¿½Í¼Æ¬ï¿½ï¿½Óµï¿½Í·ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä¼ï¿½ï¿½ï¿½
 		ll_viewpager_container.removeAllViews();
 		ll_viewpager_container.addView(this);
 
-		// ¿ªÊ¼¹ö¶¯ÂÖ²¥Í¼
+		// ï¿½ï¿½Ê¼ï¿½ï¿½ï¿½ï¿½ï¿½Ö²ï¿½Í¼
 		if (adapter == null) {
 			adapter = new MyPagerAdapter();
 			this.setAdapter(adapter);
 		} else {
-			// ÖØÐÂÉèÖÃÊý¾ÝÊÊÅäÆ÷£¬getCount--->instantiateItem
+			// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½getCount--->instantiateItem
 			adapter.notifyDataSetChanged();
 		}
 
-		// ÈÃÒ³Ãæ´Ó×ÜÊýÖ®¼äµÄÖµ¿ªÊ¼£¬¿ÉÒÔ½øÐÐ×óÓÒÑ­»·»¬¶¯£¬²»¹ýÒªÈ·±£µÚÒ»´Î¿ªÊ¼µÄÊýÊÇimageList.size()µÄ±¶Êý£¬Ö»ÓÐ°ÑÈ¡Ä£ºóµÄÖµ¼õÈ¥¼´¿É
+		// ï¿½ï¿½Ò³ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ö®ï¿½ï¿½ï¿½Öµï¿½ï¿½Ê¼ï¿½ï¿½ï¿½ï¿½ï¿½Ô½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ñ­ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ÒªÈ·ï¿½ï¿½ï¿½ï¿½Ò»ï¿½Î¿ï¿½Ê¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½imageList.size()ï¿½Ä±ï¿½ï¿½ï¿½Ö»ï¿½Ð°ï¿½È¡Ä£ï¿½ï¿½ï¿½Öµï¿½ï¿½È¥ï¿½ï¿½ï¿½ï¿½
 		currentPosition = carouselDiagramList.size() * 1000;
-		Log.i("info", "getView==µ±Ç°×ø±ê==>" + currentPosition);
+		Log.i("info", "getView==ï¿½ï¿½Ç°ï¿½ï¿½ï¿½==>" + currentPosition);
 		this.setCurrentItem(currentPosition);
 		startRoll();
 		return layout_roll_view;
 	}
 
-	// ¸ù¾ÝÂÖ²¥Í¼ËùÕ¼ÆÁÄ»µÄÈ¨ÖØµÃµ½¶ÔÓ¦µÄÊÓÍ¼¶ÔÏó
+	// ï¿½ï¿½ï¿½ï¿½Ö²ï¿½Í¼ï¿½ï¿½Õ¼ï¿½ï¿½Ä»ï¿½ï¿½È¨ï¿½ØµÃµï¿½ï¿½ï¿½Ó¦ï¿½ï¿½ï¿½ï¿½Í¼ï¿½ï¿½ï¿½ï¿½
 	public View getViewByWeight(int weight, int totalWeight) {
-		// Èç¹û´«ÈëµÄimageUrlListÎª¿Õ»òÕß´óÐ¡Îª0£¬Ôò·µ»ØÒ»¸ö¿ÕµÄview
+		// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½imageUrlListÎªï¿½Õ»ï¿½ï¿½ß´ï¿½Ð¡Îª0ï¿½ï¿½ï¿½ò·µ»ï¿½Ò»ï¿½ï¿½ï¿½Õµï¿½view
 		if (carouselDiagramList == null || carouselDiagramList.size() == 0) {
 			return new View(context);
 		}
-		// ½«ÂÖ²¥Í¼µÄ²¼¾ÖÎÄ¼þ×ª»¯ÎªView¶ÔÏó
+		// ï¿½ï¿½ï¿½Ö²ï¿½Í¼ï¿½Ä²ï¿½ï¿½ï¿½ï¿½Ä¼ï¿½×ªï¿½ï¿½ÎªViewï¿½ï¿½ï¿½ï¿½
 		layout_roll_view = View.inflate(context,
 				R.layout.layout_roll_viewpager, null);
 		ll_viewpager_container = (LinearLayout) layout_roll_view
 				.findViewById(R.id.ll_viewpager_container);
 
-		// ¸ù¾ÝÈ¨ÖØÉèÖÃÂÖ²¥Í¼µÄ¸ß¶È
+		// ï¿½ï¿½ï¿½È¨ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ö²ï¿½Í¼ï¿½Ä¸ß¶ï¿½
 		int screenHeight = BaseTools.getWindowsHeight((Activity) context);
 		android.widget.RelativeLayout.LayoutParams layoutParams = (android.widget.RelativeLayout.LayoutParams) ll_viewpager_container
 				.getLayoutParams();
@@ -403,25 +404,25 @@ public class CarouselDiagramViewPager extends ViewPager {
 		ll_viewpager_container.setLayoutParams(layoutParams);
 
 		ll_dots = (LinearLayout) layout_roll_view.findViewById(R.id.ll_dots);
-		// ³õÊ¼»¯¿É¹ö¶¯µÄviewpagerµÄÏà¹ØÐÅÏ¢(Í¼Æ¬£¬±êÌâ£¬±êÖ¾dot)
+		// ï¿½ï¿½Ê¼ï¿½ï¿½ï¿½É¹ï¿½ï¿½ï¿½ï¿½ï¿½viewpagerï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ï¢(Í¼Æ¬ï¿½ï¿½ï¿½ï¿½ï¿½â£¬ï¿½ï¿½Ö¾dot)
 		initDot(ll_dots);
 
-		// Çå³ý¶¥²¿²¼¾ÖÊÓÍ¼£¬½«ÂÖ²¥Í¼Æ¬Ìí¼Óµ½Í·²¿²¼¾ÖÎÄ¼þÖÐ
+		// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Í¼ï¿½ï¿½ï¿½ï¿½ï¿½Ö²ï¿½Í¼Æ¬ï¿½ï¿½Óµï¿½Í·ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä¼ï¿½ï¿½ï¿½
 		ll_viewpager_container.removeAllViews();
 		ll_viewpager_container.addView(this);
 
-		// ¿ªÊ¼¹ö¶¯ÂÖ²¥Í¼
+		// ï¿½ï¿½Ê¼ï¿½ï¿½ï¿½ï¿½ï¿½Ö²ï¿½Í¼
 		startRoll();
-		// ¿ÉÒÔ½øÐÐ×óÓÒÑ­»·»¬¶¯£¬²»¹ýÒªÈ·±£µÚÒ»´Î¿ªÊ¼µÄÊýÊÇcarouselDiagramList.size()µÄ±¶Êý
+		// ï¿½ï¿½ï¿½Ô½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ñ­ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ÒªÈ·ï¿½ï¿½ï¿½ï¿½Ò»ï¿½Î¿ï¿½Ê¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½carouselDiagramList.size()ï¿½Ä±ï¿½ï¿½ï¿½
 		currentPosition = carouselDiagramList.size() * 1000;
 		this.setCurrentItem(currentPosition);
 
 		return layout_roll_view;
 	}
 
-	// Ö®ËùÒÔ¶¨ÒåÒ»¸ö½Ó¿Ú£¬¾ÍÊÇÎªÁËÈÃÊ¹ÓÃ¸ÃRollViewPagerÀàµÄÀà£¬ÔÚnew¶ÔÏóÊ±£¬±ØÐëÊµÏÖ¸Ã½Ó¿Ú²¢ÖØÐ´ÄÚ²¿µÄclick·½·¨
+	// Ö®ï¿½ï¿½ï¿½Ô¶ï¿½ï¿½ï¿½Ò»ï¿½ï¿½ï¿½Ó¿Ú£ï¿½ï¿½ï¿½ï¿½ï¿½Îªï¿½ï¿½ï¿½ï¿½Ê¹ï¿½Ã¸ï¿½RollViewPagerï¿½ï¿½ï¿½ï¿½à£¬ï¿½ï¿½newï¿½ï¿½ï¿½ï¿½Ê±ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Êµï¿½Ö¸Ã½Ó¿Ú²ï¿½ï¿½ï¿½Ð´ï¿½Ú²ï¿½ï¿½ï¿½clickï¿½ï¿½ï¿½ï¿½
 	public interface OnRollViewPagerItemClickListener {
-		// ±ØÐëÊµÏÖ½Ó¿ÚÖÐ·½·¨£¬¶ÔÓ¦¾ÍÊÇÍâ²ãÒµÎñÂß¼­
+		// ï¿½ï¿½ï¿½ï¿½Êµï¿½Ö½Ó¿ï¿½ï¿½Ð·ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ó¦ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Òµï¿½ï¿½ï¿½ß¼ï¿½
 		void click(KtvAdvertisementInfo carouselDiagram);
 	}
 

@@ -19,7 +19,6 @@ import android.util.Log;
 import android.view.KeyEvent;
 import android.view.View;
 import android.widget.AdapterView;
-import android.widget.Toast;
 import android.widget.AdapterView.OnItemClickListener;
 import android.widget.ListView;
 
@@ -35,17 +34,17 @@ public class MainActivity extends Activity implements OnItemClickListener {
 		NOR, DD, DDD, DDDD
 	};
 
-	public void enumTest(FAIL type){
-		 switch (type) {
+	public void enumTest(FAIL type) {
+		switch (type) {
 		case NOR:
-			
+
 			break;
 
 		default:
 			break;
 		}
-		 
-	 }
+
+	}
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -120,12 +119,13 @@ public class MainActivity extends Activity implements OnItemClickListener {
 		mListStrs.add("LongToShortUrlActivity");
 		mListStrs.add("ChatRongYunActivity");
 		mListStrs.add("AutoScrollViewPageAvtivity");
+		mListStrs.add("RippleActivity");
 	}
 
 	@Override
 	public void onItemClick(AdapterView<?> arg0, View arg1, int positon,
 			long arg3) {
-		if (positon > 10)
+		if (positon > 11)
 			return;
 		Intent intent = new Intent();
 		switch (positon) {
@@ -163,6 +163,8 @@ public class MainActivity extends Activity implements OnItemClickListener {
 		case 10:
 			intent.setClass(mContext, AutoScrollViewPageAvtivity.class);
 			break;
+		case 11:
+			intent.setClass(mContext, RippleActivity.class);
 		default:
 			break;
 		}

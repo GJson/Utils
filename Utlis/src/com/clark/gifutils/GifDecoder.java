@@ -8,13 +8,13 @@ import android.graphics.Bitmap.Config;
 
 public class GifDecoder extends Thread {
 
-	/** ×´Ì¬£ºÕýÔÚ½âÂëÖÐ */
+	/** ×´Ì¬ï¿½ï¿½ï¿½ï¿½ï¿½Ú½ï¿½ï¿½ï¿½ï¿½ï¿½ */
 	public static final int STATUS_PARSING = 0;
-	/** ×´Ì¬£ºÍ¼Æ¬¸ñÊ½´íÎó */
+	/** ×´Ì¬ï¿½ï¿½Í¼Æ¬ï¿½ï¿½Ê½ï¿½ï¿½ï¿½ï¿½ */
 	public static final int STATUS_FORMAT_ERROR = 1;
-	/** ×´Ì¬£º´ò¿ªÊ§°Ü */
+	/** ×´Ì¬ï¿½ï¿½ï¿½ï¿½Ê§ï¿½ï¿½ */
 	public static final int STATUS_OPEN_ERROR = 2;
-	/** ×´Ì¬£º½âÂë³É¹¦ */
+	/** ×´Ì¬ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½É¹ï¿½ */
 	public static final int STATUS_FINISH = -1;
 
 	private InputStream in;
@@ -84,6 +84,7 @@ public class GifDecoder extends Thread {
 		action = act;
 	}
 
+	@Override
 	public void run() {
 		if (in != null) {
 			readStream();
@@ -93,7 +94,7 @@ public class GifDecoder extends Thread {
 	}
 
 	/**
-	 * ÊÍ·Å×ÊÔ´
+	 * ï¿½Í·ï¿½ï¿½ï¿½Ô´
 	 */
 	public void free() {
 		GifFrame fg = gifFrame;
@@ -114,7 +115,7 @@ public class GifDecoder extends Thread {
 	}
 
 	/**
-	 * µ±Ç°×´Ì¬
+	 * ï¿½ï¿½Ç°×´Ì¬
 	 * 
 	 * @return
 	 */
@@ -123,20 +124,20 @@ public class GifDecoder extends Thread {
 	}
 
 	/**
-	 * ½âÂëÊÇ·ñ³É¹¦£¬³É¹¦·µ»Øtrue
+	 * ï¿½ï¿½ï¿½ï¿½ï¿½Ç·ï¿½É¹ï¿½ï¿½ï¿½ï¿½É¹ï¿½ï¿½ï¿½ï¿½ï¿½true
 	 * 
-	 * @return ³É¹¦·µ»Øtrue£¬·ñÔò·µ»Øfalse
+	 * @return ï¿½É¹ï¿½ï¿½ï¿½ï¿½ï¿½trueï¿½ï¿½ï¿½ï¿½ï¿½ò·µ»ï¿½false
 	 */
 	public boolean parseOk() {
 		return status == STATUS_FINISH;
 	}
 
 	/**
-	 * È¡Ä³Ö¡µÄÑÓÊ±Ê±¼ä
+	 * È¡Ä³Ö¡ï¿½ï¿½ï¿½ï¿½Ê±Ê±ï¿½ï¿½
 	 * 
 	 * @param n
-	 *            µÚ¼¸Ö¡
-	 * @return ÑÓÊ±Ê±¼ä£¬ºÁÃë
+	 *            ï¿½Ú¼ï¿½Ö¡
+	 * @return ï¿½ï¿½Ê±Ê±ï¿½ä£¬ï¿½ï¿½ï¿½ï¿½
 	 */
 	public int getDelay(int n) {
 		delay = -1;
@@ -150,7 +151,7 @@ public class GifDecoder extends Thread {
 	}
 
 	/**
-	 * È¡ËùÓÐÖ¡µÄÑÓÊ±Ê±¼ä
+	 * È¡ï¿½ï¿½ï¿½ï¿½Ö¡ï¿½ï¿½ï¿½ï¿½Ê±Ê±ï¿½ï¿½
 	 * 
 	 * @return
 	 */
@@ -167,16 +168,16 @@ public class GifDecoder extends Thread {
 	}
 
 	/**
-	 * È¡×ÜÖ¡ Êý
+	 * È¡ï¿½ï¿½Ö¡ ï¿½ï¿½
 	 * 
-	 * @return Í¼Æ¬µÄ×ÜÖ¡Êý
+	 * @return Í¼Æ¬ï¿½ï¿½ï¿½ï¿½Ö¡ï¿½ï¿½
 	 */
 	public int getFrameCount() {
 		return frameCount;
 	}
 
 	/**
-	 * È¡µÚÒ»Ö¡Í¼Æ¬
+	 * È¡ï¿½ï¿½Ò»Ö¡Í¼Æ¬
 	 * 
 	 * @return
 	 */
@@ -257,7 +258,7 @@ public class GifDecoder extends Thread {
 				int sx = i * iw; // start of line in source
 				while (dx < dlim) {
 					// map color and insert in destination
-					int index = ((int) pixels[sx++]) & 0xff;
+					int index = (pixels[sx++]) & 0xff;
 					int c = act[index];
 					if (c != 0) {
 						dest[dx] = c;
@@ -270,11 +271,11 @@ public class GifDecoder extends Thread {
 	}
 
 	/**
-	 * È¡µÚ¼¸Ö¡µÄÍ¼Æ¬
+	 * È¡ï¿½Ú¼ï¿½Ö¡ï¿½ï¿½Í¼Æ¬
 	 * 
 	 * @param n
-	 *            Ö¡Êý
-	 * @return ¿É»­µÄÍ¼Æ¬£¬Èç¹ûÃ»ÓÐ´ËÖ¡»òÕß³ö´í£¬·µ»Ønull
+	 *            Ö¡ï¿½ï¿½
+	 * @return ï¿½É»ï¿½ï¿½ï¿½Í¼Æ¬ï¿½ï¿½ï¿½ï¿½ï¿½Ã»ï¿½Ð´ï¿½Ö¡ï¿½ï¿½ï¿½ß³ï¿½ï¿½?ï¿½ï¿½ï¿½ï¿½null
 	 */
 	public Bitmap getFrameImage(int n) {
 		GifFrame frame = getFrame(n);
@@ -285,19 +286,19 @@ public class GifDecoder extends Thread {
 	}
 
 	/**
-	 * È¡µ±Ç°Ö¡Í¼Æ¬
+	 * È¡ï¿½ï¿½Ç°Ö¡Í¼Æ¬
 	 * 
-	 * @return µ±Ç°Ö¡¿É»­µÄÍ¼Æ¬
+	 * @return ï¿½ï¿½Ç°Ö¡ï¿½É»ï¿½ï¿½ï¿½Í¼Æ¬
 	 */
 	public GifFrame getCurrentFrame() {
 		return currentFrame;
 	}
 
 	/**
-	 * È¡µÚ¼¸Ö¡£¬Ã¿Ö¡°üº¬ÁË¿É»­µÄÍ¼Æ¬ºÍÑÓÊ±Ê±¼ä
+	 * È¡ï¿½Ú¼ï¿½Ö¡ï¿½ï¿½Ã¿Ö¡ï¿½ï¿½ï¿½Ë¿É»ï¿½ï¿½ï¿½Í¼Æ¬ï¿½ï¿½ï¿½ï¿½Ê±Ê±ï¿½ï¿½
 	 * 
 	 * @param n
-	 *            Ö¡Êý
+	 *            Ö¡ï¿½ï¿½
 	 * @return
 	 */
 	public GifFrame getFrame(int n) {
@@ -315,16 +316,16 @@ public class GifDecoder extends Thread {
 	}
 
 	/**
-	 * ÖØÖÃ£¬½øÐÐ±¾²Ù×÷ºó£¬»áÖ±½Óµ½µÚÒ»Ö¡
+	 * ï¿½ï¿½ï¿½Ã£ï¿½ï¿½ï¿½ï¿½Ð±ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ó£¬»ï¿½Ö±ï¿½Óµï¿½ï¿½ï¿½Ò»Ö¡
 	 */
 	public void reset() {
 		currentFrame = gifFrame;
 	}
 
 	/**
-	 * ÏÂÒ»Ö¡£¬½øÐÐ±¾²Ù×÷ºó£¬Í¨¹ýgetCurrentFrameµÃµ½µÄÊÇÏÂÒ»Ö¡
+	 * ï¿½ï¿½Ò»Ö¡ï¿½ï¿½ï¿½ï¿½ï¿½Ð±ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Í¨ï¿½ï¿½getCurrentFrameï¿½Ãµï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ò»Ö¡
 	 * 
-	 * @return ·µ»ØÏÂÒ»Ö¡
+	 * @return ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ò»Ö¡
 	 */
 	public GifFrame next() {
 		if (isShow == false) {
@@ -427,7 +428,7 @@ public class GifDecoder extends Thread {
 						}
 						bi = 0;
 					}
-					datum += (((int) block[bi]) & 0xff) << bits;
+					datum += ((block[bi]) & 0xff) << bits;
 					bits += 8;
 					bi++;
 					count--;
@@ -465,7 +466,7 @@ public class GifDecoder extends Thread {
 					pixelStack[top++] = suffix[code];
 					code = prefix[code];
 				}
-				first = ((int) suffix[code]) & 0xff;
+				first = (suffix[code]) & 0xff;
 				// Add a new string to the string table,
 				if (available >= MaxStackSize) {
 					break;
@@ -555,9 +556,9 @@ public class GifDecoder extends Thread {
 			int i = 0;
 			int j = 0;
 			while (i < ncolors) {
-				int r = ((int) c[j++]) & 0xff;
-				int g = ((int) c[j++]) & 0xff;
-				int b = ((int) c[j++]) & 0xff;
+				int r = (c[j++]) & 0xff;
+				int g = (c[j++]) & 0xff;
+				int b = (c[j++]) & 0xff;
 				tab[i++] = 0xff000000 | (r << 16) | (g << 8) | b;
 			}
 		}
@@ -714,8 +715,8 @@ public class GifDecoder extends Thread {
 			readBlock();
 			if (block[0] == 1) {
 				// loop count sub-block
-				int b1 = ((int) block[1]) & 0xff;
-				int b2 = ((int) block[2]) & 0xff;
+				int b1 = (block[1]) & 0xff;
+				int b2 = (block[2]) & 0xff;
 				loopCount = (b2 << 8) | b1;
 			}
 		} while ((blockSize > 0) && !err());

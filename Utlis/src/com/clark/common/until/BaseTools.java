@@ -3,6 +3,7 @@ package com.clark.common.until;
 import java.util.List;
 
 import android.app.Activity;
+import android.content.Context;
 import android.util.DisplayMetrics;
 import android.view.inputmethod.InputMethodManager;
 public class BaseTools {
@@ -21,9 +22,9 @@ public class BaseTools {
 	
 	
 	/**
-	 * @param list	µ±Ç°¼¯ºÏ
-	 * @param pageSize	Ã¿Ò³ÏÔÊ¾Êý¾ÝÌõÊý
-	 * @return	ÏÂÒ»Ò³µÄË÷ÒýÖµ
+	 * @param list	ï¿½ï¿½Ç°ï¿½ï¿½ï¿½ï¿½
+	 * @param pageSize	Ã¿Ò³ï¿½ï¿½Ê¾ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+	 * @return	ï¿½ï¿½Ò»Ò³ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Öµ
 	 * @author xuhui.han
 	 */
 	public static <T> int getRecordNextPageIndex(List<T> list, int pageSize){
@@ -35,11 +36,11 @@ public class BaseTools {
 	}
 	
 	/**
-	 * Òþ²ØÈí¼üÅÌ
+	 * ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 	 */
 	@SuppressWarnings("static-access")
 	public static void hideSoftInput(Activity activity){
-		InputMethodManager imm = ((InputMethodManager)activity.getSystemService(activity.INPUT_METHOD_SERVICE));
+		InputMethodManager imm = ((InputMethodManager)activity.getSystemService(Context.INPUT_METHOD_SERVICE));
 		imm.hideSoftInputFromWindow(activity.getCurrentFocus().getWindowToken(), InputMethodManager.HIDE_NOT_ALWAYS);
 	}
 }

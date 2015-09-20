@@ -16,17 +16,17 @@ import android.view.View;
 
 /**
  * GifView<br>
- * ±¾Àà¿ÉÒÔÏÔÊ¾Ò»¸ögif¶¯»­£¬ÆäÊ¹ÓÃ·½·¨ºÍandroidµÄÆäËüview£¨Èçimageview)Ò»Ñù¡£<br>
- * Èç¹ûÒªÏÔÊ¾µÄgifÌ«´ó£¬»á³öÏÖOOMµÄÎÊÌâ¡£
+ * ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ê¾Ò»ï¿½ï¿½gifï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ê¹ï¿½Ã·ï¿½ï¿½ï¿½ï¿½ï¿½androidï¿½ï¿½ï¿½ï¿½ï¿½ï¿½viewï¿½ï¿½ï¿½ï¿½imageview)Ò»ï¿½ï¿½<br>
+ * ï¿½ï¿½ï¿½Òªï¿½ï¿½Ê¾ï¿½ï¿½gifÌ«ï¿½ó£¬»ï¿½ï¿½ï¿½ï¿½OOMï¿½ï¿½ï¿½ï¿½ï¿½â¡£
  * 
  * @author liao
  * 
  */
 public class GifView extends View implements GifAction {
 
-	/** gif½âÂëÆ÷ */
+	/** gifï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ */
 	private GifDecoder gifDecoder = null;
-	/** µ±Ç°Òª»­µÄÖ¡µÄÍ¼ */
+	/** ï¿½ï¿½Ç°Òªï¿½ï¿½ï¿½ï¿½Ö¡ï¿½ï¿½Í¼ */
 	private Bitmap currentImage = null;
 
 	private boolean isRun = true;
@@ -42,23 +42,23 @@ public class GifView extends View implements GifAction {
 	private GifImageType animationType = GifImageType.SYNC_DECODER;
 
 	/**
-	 * ½âÂë¹ı³ÌÖĞ£¬Gif¶¯»­ÏÔÊ¾µÄ·½Ê½<br>
-	 * Èç¹ûÍ¼Æ¬½Ï´ó£¬ÄÇÃ´½âÂë¹ı³Ì»á±È½Ï³¤£¬Õâ¸ö½âÂë¹ı³ÌÖĞ£¬gifÈçºÎÏÔÊ¾
+	 * ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ğ£ï¿½Gifï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ê¾ï¿½Ä·ï¿½Ê½<br>
+	 * ï¿½ï¿½ï¿½Í¼Æ¬ï¿½Ï´ï¿½ï¿½ï¿½Ã´ï¿½ï¿½ï¿½ï¿½ï¿½Ì»ï¿½È½Ï³ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ğ£ï¿½gifï¿½ï¿½ï¿½ï¿½ï¿½Ê¾
 	 * 
 	 * @author liao
 	 * 
 	 */
 	public enum GifImageType {
 		/**
-		 * ÔÚ½âÂë¹ı³ÌÖĞ£¬²»ÏÔÊ¾Í¼Æ¬£¬Ö±µ½½âÂëÈ«²¿³É¹¦ºó£¬ÔÙÏÔÊ¾
+		 * ï¿½Ú½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ğ£ï¿½ï¿½ï¿½ï¿½ï¿½Ê¾Í¼Æ¬ï¿½ï¿½Ö±ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½È«ï¿½ï¿½ï¿½É¹ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ê¾
 		 */
 		WAIT_FINISH(0),
 		/**
-		 * ºÍ½âÂë¹ı³ÌÍ¬²½£¬½âÂë½øĞĞµ½ÄÄÀï£¬Í¼Æ¬ÏÔÊ¾µ½ÄÄÀï
+		 * ï¿½Í½ï¿½ï¿½ï¿½ï¿½ï¿½Í¬ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ğµï¿½ï¿½ï¿½ï¿½ï£¬Í¼Æ¬ï¿½ï¿½Ê¾ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 		 */
 		SYNC_DECODER(1),
 		/**
-		 * ÔÚ½âÂë¹ı³ÌÖĞ£¬Ö»ÏÔÊ¾µÚÒ»Ö¡Í¼Æ¬
+		 * ï¿½Ú½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ğ£ï¿½Ö»ï¿½ï¿½Ê¾ï¿½ï¿½Ò»Ö¡Í¼Æ¬
 		 */
 		COVER(2);
 
@@ -84,10 +84,10 @@ public class GifView extends View implements GifAction {
 	}
 
 	/**
-	 * ÉèÖÃÍ¼Æ¬£¬²¢¿ªÊ¼½âÂë
+	 * ï¿½ï¿½ï¿½ï¿½Í¼Æ¬ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ê¼ï¿½ï¿½ï¿½ï¿½
 	 * 
 	 * @param gif
-	 *            ÒªÉèÖÃµÄÍ¼Æ¬
+	 *            Òªï¿½ï¿½ï¿½Ãµï¿½Í¼Æ¬
 	 */
 	private void setGifDecoderImage(byte[] gif) {
 		if (gifDecoder != null) {
@@ -99,10 +99,10 @@ public class GifView extends View implements GifAction {
 	}
 
 	/**
-	 * ÉèÖÃÍ¼Æ¬£¬¿ªÊ¼½âÂë
+	 * ï¿½ï¿½ï¿½ï¿½Í¼Æ¬ï¿½ï¿½ï¿½ï¿½Ê¼ï¿½ï¿½ï¿½ï¿½
 	 * 
 	 * @param is
-	 *            ÒªÉèÖÃµÄÍ¼Æ¬
+	 *            Òªï¿½ï¿½ï¿½Ãµï¿½Í¼Æ¬
 	 */
 	private void setGifDecoderImage(InputStream is) {
 		if (gifDecoder != null) {
@@ -114,7 +114,7 @@ public class GifView extends View implements GifAction {
 	}
 
 	/**
-	 * ÒÔ×Ö½ÚÊı¾İĞÎÊ½ÉèÖÃgifÍ¼Æ¬
+	 * ï¿½ï¿½ï¿½Ö½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ê½ï¿½ï¿½ï¿½ï¿½gifÍ¼Æ¬
 	 * 
 	 * @param gif
 	 *            Í¼Æ¬
@@ -124,7 +124,7 @@ public class GifView extends View implements GifAction {
 	}
 
 	/**
-	 * ÒÔ×Ö½ÚÁ÷ĞÎÊ½ÉèÖÃgifÍ¼Æ¬
+	 * ï¿½ï¿½ï¿½Ö½ï¿½ï¿½ï¿½ï¿½ï¿½Ê½ï¿½ï¿½ï¿½ï¿½gifÍ¼Æ¬
 	 * 
 	 * @param is
 	 *            Í¼Æ¬
@@ -134,10 +134,10 @@ public class GifView extends View implements GifAction {
 	}
 
 	/**
-	 * ÒÔ×ÊÔ´ĞÎÊ½ÉèÖÃgifÍ¼Æ¬
+	 * ï¿½ï¿½ï¿½ï¿½Ô´ï¿½ï¿½Ê½ï¿½ï¿½ï¿½ï¿½gifÍ¼Æ¬
 	 * 
 	 * @param resId
-	 *            gifÍ¼Æ¬µÄ×ÊÔ´ID
+	 *            gifÍ¼Æ¬ï¿½ï¿½ï¿½ï¿½Ô´ID
 	 */
 	public void setGifImage(int resId) {
 		Resources r = this.getResources();
@@ -145,6 +145,7 @@ public class GifView extends View implements GifAction {
 		setGifDecoderImage(is);
 	}
 
+	@Override
 	protected void onDraw(Canvas canvas) {
 		super.onDraw(canvas);
 		if (gifDecoder == null)
@@ -166,6 +167,7 @@ public class GifView extends View implements GifAction {
 		canvas.restoreToCount(saveCount);
 	}
 
+	@Override
 	protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
 		int pleft = getPaddingLeft();
 		int pright = getPaddingRight();
@@ -199,8 +201,8 @@ public class GifView extends View implements GifAction {
 	}
 
 	/**
-	 * Ö»ÏÔÊ¾µÚÒ»Ö¡Í¼Æ¬<br>
-	 * µ÷ÓÃ±¾·½·¨ºó£¬gif²»»áÏÔÊ¾¶¯»­£¬Ö»»áÏÔÊ¾gifµÄµÚÒ»Ö¡Í¼
+	 * Ö»ï¿½ï¿½Ê¾ï¿½ï¿½Ò»Ö¡Í¼Æ¬<br>
+	 * ï¿½ï¿½ï¿½Ã±ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½gifï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ê¾ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ö»ï¿½ï¿½ï¿½ï¿½Ê¾gifï¿½Äµï¿½Ò»Ö¡Í¼
 	 */
 	public void showCover() {
 		if (gifDecoder == null)
@@ -211,8 +213,8 @@ public class GifView extends View implements GifAction {
 	}
 
 	/**
-	 * ¼ÌĞøÏÔÊ¾¶¯»­<br>
-	 * ±¾·½·¨ÔÚµ÷ÓÃshowCoverºó£¬»áÈÃ¶¯»­¼ÌĞøÏÔÊ¾£¬Èç¹ûÃ»ÓĞµ÷ÓÃshowCover·½·¨£¬ÔòÃ»ÓĞÈÎºÎĞ§¹û
+	 * ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ê¾ï¿½ï¿½ï¿½ï¿½<br>
+	 * ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Úµï¿½ï¿½ï¿½showCoverï¿½ó£¬»ï¿½ï¿½Ã¶ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ê¾ï¿½ï¿½ï¿½ï¿½ï¿½Ã»ï¿½Ğµï¿½ï¿½ï¿½showCoverï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ã»ï¿½ï¿½ï¿½Îºï¿½Ğ§ï¿½ï¿½
 	 */
 	public void showAnimation() {
 		if (pause) {
@@ -221,11 +223,11 @@ public class GifView extends View implements GifAction {
 	}
 
 	/**
-	 * ÉèÖÃgifÔÚ½âÂë¹ı³ÌÖĞµÄÏÔÊ¾·½Ê½<br>
-	 * <strong>±¾·½·¨Ö»ÄÜÔÚsetGifImage·½·¨Ö®Ç°ÉèÖÃ£¬·ñÔòÉèÖÃÎŞĞ§</strong>
+	 * ï¿½ï¿½ï¿½ï¿½gifï¿½Ú½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ğµï¿½ï¿½ï¿½Ê¾ï¿½ï¿½Ê½<br>
+	 * <strong>ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ö»ï¿½ï¿½ï¿½ï¿½setGifImageï¿½ï¿½ï¿½ï¿½Ö®Ç°ï¿½ï¿½ï¿½Ã£ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ğ§</strong>
 	 * 
 	 * @param type
-	 *            ÏÔÊ¾·½Ê½
+	 *            ï¿½ï¿½Ê¾ï¿½ï¿½Ê½
 	 */
 	public void setGifImageType(GifImageType type) {
 		if (gifDecoder == null)
@@ -233,13 +235,13 @@ public class GifView extends View implements GifAction {
 	}
 
 	/**
-	 * ÉèÖÃÒªÏÔÊ¾µÄÍ¼Æ¬µÄ´óĞ¡<br>
-	 * µ±ÉèÖÃÁËÍ¼Æ¬´óĞ¡ Ö®ºó£¬»á°´ÕÕÉèÖÃµÄ´óĞ¡À´ÏÔÊ¾gif£¨°´ÉèÖÃºóµÄ´óĞ¡À´½øĞĞÀ­Éì»òÑ¹Ëõ£©
+	 * ï¿½ï¿½ï¿½ï¿½Òªï¿½ï¿½Ê¾ï¿½ï¿½Í¼Æ¬ï¿½Ä´ï¿½Ğ¡<br>
+	 * ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Í¼Æ¬ï¿½ï¿½Ğ¡ Ö®ï¿½ó£¬»á°´ï¿½ï¿½ï¿½ï¿½ï¿½ÃµÄ´ï¿½Ğ¡ï¿½ï¿½ï¿½ï¿½Ê¾gifï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ãºï¿½Ä´ï¿½Ğ¡ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ñ¹ï¿½ï¿½ï¿½ï¿½
 	 * 
 	 * @param width
-	 *            ÒªÏÔÊ¾µÄÍ¼Æ¬¿í
+	 *            Òªï¿½ï¿½Ê¾ï¿½ï¿½Í¼Æ¬ï¿½ï¿½
 	 * @param height
-	 *            ÒªÏÔÊ¾µÄÍ¼Æ¬¸ß
+	 *            Òªï¿½ï¿½Ê¾ï¿½ï¿½Í¼Æ¬ï¿½ï¿½
 	 */
 	public void setShowDimension(int width, int height) {
 		if (width > 0 && height > 0) {
@@ -253,13 +255,14 @@ public class GifView extends View implements GifAction {
 		}
 	}
 
+	@Override
 	public void parseOk(boolean parseStatus, int frameIndex) {
 		if (parseStatus) {
 			if (gifDecoder != null) {
 				switch (animationType) {
 				case WAIT_FINISH:
 					if (frameIndex == -1) {
-						if (gifDecoder.getFrameCount() > 1) { // µ±Ö¡Êı´óÓÚ1Ê±£¬Æô¶¯¶¯»­Ïß³Ì
+						if (gifDecoder.getFrameCount() > 1) { // ï¿½ï¿½Ö¡ï¿½ï¿½ï¿½ï¿½ï¿½1Ê±ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ß³ï¿½
 							DrawThread dt = new DrawThread();
 							dt.start();
 						} else {
@@ -312,18 +315,20 @@ public class GifView extends View implements GifAction {
 	}
 
 	private Handler redrawHandler = new Handler() {
+		@Override
 		public void handleMessage(Message msg) {
 			invalidate();
 		}
 	};
 
 	/**
-	 * ¶¯»­Ïß³Ì
+	 * ï¿½ï¿½ï¿½ï¿½ï¿½ß³ï¿½
 	 * 
 	 * @author liao
 	 * 
 	 */
 	private class DrawThread extends Thread {
+		@Override
 		public void run() {
 			if (gifDecoder == null) {
 				return;

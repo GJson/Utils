@@ -137,6 +137,7 @@ public class BladeView extends View {
 		}
 	};
 
+	@Override
 	public boolean onTouchEvent(MotionEvent event) {
 		return super.onTouchEvent(event);
 	}

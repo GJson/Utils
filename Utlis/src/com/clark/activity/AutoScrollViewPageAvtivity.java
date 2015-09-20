@@ -10,7 +10,6 @@ import com.clark.utils.R;
 import android.app.Activity;
 import android.os.Bundle;
 import android.widget.LinearLayout;
-import android.widget.LinearLayout.LayoutParams;
 
 public class AutoScrollViewPageAvtivity extends Activity {
 
@@ -39,12 +38,12 @@ public class AutoScrollViewPageAvtivity extends Activity {
 		// KtvAdvertisementInfo4.id="3";
 		// KtvAdvertisementInfo4.pic="http://img10.360buyimg.com/da/jfs/t829/348/344528143/40164/c4f7a1d9/551b629dN960d3b7c.jpg";
 		// KtvAdvertisementInfos.add(KtvAdvertisementInfo4);
-		// ´´½¨ÂÖ²¥µÄ×Ô¶¨ÒåView
+		// ï¿½ï¿½ï¿½ï¿½ï¿½Ö²ï¿½ï¿½ï¿½ï¿½Ô¶ï¿½ï¿½ï¿½View
 		CarouselDiagramViewPager viewPager = new CarouselDiagramViewPager(this,
 				KtvAdvertisementInfos);
-		// ½«ÂÖ²¥¿Ø¼þÖ±½Ó¼ÓÈëµ½ÏßÐÔ²¼¾ÖÖÐ
-		ll.addView(viewPager.getView(), LayoutParams.MATCH_PARENT,
-				LayoutParams.MATCH_PARENT);
+		// ï¿½ï¿½ï¿½Ö²ï¿½ï¿½Ø¼ï¿½Ö±ï¿½Ó¼ï¿½ï¿½ëµ½ï¿½ï¿½ï¿½Ô²ï¿½ï¿½ï¿½ï¿½ï¿½
+		ll.addView(viewPager.getView(), android.view.ViewGroup.LayoutParams.MATCH_PARENT,
+				android.view.ViewGroup.LayoutParams.MATCH_PARENT);
 
 	}
 }

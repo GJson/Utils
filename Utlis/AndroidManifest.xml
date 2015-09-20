@@ -4,7 +4,7 @@
     android:versionName="1.0" >
 
     <uses-sdk
-        android:minSdkVersion="11"
+        android:minSdkVersion="14"
         android:targetSdkVersion="14" />
 
     <uses-permission android:name="android.permission.INTERNET" />
@@ -84,6 +84,9 @@
             android:name="com.clark.activity.ChatRongYunActivity"
             android:label="@string/app_name" />
         <activity
+            android:name="com.clark.activity.RippleActivity"
+            android:label="@string/app_name" />
+        <activity
             android:name="com.clark.activity.ConversationActivity"
             android:label="@string/app_name" >
 
@@ -120,6 +123,7 @@
                 </data>
             </intent-filter>
         </activity>
+        
     </application>
 
 </manifest>

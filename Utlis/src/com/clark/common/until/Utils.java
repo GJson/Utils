@@ -1,6 +1,5 @@
 package com.clark.common.until;
 
-import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.regex.Matcher;
@@ -12,7 +11,6 @@ import android.content.SharedPreferences.Editor;
 import android.content.pm.ApplicationInfo;
 import android.content.pm.PackageManager;
 import android.content.pm.PackageManager.NameNotFoundException;
-import android.location.Location;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
 
@@ -31,7 +29,7 @@ public class Utils {
 
 	public static String logStringCache = "";
 
-	// »ñÈ¡ApiKey
+	// ï¿½ï¿½È¡ApiKey
 	public static String getMetaValue(Context context, String metaKey) {
 		Bundle metaData = null;
 		String apiKey = null;
@@ -54,7 +52,7 @@ public class Utils {
 		return apiKey;
 	}
 
-	// ÓÃshare preferenceÀ´ÊµÏÖÊÇ·ñ°ó¶¨µÄ¿ª¹Ø¡£ÔÚionBindÇÒ³É¹¦Ê±ÉèÖÃtrue£¬unBindÇÒ³É¹¦Ê±ÉèÖÃfalse
+	// ï¿½ï¿½share preferenceï¿½ï¿½Êµï¿½ï¿½ï¿½Ç·ï¿½ó¶¨µÄ¿ï¿½ï¿½Ø¡ï¿½ï¿½ï¿½ionBindï¿½Ò³É¹ï¿½Ê±ï¿½ï¿½ï¿½ï¿½trueï¿½ï¿½unBindï¿½Ò³É¹ï¿½Ê±ï¿½ï¿½ï¿½ï¿½false
 	public static boolean hasBind(Context context) {
 		SharedPreferences sp = PreferenceManager
 				.getDefaultSharedPreferences(context);
@@ -65,7 +63,7 @@ public class Utils {
 		return false;
 	}
 
-	// ÅÐ¶ÏÊÇ·ñÊÇÊÖ»úºÅ
+	// ï¿½Ð¶ï¿½ï¿½Ç·ï¿½ï¿½ï¿½ï¿½Ö»ï¿½ï¿½
 	public static boolean isMobileNum(String mobiles) {
 		Pattern p = Pattern
 				.compile("^[1]([0-8]{1}[0-9]{1}|59|58|88|89)[0-9]{8}");
@@ -121,7 +119,7 @@ public class Utils {
 
 
 	/**
-	 * ¸ù¾ÝÊÖ»úµÄ·Ö±æÂÊ´Ó dp µÄµ¥Î» ×ª³ÉÎª px(ÏñËØ)
+	 * ï¿½ï¿½ï¿½ï¿½Ö»ï¿½Ä·Ö±ï¿½ï¿½Ê´ï¿½ dp ï¿½Äµï¿½Î» ×ªï¿½ï¿½Îª px(ï¿½ï¿½ï¿½ï¿½)
 	 */
 	public static int dip2px(Context context, float dpValue) {
 		final float scale = context.getResources().getDisplayMetrics().density;
@@ -129,7 +127,7 @@ public class Utils {
 	}
 
 	/**
-	 * ¸ù¾ÝÊÖ»úµÄ·Ö±æÂÊ´Ó px(ÏñËØ) µÄµ¥Î» ×ª³ÉÎª dp
+	 * ï¿½ï¿½ï¿½ï¿½Ö»ï¿½Ä·Ö±ï¿½ï¿½Ê´ï¿½ px(ï¿½ï¿½ï¿½ï¿½) ï¿½Äµï¿½Î» ×ªï¿½ï¿½Îª dp
 	 */
 	public static int px2dip(Context context, float pxValue) {
 		final float scale = context.getResources().getDisplayMetrics().density;

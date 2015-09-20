@@ -21,31 +21,31 @@ import android.widget.ListAdapter;
 import android.widget.ListView;
 
 /**
- * listviewÍ·Í¼Æ¬ÏÂÀ­·Å´ó£¬ Ê¹ÓÃÊ±Îñ±Øµ÷ÓÃ·½·¨setImageId»òsetImageBitmapÉèÖÃÍ¼Æ¬ ·ñÔò±¨´í Created by Roger
+ * listviewÍ·Í¼Æ¬ï¿½ï¿½ï¿½ï¿½ï¿½Å´ï¿½ Ê¹ï¿½ï¿½Ê±ï¿½ï¿½Øµï¿½ï¿½Ã·ï¿½ï¿½ï¿½setImageIdï¿½ï¿½setImageBitmapï¿½ï¿½ï¿½ï¿½Í¼Æ¬ ï¿½ï¿½ï¿½ò±¨´ï¿½ Created by Roger
  * on 14-4-30.
  */
 public class ImgListView extends ListView {
 
 	private static final int BACK_SCALE = 0;
-	private boolean isHaveHead = false;// Í·²¿ÊÇ·ñÓÐÍ¼Æ¬
+	private boolean isHaveHead = false;// Í·ï¿½ï¿½ï¿½Ç·ï¿½ï¿½ï¿½Í¼Æ¬
 	private float scaleY = 0;
-	private boolean isBacking = false;// ÊÇ·ñ´¦ÔÚ»Øµ¯×´Ì¬
+	private boolean isBacking = false;// ï¿½Ç·ï¿½ï¿½Ú»Øµï¿½×´Ì¬
 	private int displayWidth;
 	private Context mContext;
 	private Bitmap bmp;
 	private View headerView;
 	private ImageView imageView;
-	/** ÓÃÓÚ¼ÇÂ¼ÍÏÀ­Í¼Æ¬ÒÆ¶¯µÄ×ø±êÎ»ÖÃ */
+	/** ï¿½ï¿½ï¿½Ú¼ï¿½Â¼ï¿½ï¿½ï¿½ï¿½Í¼Æ¬ï¿½Æ¶ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Î»ï¿½ï¿½ */
 	private Matrix matrix = new Matrix();
-	/** ÓÃÓÚ¼ÇÂ¼Í¼Æ¬Òª½øÐÐÍÏÀ­Ê±ºòµÄ×ø±êÎ»ÖÃ */
+	/** ï¿½ï¿½ï¿½Ú¼ï¿½Â¼Í¼Æ¬Òªï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ê±ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Î»ï¿½ï¿½ */
 	private Matrix currentMatrix = new Matrix();
 	private Matrix defaultMatrix = new Matrix();
 	private float imgHeight, imgWidth;
-	/** ¼ÇÂ¼ÊÇÍÏÀ­ÕÕÆ¬Ä£Ê½»¹ÊÇ·Å´óËõÐ¡ÕÕÆ¬Ä£Ê½ 0:ÍÏÀ­Ä£Ê½£¬1£º·Å´ó */
-	private int mode = 0;// ³õÊ¼×´Ì¬
-	/** ÍÏÀ­ÕÕÆ¬Ä£Ê½ */
+	/** ï¿½ï¿½Â¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ¬Ä£Ê½ï¿½ï¿½ï¿½Ç·Å´ï¿½ï¿½ï¿½Ð¡ï¿½ï¿½Æ¬Ä£Ê½ 0:ï¿½ï¿½ï¿½ï¿½Ä£Ê½ï¿½ï¿½1ï¿½ï¿½ï¿½Å´ï¿½ */
+	private int mode = 0;// ï¿½ï¿½Ê¼×´Ì¬
+	/** ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ¬Ä£Ê½ */
 	private final int MODE_DRAG = 1;
-	/** ÓÃÓÚ¼ÇÂ¼¿ªÊ¼Ê±ºòµÄ×ø±êÎ»ÖÃ */
+	/** ï¿½ï¿½ï¿½Ú¼ï¿½Â¼ï¿½ï¿½Ê¼Ê±ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Î»ï¿½ï¿½ */
 	private PointF startPoint = new PointF();
 
 	private int mImageId;
@@ -72,10 +72,12 @@ public class ImgListView extends ListView {
 		initView();
 	}
 
+	@Override
 	public void setAdapter(ListAdapter adapter) {
 		super.setAdapter(adapter);
 	}
 
+	@Override
 	public void addHeaderView(View v) {
 		super.addHeaderView(v);
 	}
@@ -96,10 +98,10 @@ public class ImgListView extends ListView {
 	}
 
 	/**
-	 * ³õÊ¼»¯Í¼Æ¬
+	 * ï¿½ï¿½Ê¼ï¿½ï¿½Í¼Æ¬
 	 */
 	private void initView() {
-		/* È¡µÃÆÁÄ»·Ö±æÂÊ´óÐ¡ */
+		/* È¡ï¿½ï¿½ï¿½ï¿½Ä»ï¿½Ö±ï¿½ï¿½Ê´ï¿½Ð¡ */
 		DisplayMetrics dm = new DisplayMetrics();
 		WindowManager mWm = (WindowManager) mContext.getSystemService(Context.WINDOW_SERVICE);
 		mWm.getDefaultDisplay().getMetrics(dm);
@@ -131,18 +133,19 @@ public class ImgListView extends ListView {
 	}
 
 	/**
-	 * ÏòÏÂ»¬¶¯ÈÃÍ¼Æ¬±ä´ó
+	 * ï¿½ï¿½ï¿½Â»ï¿½ï¿½ï¿½ï¿½ï¿½Í¼Æ¬ï¿½ï¿½ï¿½
 	 * 
 	 * @param event
 	 * @return
 	 */
+	@Override
 	public boolean onTouchEvent(MotionEvent event) {
 
-		if (!isHaveHead) {// ÎÞÍ·²¿Í¼Æ¬
+		if (!isHaveHead) {// ï¿½ï¿½Í·ï¿½ï¿½Í¼Æ¬
 			return super.onTouchEvent(event);
 		}
 		switch (event.getAction() & MotionEvent.ACTION_MASK) {
-		// ÊÖÖ¸Ñ¹ÏÂÆÁÄ»
+		// ï¿½ï¿½Ö¸Ñ¹ï¿½ï¿½ï¿½ï¿½Ä»
 		case MotionEvent.ACTION_DOWN:
 			if (isBacking) {
 				return super.onTouchEvent(event);
@@ -151,21 +154,21 @@ public class ImgListView extends ListView {
 			imageView.getLocationInWindow(location);
 			if (location[1] >= 0) {
 				mode = MODE_DRAG;
-				// ¼ÇÂ¼ImageViewµ±Ç°µÄÒÆ¶¯Î»ÖÃ
+				// ï¿½ï¿½Â¼ImageViewï¿½ï¿½Ç°ï¿½ï¿½ï¿½Æ¶ï¿½Î»ï¿½ï¿½
 				currentMatrix.set(imageView.getImageMatrix());
 				startPoint.set(event.getX(), event.getY());
 			}
 			break;
-		// ÊÖÖ¸ÔÚÆÁÄ»ÉÏÒÆ¶¯£¬¸ÄÊÂ¼þ»á±»²»¶Ï´¥·¢
+		// ï¿½ï¿½Ö¸ï¿½ï¿½ï¿½ï¿½Ä»ï¿½ï¿½ï¿½Æ¶ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Â¼ï¿½ï¿½á±»ï¿½ï¿½ï¿½Ï´ï¿½ï¿½ï¿½
 		case MotionEvent.ACTION_MOVE:
-			// ÍÏÀ­Í¼Æ¬
+			// ï¿½ï¿½ï¿½ï¿½Í¼Æ¬
 			if (mode == MODE_DRAG) {
-				float dx = event.getX() - startPoint.x; // µÃµ½xÖáµÄÒÆ¶¯¾àÀë
-				float dy = event.getY() - startPoint.y; // µÃµ½yÖáµÄÒÆ¶¯¾àÀë
-				// ÔÚÃ»ÓÐÒÆ¶¯Ö®Ç°µÄÎ»ÖÃÉÏ½øÐÐÒÆ¶¯
+				float dx = event.getX() - startPoint.x; // ï¿½Ãµï¿½xï¿½ï¿½ï¿½ï¿½Æ¶ï¿½ï¿½ï¿½ï¿½ï¿½
+				float dy = event.getY() - startPoint.y; // ï¿½Ãµï¿½yï¿½ï¿½ï¿½ï¿½Æ¶ï¿½ï¿½ï¿½ï¿½ï¿½
+				// ï¿½ï¿½Ã»ï¿½ï¿½ï¿½Æ¶ï¿½Ö®Ç°ï¿½ï¿½Î»ï¿½ï¿½ï¿½Ï½ï¿½ï¿½ï¿½ï¿½Æ¶ï¿½
 				if (dy / 2 + imgHeight <= 1.5 * imgHeight) {
 					matrix.set(currentMatrix);
-					float scale = (dy / 2 + imgHeight) / (imgHeight);// µÃµ½Ëõ·Å±¶Êý
+					float scale = (dy / 2 + imgHeight) / (imgHeight);// ï¿½Ãµï¿½ï¿½ï¿½ï¿½Å±ï¿½ï¿½ï¿½
 					if (dy > 0) {
 						scaleY = dy;
 						ListView.LayoutParams relativeLayout = new ListView.LayoutParams((int) (scale * imgWidth), (int) (scale * imgHeight));
@@ -177,9 +180,9 @@ public class ImgListView extends ListView {
 				}
 			}
 			break;
-		// ÊÖÖ¸Àë¿ªÆÁÄ»
+		// ï¿½ï¿½Ö¸ï¿½ë¿ªï¿½ï¿½Ä»
 		case MotionEvent.ACTION_UP:
-			// µ±´¥µãÀë¿ªÆÁÄ»£¬Í¼Æ¬»¹Ô­
+			// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ë¿ªï¿½ï¿½Ä»ï¿½ï¿½Í¼Æ¬ï¿½ï¿½Ô­
 			mHandler.sendEmptyMessage(BACK_SCALE);
 		case MotionEvent.ACTION_POINTER_UP:
 			mode = 0;
@@ -195,7 +198,7 @@ public class ImgListView extends ListView {
 			// TODO Auto-generated method stub
 			switch (msg.what) {
 			case BACK_SCALE:
-				float scale = (scaleY / 2 + imgHeight) / (imgHeight);// µÃµ½Ëõ·Å±¶Êý
+				float scale = (scaleY / 2 + imgHeight) / (imgHeight);// ï¿½Ãµï¿½ï¿½ï¿½ï¿½Å±ï¿½ï¿½ï¿½
 				if (scaleY > 0) {
 					isBacking = true;
 					matrix.set(currentMatrix);
@@ -204,7 +207,7 @@ public class ImgListView extends ListView {
 					//scale----->1
 					matrix.postScale(1, scale, imgWidth / 2, 0);
 					imageView.setImageMatrix(matrix);
-					scaleY = (float) (scaleY / 2 - 1);
+					scaleY = scaleY / 2 - 1;
 					mHandler.sendEmptyMessageDelayed(BACK_SCALE, 20);
 				} else {
 					scaleY = 0;

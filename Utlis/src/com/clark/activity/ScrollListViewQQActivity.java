@@ -10,7 +10,6 @@ import android.app.Activity;
 import android.content.Context;
 import android.os.Bundle;
 import android.view.LayoutInflater;
-import android.view.Menu;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
@@ -31,7 +30,7 @@ public class ScrollListViewQQActivity extends Activity {
 		sNewsList = new ArrayList<String>();
 		geneItems();
 		sListView = (ImgListView) findViewById(R.id.xListView);
-//		sListView.setImageId(R.drawable.top_img);//��������Դ�ļ���ͨ�� imglistview:headimage="@drawable/top_img"   ����ͼƬ��Ҳ��ͨ���?
+//		sListView.setImageId(R.drawable.top_img);//��������Դ�ļ���ͨ�� imglistview:headimage="@drawable/top_img"   ����ͼƬ��Ҳ��ͨ���?
 		sNewsAdapter = new NewsAdapter();
 		sListView.setAdapter(sNewsAdapter);
 	}

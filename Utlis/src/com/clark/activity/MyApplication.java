@@ -1,7 +1,5 @@
 package com.clark.activity;
 
-import io.rong.imkit.RongIM;
-
 import java.io.File;
 
 import com.nostra13.universalimageloader.cache.disc.impl.UnlimitedDiscCache;
@@ -22,13 +20,13 @@ public class MyApplication extends Application {
 		super.onCreate();
 		initImageLoader(this, null);
 		/**
-		 * IMKit SDK ³õÊ¼»¯
+		 * IMKit SDK ï¿½ï¿½Ê¼ï¿½ï¿½
 		 */
 		// RongIM.init(this);
 	}
 
 	/**
-	 * ³õÊ¼»¯Í¼Æ¬¼ÓÔØÆ÷
+	 * ï¿½ï¿½Ê¼ï¿½ï¿½Í¼Æ¬ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 	 * 
 	 * @param mContext
 	 * @param defaultOptions
@@ -48,7 +46,7 @@ public class MyApplication extends Application {
 				.tasksProcessingOrder(QueueProcessingType.LIFO)
 				.memoryCache(new WeakMemoryCache())
 				.memoryCacheSize(3 * 1024 * 1024)
-				.discCacheSize(6 * 1024 * 1024).discCacheFileCount(100) // »º´æµÄÎÄ¼þÊýÁ¿
+				.discCacheSize(6 * 1024 * 1024).discCacheFileCount(100) // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä¼ï¿½ï¿½ï¿½ï¿½ï¿½
 				.discCache(new UnlimitedDiscCache(new File(getCachePath())))
 				/* .writeDebugLogs() */.build();
 
@@ -58,10 +56,10 @@ public class MyApplication extends Application {
 	public static String getCachePath() {
 		String sdDir = null;
 		boolean sdCardExist = Environment.getExternalStorageState().equals(
-				android.os.Environment.MEDIA_MOUNTED); // ÅÐ¶Ïsd¿¨ÊÇ·ñ´æÔÚ
+				android.os.Environment.MEDIA_MOUNTED); // ï¿½Ð¶ï¿½sdï¿½ï¿½ï¿½Ç·ï¿½ï¿½ï¿½ï¿½
 		if (sdCardExist) {
 			sdDir = Environment.getExternalStorageDirectory().getPath() + "/"
-					+ "catch";// »ñÈ¡¸úÄ¿Â¼
+					+ "catch";// ï¿½ï¿½È¡ï¿½ï¿½Ä¿Â¼
 		} else {
 			sdDir = "data/data/files/";
 		}
@@ -69,7 +67,7 @@ public class MyApplication extends Application {
 	}
 
 	/**
-	 * ´´½¨Í¼Æ¬²ÎÊý
+	 * ï¿½ï¿½ï¿½ï¿½Í¼Æ¬ï¿½ï¿½ï¿½ï¿½
 	 * 
 	 * @param mContext
 	 * @return

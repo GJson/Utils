@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:ripple="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+    <com.clark.view.RippleLayout
+        android:id="@+id/ripple_layout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        ripple:duration="3000"
+        ripple:radiuss="48dp"
+        ripple:rippleNums="4"
+        ripple:scale="4"
+        ripple:color="#f99b1e" >
+
+        <ImageView
+            android:id="@+id/centerImage"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:layout_centerInParent="true"
+            android:contentDescription="@string/app_name"
+            android:src="@drawable/mac_btn_mac_normal" />
+    </com.clark.view.RippleLayout>
+
+</LinearLayout>

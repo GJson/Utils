@@ -134,5 +134,13 @@
         <attr name="headerHeight" format="dimension" />
         <attr name="headerVisibleHeight" format="dimension" />
     </declare-styleable>
+    <declare-styleable name="RippleStyle">
+        <attr name="color" format="color" />
+        <attr name="duration" format="integer" />
+        <attr name="rippleNums" format="integer" />
+        <attr name="scale" format="float" />
+        <attr name="strokewidth" format="dimension" />
+        <attr name="radiuss" format="dimension" />
+    </declare-styleable>
 
 </resources>

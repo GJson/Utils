@@ -3,8 +3,6 @@ package com.clark.activity;
 import io.rong.imkit.RongIM;
 import io.rong.imlib.RongIMClient;
 
-import com.clark.common.until.ToastManager;
-
 import android.content.Context;
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
@@ -15,10 +13,11 @@ public class ChatRongYunActivity extends FragmentActivity {
 	private String tag = getClass().getName();
 	private Context mContext;
 	/**
-	 * ´ÓÄúµÄÓ¦ÓÃ·þÎñÆ÷ÇëÇó²¢»ñÈ¡µÄ Token¡£
+	 * ï¿½ï¿½ï¿½ï¿½ï¿½Ó¦ï¿½Ã·ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ó²¢»ï¿½È¡ï¿½ï¿½ Tokenï¿½ï¿½
 	 */
 	private String Token = "ABiJiw9kjm5JNKBqOueR1kmcbyeYIrXSDaacEOnpq4ALGp+0d48QDl1Qq02s3vO1S9Uvmgoceg==";
 
+	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 
 		super.onCreate(savedInstanceState);
@@ -26,19 +25,19 @@ public class ChatRongYunActivity extends FragmentActivity {
 		mContext = this;
 
 		/**
-		 * IMKit SDKµ÷ÓÃµÚ¶þ²½£¬½¨Á¢Óë·þÎñÆ÷µÄÁ¬½Ó¡£
+		 * IMKit SDKï¿½ï¿½ï¿½ÃµÚ¶ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ó¡ï¿½
 		 */
 		RongIM.connect(Token, new RongIMClient.ConnectCallback() {
 
 			@Override
 			public void onSuccess(String userId) {
-				// Connect ³É¹¦
+				// Connect ï¿½É¹ï¿½
 				Log.v(tag, "userid:" + userId);
 			}
 
 			@Override
 			public void onError(RongIMClient.ErrorCode error) {
-				// Connect Ê§°Ü
+				// Connect Ê§ï¿½ï¿½
 				Log.v(tag, "error:" + error.getMessage());
 			}
 		 

@@ -1,17 +1,14 @@
 package com.clark.activity;
 
 import com.clark.gifutils.GifView;
-import com.clark.gifutils.GifView.GifImageType;
 import com.clark.utils.R;
 
 import android.annotation.SuppressLint;
 import android.app.Activity;
-import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
 import android.view.View;
-import android.view.ViewOverlay;
 import android.view.View.OnClickListener;
 import android.view.ViewTreeObserver;
 import android.view.ViewTreeObserver.OnPreDrawListener;

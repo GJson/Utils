@@ -7,7 +7,7 @@ import android.view.MotionEvent;
 import android.widget.ScrollView;
 
 /**
- * ²©¿ÍµØÖ·:http://blog.csdn.net/zhuangyalei
+ * ï¿½ï¿½ï¿½Íµï¿½Ö·:http://blog.csdn.net/zhuangyalei
  * 
  * @author Gjson
  * 
@@ -15,7 +15,7 @@ import android.widget.ScrollView;
 public class MyScrollView extends ScrollView {
 	private OnScrollListener onScrollListener;
 	/**
-	 * Ö÷ÒªÊÇÓÃÔÚÓÃ»§ÊÖÖ¸Àë¿ªMyScrollView£¬MyScrollView»¹ÔÚ¼ÌÐø»¬¶¯£¬ÎÒÃÇÓÃÀ´±£´æYµÄ¾àÀë£¬È»ºó×ö±È½Ï
+	 * ï¿½ï¿½Òªï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ã»ï¿½ï¿½ï¿½Ö¸ï¿½ë¿ªMyScrollViewï¿½ï¿½MyScrollViewï¿½ï¿½ï¿½Ú¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Yï¿½Ä¾ï¿½ï¿½ë£¬È»ï¿½ï¿½ï¿½ï¿½ï¿½È½ï¿½
 	 */
 	private int lastScrollY;
 
@@ -32,7 +32,7 @@ public class MyScrollView extends ScrollView {
 	}
 
 	/**
-	 * ÉèÖÃ¹ö¶¯½Ó¿Ú
+	 * ï¿½ï¿½ï¿½Ã¹ï¿½ï¿½ï¿½ï¿½Ó¿ï¿½
 	 * 
 	 * @param onScrollListener
 	 */
@@ -41,14 +41,15 @@ public class MyScrollView extends ScrollView {
 	}
 
 	/**
-	 * ÓÃÓÚÓÃ»§ÊÖÖ¸Àë¿ªMyScrollViewµÄÊ±ºò»ñÈ¡MyScrollView¹ö¶¯µÄY¾àÀë£¬È»ºó»Øµ÷¸øonScroll·½·¨ÖÐ
+	 * ï¿½ï¿½ï¿½ï¿½ï¿½Ã»ï¿½ï¿½ï¿½Ö¸ï¿½ë¿ªMyScrollViewï¿½ï¿½Ê±ï¿½ï¿½ï¿½È¡MyScrollViewï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Yï¿½ï¿½ï¿½ë£¬È»ï¿½ï¿½Øµï¿½ï¿½ï¿½onScrollï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 	 */
 	private Handler handler = new Handler() {
 
+		@Override
 		public void handleMessage(android.os.Message msg) {
 			int scrollY = MyScrollView.this.getScrollY();
 
-			// ´ËÊ±µÄ¾àÀëºÍ¼ÇÂ¼ÏÂµÄ¾àÀë²»ÏàµÈ£¬ÔÚ¸ô5ºÁÃë¸øhandler·¢ËÍÏûÏ¢
+			// ï¿½ï¿½Ê±ï¿½Ä¾ï¿½ï¿½ï¿½Í¼ï¿½Â¼ï¿½ÂµÄ¾ï¿½ï¿½ë²»ï¿½ï¿½È£ï¿½ï¿½Ú¸ï¿½5ï¿½ï¿½ï¿½ï¿½ï¿½handlerï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ï¢
 			if (lastScrollY != scrollY) {
 				lastScrollY = scrollY;
 				handler.sendMessageDelayed(handler.obtainMessage(), 5);
@@ -62,10 +63,10 @@ public class MyScrollView extends ScrollView {
 	};
 
 	/**
-	 * ÖØÐ´onTouchEvent£¬ µ±ÓÃ»§µÄÊÖÔÚMyScrollViewÉÏÃæµÄÊ±ºò£¬
-	 * Ö±½Ó½«MyScrollView»¬¶¯µÄY·½Ïò¾àÀë»Øµ÷¸øonScroll·½·¨ÖÐ£¬µ±ÓÃ»§Ì§ÆðÊÖµÄÊ±ºò£¬
-	 * MyScrollView¿ÉÄÜ»¹ÔÚ»¬¶¯£¬ËùÒÔµ±ÓÃ»§Ì§ÆðÊÖÎÒÃÇ¸ô5ºÁÃë¸øhandler·¢ËÍÏûÏ¢£¬ÔÚhandler´¦Àí
-	 * MyScrollView»¬¶¯µÄ¾àÀë
+	 * ï¿½ï¿½Ð´onTouchEventï¿½ï¿½ ï¿½ï¿½ï¿½Ã»ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½MyScrollViewï¿½ï¿½ï¿½ï¿½ï¿½Ê±ï¿½ï¿½
+	 * Ö±ï¿½Ó½ï¿½MyScrollViewï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Yï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Øµï¿½ï¿½ï¿½onScrollï¿½ï¿½ï¿½ï¿½ï¿½Ð£ï¿½ï¿½ï¿½ï¿½Ã»ï¿½Ì§ï¿½ï¿½ï¿½Öµï¿½Ê±ï¿½ï¿½
+	 * MyScrollViewï¿½ï¿½ï¿½Ü»ï¿½ï¿½Ú»ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ôµï¿½ï¿½Ã»ï¿½Ì§ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ç¸ï¿½5ï¿½ï¿½ï¿½ï¿½ï¿½handlerï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ï¢ï¿½ï¿½ï¿½ï¿½handlerï¿½ï¿½ï¿½ï¿½
+	 * MyScrollViewï¿½ï¿½ï¿½ï¿½ï¿½Ä¾ï¿½ï¿½ï¿½
 	 */
 	@Override
 	public boolean onTouchEvent(MotionEvent ev) {
@@ -82,17 +83,17 @@ public class MyScrollView extends ScrollView {
 
 	/**
 	 * 
-	 * ¹ö¶¯µÄ»Øµ÷½Ó¿Ú
+	 * ï¿½ï¿½ï¿½ï¿½ï¿½Ä»Øµï¿½ï¿½Ó¿ï¿½
 	 * 
 	 * @author xiaanming
 	 * 
 	 */
 	public interface OnScrollListener {
 		/**
-		 * »Øµ÷·½·¨£¬ ·µ»ØMyScrollView»¬¶¯µÄY·½Ïò¾àÀë
+		 * ï¿½Øµï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½MyScrollViewï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Yï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 		 * 
 		 * @param scrollY
-		 *            ¡¢
+		 *            ï¿½ï¿½
 		 */
 		public void onScroll(int scrollY);
 	}
