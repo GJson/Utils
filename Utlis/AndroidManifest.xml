@@ -81,7 +81,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name="com.clark.activity.ChatRongYunActivity"
+            android:name="com.clark.activity.QuickReturnHeaderActivity"
             android:label="@string/app_name" />
         <activity
             android:name="com.clark.activity.RippleActivity"

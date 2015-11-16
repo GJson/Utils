@@ -117,7 +117,7 @@ public class MainActivity extends Activity implements OnItemClickListener {
 		mListStrs.add("ScrollListViewQQActivity");
 		mListStrs.add("OrmLiteBaseActivity");
 		mListStrs.add("LongToShortUrlActivity");
-		mListStrs.add("ChatRongYunActivity");
+		mListStrs.add("QuickReturnHeaderActivity");
 		mListStrs.add("AutoScrollViewPageAvtivity");
 		mListStrs.add("RippleActivity");
 	}
@@ -158,8 +158,8 @@ public class MainActivity extends Activity implements OnItemClickListener {
 			intent.setClass(mContext, LongUrlToShortUrlActivity.class);
 			break;
 		case 9:
-			intent.setClass(mContext, ChatRongYunActivity.class);
-			return;
+			intent.setClass(mContext, QuickReturnHeaderActivity.class);
+			break;
 		case 10:
 			intent.setClass(mContext, AutoScrollViewPageAvtivity.class);
 			break;
