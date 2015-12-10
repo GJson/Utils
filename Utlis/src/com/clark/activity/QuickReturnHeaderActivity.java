@@ -28,7 +28,7 @@ public class QuickReturnHeaderActivity extends Activity {
 		View view = helper.createView();
 		setContentView(view);
 
-		ListView listView = (ListView) findViewById(android.R.id.list);
+		ListView listView = (ListView) findViewById(R.id.lv);
 		ArrayAdapter<String> adapter = new ArrayAdapter<String>(this,
 				android.R.layout.simple_list_item_1, geneItems());
 		listView.setAdapter(adapter);

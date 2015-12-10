@@ -6,6 +6,7 @@ import java.util.List;
 import com.clark.utils.R;
 
 import android.content.Context;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -47,9 +48,11 @@ public class UlitlsListAdapter extends BaseAdapter {
 			viewHolder.mTxt = (TextView) convertview
 					.findViewById(R.id.tv_content);
 			convertview.setTag(viewHolder);
+		  Log.d("111","convertview == null position:"+position );
 
 		} else {
 			viewHolder = (ViewHolder) convertview.getTag();
+			Log.d("111","convertview not null position:"+position );
 		}
 		viewHolder.mTxt.setText(mListStrs.get(position));
 		return convertview;

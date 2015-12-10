@@ -93,7 +93,7 @@ public class QuickReturnHeaderHelper implements OnGlobalLayoutListener {
         realHeader.measure(widthMeasureSpec, heightMeasureSpec);
         headerHeight = realHeader.getMeasuredHeight();
 
-        listView = (ListView) content.findViewById(android.R.id.list);
+        listView = (ListView) content.findViewById(R.id.lv);
         if (listView != null) {
             createListView();
         } else {
