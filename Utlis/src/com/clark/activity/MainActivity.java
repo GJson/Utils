@@ -34,6 +34,8 @@ public class MainActivity extends Activity implements OnItemClickListener {
 		NOR, DD, DDD, DDDD
 	};
 
+	// FAIL e=FAIL.NOR;
+
 	public void enumTest(FAIL type) {
 		switch (type) {
 		case NOR:
@@ -49,12 +51,13 @@ public class MainActivity extends Activity implements OnItemClickListener {
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
+		// enumTest(e);
 		setContentView(R.layout.activity_main);
 		init();
 		testParenter();
 		int[] a = { 3, 1, 5, 7, 2, 4, 9, 6 };
 		insertsortmain(a);
-		enumTest(FAIL.NOR);
+		// enumTest(FAIL.NOR);
 	}
 
 	private void insertsortmain(int[] b) {

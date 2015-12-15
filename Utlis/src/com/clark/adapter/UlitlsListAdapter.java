@@ -48,17 +48,17 @@ public class UlitlsListAdapter extends BaseAdapter {
 			viewHolder.mTxt = (TextView) convertview
 					.findViewById(R.id.tv_content);
 			convertview.setTag(viewHolder);
-		  Log.d("111","convertview == null position:"+position );
+			// Log.d("111","convertview == null position:"+position );
 
 		} else {
 			viewHolder = (ViewHolder) convertview.getTag();
-			Log.d("111","convertview not null position:"+position );
+			// Log.d("111","convertview not null position:"+position );
 		}
 		viewHolder.mTxt.setText(mListStrs.get(position));
 		return convertview;
 	}
 
-	class ViewHolder {
+	static class ViewHolder {
 		TextView mTxt;
 	}
 }
