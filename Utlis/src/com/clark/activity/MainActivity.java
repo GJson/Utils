@@ -123,12 +123,14 @@ public class MainActivity extends Activity implements OnItemClickListener {
 		mListStrs.add("QuickReturnHeaderActivity");
 		mListStrs.add("AutoScrollViewPageAvtivity");
 		mListStrs.add("RippleActivity");
+		mListStrs.add("RainViewActivity");
+		mListStrs.add("BrokenActivity");
 	}
 
 	@Override
 	public void onItemClick(AdapterView<?> arg0, View arg1, int positon,
 			long arg3) {
-		if (positon > 11)
+		if (positon > 13)
 			return;
 		Intent intent = new Intent();
 		switch (positon) {
@@ -168,6 +170,13 @@ public class MainActivity extends Activity implements OnItemClickListener {
 			break;
 		case 11:
 			intent.setClass(mContext, RippleActivity.class);
+			break;
+		case 12:
+			intent.setClass(mContext, RainViewActivity.class);
+			break;
+		case 13:
+			intent.setClass(mContext, BrokenViewActivity.class);
+			break;
 		default:
 			break;
 		}
