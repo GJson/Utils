@@ -11,4 +11,10 @@ android utils
 * StretchView & ScrollListView
 * ScrollMeiTuan
 * OrmLite
+* LongToShortUrlActivity
+* QuickReturnHeaderView
+* AutoScrollViewPageView
+* RippleView
+* RainView
+* BrokenView
 * etc
