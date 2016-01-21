@@ -92,6 +92,9 @@
         <activity
             android:name="com.clark.activity.BrokenViewActivity"
             android:label="@string/app_name" />
+         <activity
+            android:name="com.clark.activity.TabActivity"
+            android:label="@string/app_name" />
         <activity
             android:name="com.clark.activity.ConversationActivity"
             android:label="@string/app_name" >

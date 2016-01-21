@@ -125,12 +125,13 @@ public class MainActivity extends Activity implements OnItemClickListener {
 		mListStrs.add("RippleActivity");
 		mListStrs.add("RainViewActivity");
 		mListStrs.add("BrokenActivity");
+		mListStrs.add("TabActivity");
 	}
 
 	@Override
 	public void onItemClick(AdapterView<?> arg0, View arg1, int positon,
 			long arg3) {
-		if (positon > 13)
+		if (positon > 14)
 			return;
 		Intent intent = new Intent();
 		switch (positon) {
@@ -176,6 +177,9 @@ public class MainActivity extends Activity implements OnItemClickListener {
 			break;
 		case 13:
 			intent.setClass(mContext, BrokenViewActivity.class);
+			break;
+		case 14:
+			intent.setClass(mContext, TabActivity.class);
 			break;
 		default:
 			break;

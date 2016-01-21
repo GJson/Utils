@@ -149,4 +149,11 @@
 	     <attr name="size" format="integer"/>
 	      <attr name="rainColor" format="integer"/>
 	</declare-styleable>
+	
+    <declare-styleable name="ChangeColorIconWithText">
+        <attr name="icon" format="reference"></attr>
+        <attr name="color_c" format="color"></attr>
+        <attr name="text" format="string"></attr>
+        <attr name="text_size" format="dimension"></attr>
+    </declare-styleable>
 </resources>
