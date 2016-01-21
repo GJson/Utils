@@ -24,10 +24,10 @@
             android:layout_height="fill_parent"
             android:layout_weight="1"
             android:padding="5dp"
+            anna:color_c="@color/tab_items"
             anna:icon="@drawable/ic_menu_start_conversation"
             anna:text="@string/tab_name"
-            anna:text_size="12sp"
-            anna:color_c="#ff45c01a" />
+            anna:text_size="12sp" />
 
         <com.clark.commonview.ChangeColorIconWithText
             android:id="@+id/id_indicator_two"
@@ -35,10 +35,10 @@
             android:layout_height="fill_parent"
             android:layout_weight="1"
             android:padding="5dp"
+            anna:color_c="@color/tab_items"
             anna:icon="@drawable/ic_menu_friendslist"
             anna:text="@string/tab_contact"
-           anna:text_size="12sp"
-            anna:color_c="#ff45c01a" />
+            anna:text_size="12sp" />
 
         <com.clark.commonview.ChangeColorIconWithText
             android:id="@+id/id_indicator_three"
@@ -46,10 +46,10 @@
             android:layout_height="fill_parent"
             android:layout_weight="1"
             android:padding="5dp"
+            anna:color_c="@color/tab_items"
             anna:icon="@drawable/ic_menu_emoticons"
             anna:text="@string/tab_found"
-            anna:text_size="12sp"
-            anna:color_c="#ff45c01a" />
+            anna:text_size="12sp" />
 
         <com.clark.commonview.ChangeColorIconWithText
             android:id="@+id/id_indicator_four"
@@ -57,10 +57,10 @@
             android:layout_height="fill_parent"
             android:layout_weight="1"
             android:padding="5dp"
+            anna:color_c="@color/tab_items"
             anna:icon="@drawable/ic_menu_allfriends"
             anna:text="@string/tab_me"
-            anna:text_size="12sp"
-            anna:color_c="#ff45c01a" />
+            anna:text_size="12sp" />
     </LinearLayout>
 
 </LinearLayout>
