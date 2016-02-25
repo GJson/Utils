@@ -22,7 +22,7 @@ Phone:18521706179
 
 ### ACM/ICPC/ITAT/
 
-* 省赛一等奖(3次)
+* 省赛一等奖(1次)
 * ITAT全国一等奖（2次）
 
 ### C++、Java、c、c#、SQLSever、android
