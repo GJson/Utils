@@ -14,6 +14,7 @@
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
     <uses-permission android:name="android.permission.ACCESS_COARSE_UPDATES" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 
     <application
         android:name="com.clark.activity.MyApplication"
@@ -30,6 +31,9 @@
 
         <!-- 融云 RongCloud App Key 设置结束 -->
 
+        <service
+            android:name="com.avos.avoscloud.PushService"
+            android:exported="true" />
         <service
             android:name="com.qq.e.comm.DownloadService"
             android:exported="false" />
@@ -147,6 +151,14 @@
                 </data>
             </intent-filter>
         </activity>
+
+        <receiver android:name="com.avos.avoscloud.AVBroadcastReceiver" >
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED" />
+                <action android:name="android.intent.action.USER_PRESENT" />
+                <action android:name="android.net.conn.CONNECTIVITY_CHANGE" />
+            </intent-filter>
+        </receiver>
     </application>
 
 </manifest>

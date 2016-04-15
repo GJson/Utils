@@ -13,7 +13,7 @@ package com.clark.common.until;
 
 public class Constants {
 	public static final String APPID = "1105062887";
-	public static final String SplashPosID = "4040903884311740";
+	public static final String SplashPosID = "1070900854081460";
 	public static final String InterteristalPosID="4020108844616761";
-
+	
 }

@@ -6,6 +6,9 @@ import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+import com.avos.avoscloud.AVDefaultSessionListener;
+import com.avos.avoscloud.AVInstallation;
+import com.avos.avoscloud.PushService;
 import com.clark.adapter.UlitlsListAdapter;
 import com.clark.common.until.Constants;
 import com.clark.common.until.ToastManager;
@@ -56,6 +59,7 @@ public class MainActivity extends Activity implements OnItemClickListener {
 		super.onCreate(savedInstanceState);
 		// enumTest(e);
 		setContentView(R.layout.activity_main);
+		PushService.setDefaultPushCallback(this, RippleActivity.class);
 		init();
 		testParenter();
 		int[] a = { 3, 1, 5, 7, 2, 4, 9, 6 };
@@ -65,25 +69,30 @@ public class MainActivity extends Activity implements OnItemClickListener {
 	}
 
 	private void insertAd() {
-		final InterstitialAD iad = new InterstitialAD(this, Constants.APPID, Constants.InterteristalPosID);
+		
+		PushService.subscribe(this, "private", WebJsLocalInteractionActivity.class);
+		AVInstallation.getCurrentInstallation().saveInBackground();
+		 Log.v("111", "getCurrentInstallation : " +AVInstallation.getCurrentInstallation().getInstallationId());
+		final InterstitialAD iad = new InterstitialAD(this, Constants.APPID,
+				Constants.InterteristalPosID);
 		iad.setADListener(new AbstractInterstitialADListener() {
 
-		  @Override
-		  public void onNoAD(int arg0) {
-		    Log.i("AD_DEMO", "LoadInterstitialAd Fail:" + arg0);
-		  }
+			@Override
+			public void onNoAD(int arg0) {
+				Log.i("AD_DEMO", "LoadInterstitialAd Fail:" + arg0);
+			}
 
-		  @Override
-		  public void onADReceive() {
-		    /*
-		    * 展示插屏广告，仅在回调接口的adreceive事件发生后调用才有效。
-		    */
-		    iad.show();
-		  }
+			@Override
+			public void onADReceive() {
+				/*
+				 * 展示插屏广告，仅在回调接口的adreceive事件发生后调用才有效。
+				 */
+				iad.show();
+			}
 		});
-		//请求插屏广告，每次重新请求都可以调用此方法。
+		// 请求插屏广告，每次重新请求都可以调用此方法。
 		iad.loadAD();
-		
+
 	}
 
 	private void insertsortmain(int[] b) {

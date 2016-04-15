@@ -2,6 +2,11 @@ package com.clark.activity;
 
 import java.io.File;
 
+import com.avos.avoscloud.AVException;
+import com.avos.avoscloud.AVInstallation;
+import com.avos.avoscloud.AVOSCloud;
+import com.avos.avoscloud.AVObject;
+import com.avos.avoscloud.SaveCallback;
 import com.nostra13.universalimageloader.cache.disc.impl.UnlimitedDiscCache;
 import com.nostra13.universalimageloader.cache.disc.naming.Md5FileNameGenerator;
 import com.nostra13.universalimageloader.cache.memory.impl.WeakMemoryCache;
@@ -13,16 +18,36 @@ import com.nostra13.universalimageloader.core.assist.QueueProcessingType;
 import android.app.Application;
 import android.content.Context;
 import android.os.Environment;
+import android.util.Log;
 
 public class MyApplication extends Application {
 	@Override
 	public void onCreate() {
 		super.onCreate();
 		initImageLoader(this, null);
+		 AVOSCloud.initialize(this, "cgO4vY244Qa0CENl20Dgxqiy-gzGzoHsz", "630z2iM42DYE9c2vK4mj3io9");
 		/**
 		 * IMKit SDK ��ʼ��
 		 */
 		// RongIM.init(this);
+		 AVObject testObject = new AVObject("TestObject");
+		 testObject.put("foo", "bar");
+//		 testObject.saveInBackground();
+		 AVInstallation.getCurrentInstallation().saveInBackground(new SaveCallback() {
+			    public void done(AVException e) {
+			    	Log.v("111","saveInBackground");
+			        if (e == null) {
+			        	
+			            // 保存成功
+			            String installationId = AVInstallation.getCurrentInstallation().getInstallationId();
+			            Log.v("111", "installationId chenggong:" +installationId);
+			            // 关联  installationId 到用户表等操作……
+			        } else {
+			        	Log.v("111", " // 保存失败，输出错误信息");
+			            // 保存失败，输出错误信息
+			        }
+			    }
+			});
 	}
 
 	/**
